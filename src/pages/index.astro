@@ -31,6 +31,7 @@ const tierLabels = [
       <div class="grid cols-3 result-preview-grid">
         {resultProfiles.map((profile) => (
           <article class="card result-preview-card">
+            <img class="result-character" src={`/assets/results/${profile.key}.webp`} alt={`${profile.name} 캐릭터 이미지`} loading="lazy" />
             <small>{profile.meaning}</small>
             <h3>{profile.name}</h3>
             <p class="meta">{profile.summary}</p>

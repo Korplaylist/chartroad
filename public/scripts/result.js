@@ -58,10 +58,15 @@ if (complete) {
   app.innerHTML = `
     <div class="grid" style="gap:24px">
       <section class="card">
-        <small>진단 신뢰도 ${result.confidence}</small>
-        <h1 style="font-size:clamp(32px,5vw,56px); margin-top:8px">당신은 “${main.name}”입니다.</h1>
-        <p class="sublead">보조 성향은 “${sub.name}”입니다.</p>
-        <p style="margin-top:18px"><strong>한 줄 진단:</strong> ${main.summary}</p>
+        <div class="result-summary-hero">
+          <img class="result-summary-character" src="/assets/results/${result.mainType}.webp" alt="${main.name} 캐릭터 이미지" />
+          <div>
+            <small>진단 신뢰도 ${result.confidence}</small>
+            <h1 style="font-size:clamp(32px,5vw,56px); margin-top:8px">당신은 “${main.name}”입니다.</h1>
+            <p class="sublead">보조 성향은 “${sub.name}”입니다.</p>
+            <p style="margin-top:18px"><strong>한 줄 진단:</strong> ${main.summary}</p>
+          </div>
+        </div>
         <div class="tag-row">
           <span class="tag">현재 레벨: ${result.levelLabel}</span>
           <span class="tag">학습 레벨: ${result.studyLevel}</span>
