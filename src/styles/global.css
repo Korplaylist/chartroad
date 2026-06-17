@@ -52,13 +52,19 @@ button, input, textarea { font: inherit; }
   letter-spacing: 0;
 }
 .brand-mark {
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
   display: grid;
   place-items: center;
-  color: #fff;
-  background: linear-gradient(135deg, var(--deep), var(--teal));
+  overflow: hidden;
+  flex: 0 0 auto;
+  box-shadow: 0 8px 20px rgba(29, 58, 58, 0.16);
+}
+.brand-mark img {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 .nav-links {
   display: flex;

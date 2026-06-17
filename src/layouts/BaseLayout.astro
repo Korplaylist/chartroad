@@ -23,6 +23,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://chartroad.p
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/chartroad-mark.svg" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#1d3a3a" />
     <meta property="og:type" content="website" />
@@ -40,7 +42,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://chartroad.p
     <header class="site-header">
       <nav class="nav" aria-label="주요 메뉴">
         <a class="brand" href="/" aria-label="차트로드 홈">
-          <span class="brand-mark">C</span>
+          <span class="brand-mark"><img src="/assets/chartroad-mark.svg" alt="" /></span>
           <span>차트로드</span>
         </a>
         <div class="nav-links">

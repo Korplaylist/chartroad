@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 108" role="img" aria-label="차트로드 로고">
+  <defs>
+    <linearGradient id="logoBg" x1="12" y1="10" x2="88" y2="92" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1d3a3a"/>
+      <stop offset=".55" stop-color="#28706c"/>
+      <stop offset="1" stop-color="#315f86"/>
+    </linearGradient>
+    <linearGradient id="logoGold" x1="20" y1="76" x2="78" y2="22" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f0c46a"/>
+      <stop offset="1" stop-color="#c48a2c"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="10" width="88" height="88" rx="24" fill="url(#logoBg)"/>
+  <path d="M25 68c10-14 20-18 31-15 8 2 15-4 23-20" fill="none" stroke="url(#logoGold)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M26 34v33M43 25v42M60 38v29M76 23v44" stroke="#f7f4ee" stroke-width="4.5" stroke-linecap="round" opacity=".92"/>
+  <circle cx="25" cy="68" r="4.5" fill="#f0c46a"/>
+  <circle cx="79" cy="33" r="4.5" fill="#f0c46a"/>
+  <text x="120" y="55" fill="#152323" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="38" font-weight="800" letter-spacing="0">차트로드</text>
+  <text x="122" y="82" fill="#64706b" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="17" font-weight="600" letter-spacing="0">차트 공부 순서 진단 플랫폼</text>
+</svg>
