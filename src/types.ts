@@ -30,6 +30,8 @@ export type ResultProfile = {
   strengths: string[];
   cautions: string[];
   recommendedStudy: string[];
+  study: Record<"basic" | "intermediate" | "advanced" | "expert", string[]>;
+  practicalChecklist: string[];
   avoid: string[];
 };
 

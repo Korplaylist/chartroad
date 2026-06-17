@@ -1,8 +1,20 @@
 import type { Answers, ResultTypeKey } from "@/types";
+import { resultProfileMap } from "@/data/results";
 
 const avg = (...nums: number[]) => nums.reduce((a, b) => a + b, 0) / nums.length;
 const clamp = (num: number, min = 0, max = 100) => Math.min(Math.max(num, min), max);
 const pick = (values: number[], answer: number) => values[(answer || 1) - 1] ?? values[0];
+type StudyTier = "basic" | "intermediate" | "advanced" | "expert";
+const tierOrder: StudyTier[] = ["basic", "intermediate", "advanced", "expert"];
+const riskStudies = ["손절선 정하기", "손익비 계산", "ATR 기반 손절", "포지션 크기 조절", "분할매수와 물타기 구분", "R-Multiple 관리"];
+
+function insertRiskStudies(studies: string[]) {
+  return [...new Set([riskStudies[0], riskStudies[1], ...studies, riskStudies[2], riskStudies[3]])];
+}
+
+function nextTier(tier: StudyTier) {
+  return tierOrder[Math.min(tierOrder.indexOf(tier) + 1, tierOrder.length - 1)];
+}
 
 export function calculateResult(answers: Answers) {
   const q = (num: number) => answers[`q${num}`] ?? 1;
@@ -157,6 +169,24 @@ export function calculateResult(answers: Answers) {
 
   const scoreGap = sortedTypes[0][1] - sortedTypes[1][1];
   const confidence = scoreGap >= 12 ? "높음" : scoreGap >= 6 ? "보통" : "혼합형";
+  const reviewHabit = pick([10, 35, 65, 90], q(4));
+  const studyLevelScore = 0.35 * currentLevel + 0.25 * ruleClarity + 0.25 * riskControl + 0.15 * reviewHabit;
+  const studyLevel = studyLevelScore < 35 ? "입문" : studyLevelScore < 50 ? "초보" : studyLevelScore < 65 ? "초중급" : studyLevelScore < 80 ? "중급" : "고급";
+  const canShowExpertTechniques = studyLevelScore >= 80 && currentLevel >= 75 && ruleClarity >= 65 && riskControl >= 60;
+  const studyTier: StudyTier = studyLevelScore < 45 ? "basic" : studyLevelScore < 65 ? "intermediate" : studyLevelScore < 80 ? "advanced" : canShowExpertTechniques ? "expert" : "advanced";
+  const needsRiskStudy = subType === "riskGuardian" || riskFlags.includes("손절 기준 부족") || riskFlags.includes("물타기 위험") || riskControl < 50;
+  const mainProfile = resultProfileMap[mainType];
+  const recommendedStudies = (needsRiskStudy ? insertRiskStudies(mainProfile.study[studyTier]) : mainProfile.study[studyTier]).slice(0, 5);
+  const nextStudies = mainProfile.study[nextTier(studyTier)].slice(0, 3);
+  const futureExpertStudies = mainProfile.study.expert.slice(0, 3);
+  const avoidTechniques: string[] = [];
+  if (currentLevel < 45) avoidTechniques.push("엘리엇파동부터 공부하기", "하모닉패턴부터 공부하기", "SMC/ICT 개념부터 공부하기", "보조지표를 여러 개 동시에 조합하기");
+  if (riskControl < 50) avoidTechniques.push("손절 기준 없이 단타하기", "레버리지나 고변동성 종목 위주로 매매하기", "물타기 전제 매매하기");
+  if (chaseRisk >= 65) avoidTechniques.push("급등주 상단 추격매수", "뉴스 확인 후 바로 매수", "돌파 직후 확인 없이 매수");
+  if (averagingDownRisk >= 60) avoidTechniques.push("하락 추세에서 싸 보인다고 매수", "손절 기준 없는 반등 매매");
+  if (indicatorReadiness < 55) avoidTechniques.push("RSI 하나만 보고 매수·매도 결정", "MACD 골든크로스만 보고 진입");
+  if (timeAvailability < 45) avoidTechniques.push("1분봉·5분봉 중심 단타");
+  const practicalChecklist = mainProfile.practicalChecklist;
 
   const personalization = {
     interestedMarket: ["국내주식", "미국주식", "코인", "아직 정하지 않음"][q(25) - 1] ?? "아직 정하지 않음",
@@ -171,9 +201,18 @@ export function calculateResult(answers: Answers) {
     typeScores,
     metrics: { currentLevel, ruleClarity, timeAvailability, riskControl, riskNeed, chaseRisk, averagingDownRisk, scalpingFit, swingFit, trendFit, pullbackFit, boxFit, indicatorReadiness, reversalFit, profitTakingIssue },
     levelLabel,
+    studyLevel,
+    studyLevelScore,
+    studyTier,
+    canShowExpertTechniques,
     recommendedTimeframe,
     confidence,
     riskFlags,
+    recommendedStudies,
+    nextStudies,
+    futureExpertStudies,
+    avoidTechniques,
+    practicalChecklist,
     personalization,
   };
 }

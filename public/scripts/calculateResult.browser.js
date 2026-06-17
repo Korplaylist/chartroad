@@ -1,6 +1,10 @@
 const avg = (...nums) => nums.reduce((a, b) => a + b, 0) / nums.length;
 const clamp = (num, min = 0, max = 100) => Math.min(Math.max(num, min), max);
 const pick = (values, answer) => values[(answer || 1) - 1] ?? values[0];
+const tierOrder = ["basic", "intermediate", "advanced", "expert"];
+const riskStudies = ["손절선 정하기", "손익비 계산", "ATR 기반 손절", "포지션 크기 조절", "분할매수와 물타기 구분", "R-Multiple 관리"];
+const insertRiskStudies = (studies) => [...new Set([riskStudies[0], riskStudies[1], ...studies, riskStudies[2], riskStudies[3]])];
+const nextTier = (tier) => tierOrder[Math.min(tierOrder.indexOf(tier) + 1, tierOrder.length - 1)];
 
 export function calculateResult(answers) {
   const q = (num) => answers[`q${num}`] ?? 1;
@@ -70,11 +74,35 @@ export function calculateResult(answers) {
   const recommendedTimeframe = mainType === "scalpingSprinter" && timeAvailability >= 65 && riskControl >= 60 ? "5분봉 + 15분봉" : mainType === "swingMaker" || swingFit >= 70 ? "일봉 + 4시간봉" : mainType === "trendNavigator" || trendFit >= 70 ? "일봉 + 주봉" : mainType === "boxStrategist" ? "1시간봉 + 4시간봉" : timeAvailability < 45 ? "일봉 + 4시간봉" : "4시간봉 + 일봉";
   const scoreGap = sortedTypes[0][1] - sortedTypes[1][1];
   const confidence = scoreGap >= 12 ? "높음" : scoreGap >= 6 ? "보통" : "혼합형";
+  const reviewHabit = pick([10, 35, 65, 90], q(4));
+  const studyLevelScore = 0.35 * currentLevel + 0.25 * ruleClarity + 0.25 * riskControl + 0.15 * reviewHabit;
+  const studyLevel = studyLevelScore < 35 ? "입문" : studyLevelScore < 50 ? "초보" : studyLevelScore < 65 ? "초중급" : studyLevelScore < 80 ? "중급" : "고급";
+  const canShowExpertTechniques = studyLevelScore >= 80 && currentLevel >= 75 && ruleClarity >= 65 && riskControl >= 60;
+  const studyTier = studyLevelScore < 45 ? "basic" : studyLevelScore < 65 ? "intermediate" : studyLevelScore < 80 ? "advanced" : canShowExpertTechniques ? "expert" : "advanced";
   const personalization = {
     interestedMarket: ["국내주식", "미국주식", "코인", "아직 정하지 않음"][q(25) - 1] ?? "아직 정하지 않음",
     learningStyle: ["개념부터 차근차근", "실제 차트 예시 위주", "체크리스트 형태", "퀴즈/문제풀이 형태", "짧은 요약 위주"][q(26) - 1] ?? "개념부터 차근차근",
     interestedConcept: ["이동평균선", "지지선/저항선", "거래량", "RSI/MACD", "볼린저밴드", "캔들 패턴", "손익비/손절"][q(27) - 1] ?? "이동평균선",
     finalGoal: ["손실을 줄이고 싶다", "매수 타이밍을 잡고 싶다", "매도 기준을 만들고 싶다", "단기매매를 잘하고 싶다", "꾸준한 매매 기준을 만들고 싶다"][q(28) - 1] ?? "꾸준한 매매 기준을 만들고 싶다",
   };
-  return { mainType, subType, typeScores, metrics: { currentLevel, ruleClarity, timeAvailability, riskControl, riskNeed, chaseRisk, averagingDownRisk, scalpingFit, swingFit, trendFit, pullbackFit, boxFit, indicatorReadiness, reversalFit, profitTakingIssue }, levelLabel, recommendedTimeframe, confidence, riskFlags, personalization };
+  const avoidTechniques = [];
+  if (currentLevel < 45) avoidTechniques.push("엘리엇파동부터 공부하기", "하모닉패턴부터 공부하기", "SMC/ICT 개념부터 공부하기", "보조지표를 여러 개 동시에 조합하기");
+  if (riskControl < 50) avoidTechniques.push("손절 기준 없이 단타하기", "레버리지나 고변동성 종목 위주로 매매하기", "물타기 전제 매매하기");
+  if (chaseRisk >= 65) avoidTechniques.push("급등주 상단 추격매수", "뉴스 확인 후 바로 매수", "돌파 직후 확인 없이 매수");
+  if (averagingDownRisk >= 60) avoidTechniques.push("하락 추세에서 싸 보인다고 매수", "손절 기준 없는 반등 매매");
+  if (indicatorReadiness < 55) avoidTechniques.push("RSI 하나만 보고 매수·매도 결정", "MACD 골든크로스만 보고 진입");
+  if (timeAvailability < 45) avoidTechniques.push("1분봉·5분봉 중심 단타");
+  return { mainType, subType, typeScores, metrics: { currentLevel, ruleClarity, timeAvailability, riskControl, riskNeed, chaseRisk, averagingDownRisk, scalpingFit, swingFit, trendFit, pullbackFit, boxFit, indicatorReadiness, reversalFit, profitTakingIssue }, levelLabel, studyLevel, studyLevelScore, studyTier, canShowExpertTechniques, recommendedTimeframe, confidence, riskFlags, avoidTechniques, personalization };
+}
+
+export function buildStudySections(result, profiles) {
+  const mainProfile = profiles[result.mainType];
+  const needsRiskStudy = result.subType === "riskGuardian" || result.riskFlags.includes("손절 기준 부족") || result.riskFlags.includes("물타기 위험") || result.metrics.riskControl < 50;
+  const recommendedStudies = (needsRiskStudy ? insertRiskStudies(mainProfile.study[result.studyTier]) : mainProfile.study[result.studyTier]).slice(0, 5);
+  return {
+    recommendedStudies,
+    nextStudies: mainProfile.study[nextTier(result.studyTier)].slice(0, 3),
+    futureExpertStudies: mainProfile.study.expert.slice(0, 3),
+    practicalChecklist: mainProfile.practicalChecklist,
+  };
 }

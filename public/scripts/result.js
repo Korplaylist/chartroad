@@ -1,4 +1,4 @@
-import { calculateResult } from "/scripts/calculateResult.browser.js";
+import { buildStudySections, calculateResult } from "/scripts/calculateResult.browser.js";
 
 const app = document.querySelector("#result-app");
 const questions = JSON.parse(app.dataset.questions);
@@ -15,8 +15,7 @@ function topFive(mainType, subType) {
   return [...new Set(merged)].slice(0, 5);
 }
 
-function roadmap(mainType, subType) {
-  const study = topFive(mainType, subType);
+function roadmap(study) {
   return [
     `1일차: ${study[0]}의 기본 용어와 차트에서 보이는 위치를 정리합니다.`,
     `2일차: ${study[1]}을 실제 차트에서 5개 이상 찾아봅니다.`,
@@ -50,10 +49,11 @@ if (complete) {
   const result = calculateResult(answers);
   const main = profiles[result.mainType];
   const sub = profiles[result.subType];
-  const study = topFive(result.mainType, result.subType);
+  const studySections = buildStudySections(result, profiles);
+  const study = studySections.recommendedStudies;
   const recommended = rankArticles(result.personalization.learningStyle, result.personalization.interestedConcept).slice(0, 6);
   const flags = result.riskFlags.length ? result.riskFlags : ["현재 답변에서는 큰 위험 플래그가 강하게 나타나지 않았습니다."];
-  const avoid = [...new Set([...main.avoid, ...flags.map((flag) => `${flag}과 연결된 판단 습관`)])].slice(0, 5);
+  const avoid = result.avoidTechniques.length ? result.avoidTechniques : main.avoid.slice(0, 5);
 
   app.innerHTML = `
     <div class="grid" style="gap:24px">
@@ -64,6 +64,8 @@ if (complete) {
         <p style="margin-top:18px"><strong>한 줄 진단:</strong> ${main.summary}</p>
         <div class="tag-row">
           <span class="tag">현재 레벨: ${result.levelLabel}</span>
+          <span class="tag">학습 레벨: ${result.studyLevel}</span>
+          <span class="tag">추천 난이도: ${result.studyTier}</span>
           <span class="tag">추천 시간축: ${result.recommendedTimeframe}</span>
           <span class="tag">관심 시장: ${result.personalization.interestedMarket}</span>
         </div>
@@ -88,9 +90,14 @@ if (complete) {
         <article class="card"><h2>위험 플래그</h2><ul class="list">${flags.map((item) => `<li>${item}</li>`).join("")}</ul></article>
         <article class="card"><h2>먼저 공부할 것 TOP 5</h2><ol class="list">${study.map((item) => `<li>${item}</li>`).join("")}</ol></article>
       </section>
+      <section class="grid cols-3">
+        <article class="card"><h2>그다음 공부하면 좋은 심화 기법</h2><ol class="list">${studySections.nextStudies.map((item) => `<li>${item}</li>`).join("")}</ol></article>
+        <article class="card"><h2>${result.canShowExpertTechniques ? "전문 기법으로 확장하기" : "나중에 도전하면 좋은 고급 기법"}</h2><ol class="list">${studySections.futureExpertStudies.map((item) => `<li>${item}</li>`).join("")}</ol><p class="meta" style="margin-top:12px">${result.canShowExpertTechniques ? "현재 답변 기준으로 전문 기법을 학습 후보에 포함할 수 있습니다." : "지금 당장 추천하기보다 기초와 실전 기준이 잡힌 뒤 도전하는 편이 좋습니다."}</p></article>
+        <article class="card"><h2>지금은 피해야 할 기법</h2><ul class="list">${avoid.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+      </section>
       <section class="split">
-        <article class="card"><h2>피해야 할 매매 방식</h2><ul class="list">${avoid.map((item) => `<li>${item}</li>`).join("")}</ul></article>
-        <article class="card"><h2>7일 공부 로드맵</h2><ol class="list">${roadmap(result.mainType, result.subType).map((item) => `<li>${item.replace(/^\\d일차: /, "")}</li>`).join("")}</ol></article>
+        <article class="card"><h2>실전 체크리스트</h2><ol class="list">${studySections.practicalChecklist.map((item) => `<li>${item}</li>`).join("")}</ol></article>
+        <article class="card"><h2>7일 공부 로드맵</h2><ol class="list">${roadmap(study).map((item) => `<li>${item.replace(/^\\d일차: /, "")}</li>`).join("")}</ol></article>
       </section>
       <section class="card">
         <h2>추천 콘텐츠</h2>

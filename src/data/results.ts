@@ -1,6 +1,6 @@
-import type { ResultProfile } from "@/types";
+import type { ResultProfile, ResultTypeKey } from "@/types";
 
-export const resultProfiles: ResultProfile[] = [
+const baseResultProfiles: Omit<ResultProfile, "study" | "practicalChecklist">[] = [
   {
     key: "beginnerExplorer",
     name: "차트 지도 펼친 입문 탐험가",
@@ -134,6 +134,102 @@ export const resultProfiles: ResultProfile[] = [
     avoid: ["조금만 오르면 바로 전량 매도", "수익 중 기준 없이 버티기", "익절 기준 없이 감으로 매도"],
   },
 ];
+
+const studyByType: Record<ResultTypeKey, ResultProfile["study"]> = {
+  beginnerExplorer: {
+    basic: ["캔들 구조: 시가·고가·저가·종가 이해", "양봉과 음봉의 의미", "거래량 기본: 거래량이 많다는 뜻", "이동평균선 기초: 5일선·20일선·60일선", "지지선과 저항선의 기본 개념"],
+    intermediate: ["장대양봉과 장대음봉 해석", "거래량 증가·감소에 따른 가격 흐름", "이동평균선 정배열과 역배열", "이전 고점과 이전 저점 활용", "기본 손절선 설정"],
+    advanced: ["다우이론 기초: 고점과 저점 구조", "거래량으로 매수세·매도세 구분", "지지선 이탈과 저항선 돌파 판단", "캔들 꼬리와 매수·매도 압력 해석", "기초 차트 체크리스트 만들기"],
+    expert: ["다우이론으로 추세 구조 해석", "상위 시간봉과 하위 시간봉 연결", "거래량과 가격 위치의 관계", "가격 구조 기반 손절 기준", "기초 셋업별 매매 복기"],
+  },
+  ruleArchitect: {
+    basic: ["매수 전 체크리스트 만들기", "진입 이유를 한 문장으로 정리하는 법", "목표가와 손절가를 먼저 정하는 법", "손익비 1:1, 1:2의 의미", "매매 복기 노트 작성법"],
+    intermediate: ["셋업 기반 매매: 내가 기다리는 조건 정의", "R-Multiple 개념: 손실 1R 기준으로 수익 관리", "진입 전 무효화 조건 설정", "매매일지 태그 관리: 추격매수·손절실패·익절실패", "진입·청산·복기 루틴 만들기"],
+    advanced: ["기대값 기반 매매 전략 이해", "승률보다 손익비가 중요한 이유", "셋업별 성과 추적", "연속 손실 구간 대응 규칙", "자신만의 매매 플레이북 만들기"],
+    expert: ["Expected Value 기반 전략 평가", "Risk of Ruin: 계좌 파산 위험 개념", "Max Drawdown 관리", "셋업별 통계 분석", "포지션 사이징 전략"],
+  },
+  trendNavigator: {
+    basic: ["이동평균선 배열: 정배열과 역배열", "상승 추세와 하락 추세 구분", "고점과 저점이 높아지는 구조", "추세선 긋는 법", "추세 이탈의 기본 의미"],
+    intermediate: ["Market Structure: HH·HL·LH·LL 구조", "멀티 타임프레임 분석: 주봉·일봉·4시간봉 정렬", "20일선·60일선 기반 추세 유지 판단", "MACD 0선 기준 추세 해석", "추세 중 눌림 진입과 추세 이탈 손절"],
+    advanced: ["ADX로 추세 강도 필터링", "Stage Analysis: 상승 초기·중기·후기 구분", "추세 지속형 돌파와 실패 돌파 구분", "ATR 기반 추세 추종 손절", "스윙 하이·스윙 로우 기반 트레일링 스탑"],
+    expert: ["엘리엇파동 기본 구조", "엘리엇 1파·3파·5파 구분", "ABC 조정파 해석", "일목균형표 구름과 기준선", "추세 후반 분산 신호와 과열 구간 구분"],
+  },
+  pullbackSpotter: {
+    basic: ["상승 추세와 눌림의 차이", "지지선 근처 눌림 확인", "이동평균선 눌림", "거래량 감소 눌림", "눌림 실패 시 손절 기준"],
+    intermediate: ["전고점 돌파 후 되돌림 진입", "저항이 지지로 바뀌는 역할 전환", "거래량 수축 후 재상승 패턴", "피보나치 되돌림 38.2%·50%·61.8%", "눌림목 진입 전 체크리스트"],
+    advanced: ["Volume Dry-up: 거래량 말라붙는 눌림", "Break of Structure 이후 되돌림 진입", "Confluence Zone: 지지선·이평선·피보나치 겹침 구간", "Anchored VWAP 기반 눌림 판단", "눌림 실패 패턴과 빠른 무효화 기준"],
+    expert: ["Order Block 기초", "Liquidity Sweep 이후 되돌림 진입", "Fibonacci PRZ 구간", "하모닉 패턴 기초: Gartley·Bat", "Wyckoff Re-accumulation"],
+  },
+  boxStrategist: {
+    basic: ["박스권 구조 이해", "지지선과 저항선 찾기", "박스권 안에서 매수·매도 위치", "박스 이탈의 의미", "박스권 매매의 손절 위치"],
+    intermediate: ["저항 돌파와 가짜 돌파 구분", "지지 이탈 후 재진입 패턴", "박스권 중앙선 활용", "볼린저밴드 중심선과 상하단 활용", "거래량으로 박스 이탈 확인"],
+    advanced: ["Liquidity Sweep: 지지·저항 살짝 깨고 되돌리는 패턴", "Failed Breakout 전략", "Volume Profile: HVN·LVN 기반 박스 해석", "박스 상단 돌파 후 리테스트 진입", "Range Expansion: 박스권 이후 변동성 확장 대응"],
+    expert: ["Wyckoff Accumulation", "Wyckoff Distribution", "Spring / Upthrust", "Volume Profile POC", "Market Profile 기초"],
+  },
+  overheatRadar: {
+    basic: ["장대양봉 이후 주의점", "거래량 폭증의 의미", "RSI 과열 구간", "이동평균선과 가격의 이격", "매수 금지 구간 정하기"],
+    intermediate: ["Climax Volume: 고점 거래량 해석", "윗꼬리 캔들과 매도 압력", "갭상승 후 밀림 패턴", "이격도 과열 판단", "거래량은 큰데 가격이 못 오르는 구간"],
+    advanced: ["Parabolic Move: 포물선 상승 후 위험 신호", "Distribution Candle: 분산 캔들 해석", "RSI Bearish Divergence", "MACD Divergence", "거래대금 급증 후 가격 정체 패턴"],
+    expert: ["Wyckoff Distribution", "Blow-off Top", "Upthrust After Distribution", "Smart Money Distribution 기초", "Late Entry Filter: 늦은 진입 방지 체크리스트"],
+  },
+  riskGuardian: {
+    basic: ["손절선 정하기", "손익비 기본", "분할매수와 물타기 차이", "종목당 손실률 정하기", "매수 전에 손절가부터 정하는 법"],
+    intermediate: ["R-Multiple로 손익 관리하기", "ATR 기반 손절폭 설정", "포지션 크기 계산", "계좌 기준 1회 손실 한도 정하기", "손절 후 재진입 조건 만들기"],
+    advanced: ["Risk of Ruin: 계좌 파산 위험 개념", "기대값과 손익비 기반 전략 평가", "변동성 기반 포지션 사이징", "상관관계 높은 종목 동시 보유 리스크", "연속 손실 구간에서 매매 규모 줄이는 법"],
+    expert: ["Fixed Fractional Position Sizing", "Kelly Criterion 기초", "Max Drawdown 관리", "ATR Position Sizing", "포트폴리오 리스크 관리"],
+  },
+  scalpingSprinter: {
+    basic: ["5분봉과 15분봉 차이", "장중 거래량 해석", "단타에서 손절이 중요한 이유", "장대양봉·장대음봉 해석", "분봉만 보면 위험한 이유"],
+    intermediate: ["VWAP 위·아래 흐름 판단", "Opening Range Breakout", "장 초반 거래량 집중 구간", "분봉 지지·저항 활용", "단타 진입 후 무효화 기준"],
+    advanced: ["ORB 실패 패턴 대응", "VWAP Reclaim 전략", "VWAP Rejection 전략", "거래량 급증 후 눌림 단타", "상위 시간봉 방향과 분봉 진입 정렬"],
+    expert: ["Market Profile 기초", "Order Flow 기초", "Liquidity Grab", "Time Stop: 일정 시간 안에 안 가면 정리하는 기준", "Intraday Mean Reversion"],
+  },
+  swingMaker: {
+    basic: ["스윙 매매 시간축 이해", "일봉과 4시간봉 함께 보기", "눌림 후 재상승 확인", "분할매수와 분할매도", "스윙 손절선 정하기"],
+    intermediate: ["Weekly-Daily Alignment: 주봉·일봉 방향 일치", "Relative Strength: 시장보다 강한 종목 찾기", "Base Pattern: 횡보 후 상승 준비 구간", "Volume Contraction Pattern", "스윙 매매에서 추세 유지와 이탈 판단"],
+    advanced: ["Stage Analysis: 상승 초기·중기·후기 구분", "Breakout-Pullback Continuation", "ATR 기반 스윙 손절과 목표가", "Partial Exit: 구간별 분할 익절", "시장 지수와 섹터 흐름을 함께 보는 스윙 필터"],
+    expert: ["CANSLIM 차트 패턴", "VCP: Volatility Contraction Pattern", "Cup and Handle", "Flat Base", "Wyckoff Re-accumulation"],
+  },
+  indicatorTranslator: {
+    basic: ["RSI 30·70의 의미", "MACD 골든크로스와 데드크로스", "볼린저밴드 상단·중심선·하단", "다이버전스 기본", "보조지표를 맹신하면 안 되는 이유"],
+    intermediate: ["RSI Regime: 상승장 RSI 40~80, 하락장 RSI 20~60", "MACD 0선 위·아래 추세 해석", "볼린저밴드 수축과 확장", "ADX로 추세장과 횡보장 구분", "지표 2~3개만 조합하는 법"],
+    advanced: ["RSI Divergence와 Failure Swing", "MACD Histogram으로 모멘텀 둔화 확인", "Bollinger Band Squeeze 전략", "Indicator Confluence: 지표·가격·거래량 일치 구간", "과최적화 방지: 지표 조합을 너무 많이 쓰지 않는 법"],
+    expert: ["Stochastic RSI", "Ichimoku Cloud", "Multi Indicator Regime Filter", "Divergence Cluster", "Adaptive Moving Average"],
+  },
+  reversalSeeker: {
+    basic: ["하락 추세와 과매도 차이", "RSI 과매도 구간", "아랫꼬리 캔들의 의미", "전저점 이탈 손절", "많이 빠졌다고 바로 사면 위험한 이유"],
+    intermediate: ["Bullish Divergence", "이중바닥 패턴", "바닥권 거래량 증가", "하락 추세선 돌파", "이전 지지선 회복 여부"],
+    advanced: ["Wyckoff Spring: 지지 이탈 후 회복 패턴", "Failed Breakdown 전략", "Capitulation Volume: 투매성 거래량", "Moving Average Reclaim: 이동평균선 회복", "반등 매매의 무효화 기준과 빠른 손절"],
+    expert: ["하모닉 패턴: Gartley / Bat / Butterfly", "Fibonacci PRZ", "Wyckoff Spring 심화", "Double Bottom / Triple Bottom", "Mean Reversion Setup"],
+  },
+  profitLocker: {
+    basic: ["목표가 설정", "저항선 근처 익절", "분할매도 기본", "수익 중 흔들릴 때 대응", "수익을 다시 반납하는 이유"],
+    intermediate: ["R-Multiple 기반 익절", "1차·2차 목표가 나누기", "저항선과 전고점 기준 익절", "추세 유지 시 일부 보유", "트레일링 스탑 기본"],
+    advanced: ["ATR Trailing Stop", "Swing Low 기반 추적 손절", "Moving Average Trailing Exit", "Scale-out 전략", "Time-based Exit: 일정 기간 목표 미달 시 정리"],
+    expert: ["Chandelier Exit", "Fibonacci Extension 목표가", "Volatility Stop", "Position Scaling 전략", "Trend Following Exit System"],
+  },
+};
+
+const checklistByType: Record<ResultTypeKey, string[]> = {
+  beginnerExplorer: ["캔들 몸통과 꼬리의 의미를 설명할 수 있는가?", "거래량이 이전보다 늘었는지 비교했는가?", "지지선과 저항선을 최소 2개 표시했는가?", "차트 시간축을 하나로 정했는가?", "손절 기준을 먼저 적었는가?"],
+  ruleArchitect: ["진입 이유를 한 문장으로 적었는가?", "무효화 조건이 명확한가?", "목표가와 손절가를 함께 정했는가?", "손익비가 기준에 맞는가?", "복기할 태그를 정했는가?"],
+  trendNavigator: ["고점과 저점 구조가 유지되는가?", "상위 시간봉 방향과 같은가?", "주요 이동평균선 배열이 추세와 맞는가?", "추세 이탈 기준이 있는가?", "과열 신호가 함께 나오지는 않는가?"],
+  pullbackSpotter: ["상승 추세가 유지되고 있는가?", "지지선 또는 이동평균선 근처인가?", "눌림 구간에서 거래량이 줄었는가?", "손절선이 명확하고 가까운가?", "재상승 시 거래량이 다시 붙는가?"],
+  boxStrategist: ["박스 상단과 하단이 명확한가?", "현재 위치가 중앙이 아니라 기준선 근처인가?", "돌파 또는 이탈에 거래량이 붙었는가?", "가짜 돌파 가능성을 확인했는가?", "박스가 깨질 때 멈출 기준이 있는가?"],
+  overheatRadar: ["이미 2~3일 이상 급등한 뒤인가?", "장대양봉 이후 윗꼬리가 나왔는가?", "거래량은 큰데 가격이 더 못 가는가?", "이동평균선과 가격 이격이 큰가?", "손절선이 너무 멀지는 않은가?"],
+  riskGuardian: ["매수 전에 손절가를 정했는가?", "손절 시 계좌 전체 손실률은 감당 가능한가?", "목표 수익이 손실 위험보다 충분히 큰가?", "물타기 조건이 아니라 추가 매수 조건이 명확한가?", "손절 후 재진입 기준이 있는가?"],
+  scalpingSprinter: ["상위 시간봉 방향을 확인했는가?", "진입 후 무효화 기준이 가까운가?", "장중 대응 가능한 시간인가?", "거래량이 실제로 붙는 구간인가?", "일정 시간 안에 움직이지 않으면 멈출 기준이 있는가?"],
+  swingMaker: ["주봉과 일봉 방향이 충돌하지 않는가?", "스윙 손절선이 일봉 구조상 명확한가?", "분할 접근 기준이 있는가?", "시장 지수 흐름과 크게 반대는 아닌가?", "추세 유지와 이탈 기준을 나눴는가?"],
+  indicatorTranslator: ["지표보다 가격 위치를 먼저 봤는가?", "지표 신호가 추세와 충돌하지 않는가?", "지표를 2~3개 이하로 제한했는가?", "거래량 확인을 함께 했는가?", "지표 신호가 틀릴 때의 무효화 기준이 있는가?"],
+  reversalSeeker: ["하락 추세와 단순 과매도를 구분했는가?", "전저점 이탈 기준이 있는가?", "반등 근거가 거래량 또는 캔들로 확인되는가?", "물타기 판단과 구분했는가?", "손절 기준이 가까운가?"],
+  profitLocker: ["1차 목표가를 미리 정했는가?", "저항선 또는 전고점 위치를 확인했는가?", "분할매도 기준이 있는가?", "추세 유지 시 남길 물량 기준이 있는가?", "수익 반납을 막을 추적 기준이 있는가?"],
+};
+
+export const resultProfiles: ResultProfile[] = baseResultProfiles.map((profile) => ({
+  ...profile,
+  study: studyByType[profile.key],
+  practicalChecklist: checklistByType[profile.key],
+}));
 
 export const resultProfileMap = Object.fromEntries(
   resultProfiles.map((profile) => [profile.key, profile])
