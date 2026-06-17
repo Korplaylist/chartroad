@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-label="지지선 근처 거래량 증가와 고점권 거래량 증가의 의미 차이를 비교한 이미지">
+  <rect width="960" height="540" rx="24" fill="#faf8f2"/>
+  <rect x="40" y="42" width="880" height="456" rx="22" fill="#fff" stroke="#d9ded4"/>
+  <text x="84" y="104" fill="#152323" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="32" font-weight="800">같은 거래량 증가도 위치가 다르면 다릅니다</text>
+  <text x="84" y="140" fill="#64706b" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="18">거래량이 늘었다는 사실보다 어느 가격대에서 늘었는지가 더 중요합니다.</text>
+  <g font-family="Pretendard, Noto Sans KR, Arial, sans-serif">
+    <g transform="translate(82 205)">
+      <rect width="370" height="230" rx="18" fill="#eef3ed" stroke="#d9ded4"/>
+      <text x="28" y="44" fill="#28706c" font-size="22" font-weight="800">지지선 근처</text>
+      <path d="M36 148 C86 176 132 160 170 134 C216 102 260 132 324 88" fill="none" stroke="#c48a2c" stroke-width="6" stroke-linecap="round"/>
+      <line x1="36" y1="164" x2="330" y2="164" stroke="#28706c" stroke-width="4" stroke-dasharray="8 7"/>
+      <rect x="64" y="180" width="22" height="32" rx="4" fill="#28706c"/><rect x="104" y="168" width="22" height="44" rx="4" fill="#28706c"/><rect x="144" y="138" width="22" height="74" rx="4" fill="#28706c"/>
+      <rect x="184" y="118" width="22" height="94" rx="4" fill="#28706c"/><rect x="224" y="146" width="22" height="66" rx="4" fill="#28706c"/>
+      <text x="28" y="82" fill="#152323" font-size="17">회복 반응을 관찰할 수 있음</text>
+    </g>
+    <g transform="translate(510 205)">
+      <rect width="370" height="230" rx="18" fill="#f7eeee" stroke="#d9ded4"/>
+      <text x="28" y="44" fill="#b85f55" font-size="22" font-weight="800">고점권</text>
+      <path d="M36 170 C90 118 136 94 184 68 C234 42 280 54 328 44" fill="none" stroke="#c48a2c" stroke-width="6" stroke-linecap="round"/>
+      <line x1="36" y1="66" x2="330" y2="66" stroke="#b85f55" stroke-width="4" stroke-dasharray="8 7"/>
+      <rect x="64" y="180" width="22" height="32" rx="4" fill="#28706c"/><rect x="104" y="160" width="22" height="52" rx="4" fill="#28706c"/><rect x="144" y="124" width="22" height="88" rx="4" fill="#28706c"/>
+      <rect x="184" y="82" width="22" height="130" rx="4" fill="#b85f55"/><rect x="224" y="104" width="22" height="108" rx="4" fill="#b85f55"/>
+      <text x="28" y="82" fill="#152323" font-size="17">차익 실현과 과열을 점검</text>
+    </g>
+  </g>
+</svg>

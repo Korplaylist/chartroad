@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-label="거래량 관찰 연습을 위한 5단계 워크시트 이미지">
+  <rect width="960" height="540" rx="24" fill="#faf8f2"/>
+  <rect x="40" y="42" width="880" height="456" rx="22" fill="#fff" stroke="#d9ded4"/>
+  <text x="84" y="104" fill="#152323" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="32" font-weight="800">거래량 관찰 연습지</text>
+  <text x="84" y="140" fill="#64706b" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="18">거래량이 많다/적다가 아니라 어디에서 왜 늘었는지 기록해보세요.</text>
+  <g font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="19">
+    <g transform="translate(92 195)">
+      <rect width="776" height="52" rx="12" fill="#eef3ed" stroke="#d9ded4"/>
+      <circle cx="30" cy="26" r="16" fill="#28706c"/><text x="30" y="33" text-anchor="middle" fill="#fff" font-size="18" font-weight="800">1</text>
+      <text x="60" y="33" fill="#152323" font-weight="700">최근 거래량이 가장 컸던 날 3개를 찾습니다.</text>
+    </g>
+    <g transform="translate(92 258)">
+      <rect width="776" height="52" rx="12" fill="#fff8e9" stroke="#d9ded4"/>
+      <circle cx="30" cy="26" r="16" fill="#c48a2c"/><text x="30" y="33" text-anchor="middle" fill="#17120b" font-size="18" font-weight="800">2</text>
+      <text x="60" y="33" fill="#152323" font-weight="700">그날 캔들이 양봉인지 음봉인지 확인합니다.</text>
+    </g>
+    <g transform="translate(92 321)">
+      <rect width="776" height="52" rx="12" fill="#eef3ed" stroke="#d9ded4"/>
+      <circle cx="30" cy="26" r="16" fill="#28706c"/><text x="30" y="33" text-anchor="middle" fill="#fff" font-size="18" font-weight="800">3</text>
+      <text x="60" y="33" fill="#152323" font-weight="700">지지선 근처인지, 고점권인지, 박스권 중간인지 적습니다.</text>
+    </g>
+    <g transform="translate(92 384)">
+      <rect width="776" height="52" rx="12" fill="#f7eeee" stroke="#d9ded4"/>
+      <circle cx="30" cy="26" r="16" fill="#b85f55"/><text x="30" y="33" text-anchor="middle" fill="#fff" font-size="18" font-weight="800">4</text>
+      <text x="60" y="33" fill="#152323" font-weight="700">다음 3개 캔들이 어떻게 움직였는지 기록합니다.</text>
+    </g>
+    <g transform="translate(92 447)">
+      <rect width="776" height="52" rx="12" fill="#eef3ed" stroke="#d9ded4"/>
+      <circle cx="30" cy="26" r="16" fill="#28706c"/><text x="30" y="33" text-anchor="middle" fill="#fff" font-size="18" font-weight="800">5</text>
+      <text x="60" y="33" fill="#152323" font-weight="700">거래량 증가가 돌파, 반등, 과열 중 무엇에 가까운지 분류합니다.</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-label="가격 캔들과 거래량 막대를 함께 보며 거래량 보는 법을 설명한 이미지">
+  <rect width="960" height="540" rx="24" fill="#faf8f2"/>
+  <rect x="40" y="42" width="880" height="456" rx="22" fill="#fff" stroke="#d9ded4"/>
+  <text x="84" y="104" fill="#152323" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="32" font-weight="800">거래량은 가격 움직임의 힘입니다</text>
+  <text x="84" y="140" fill="#64706b" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="18">캔들이 가격의 모양이라면, 거래량은 그 움직임에 얼마나 많은 참여가 있었는지 보여줍니다.</text>
+  <g opacity=".18" stroke="#152323" stroke-width="2">
+    <path d="M90 210H870"/><path d="M90 290H870"/><path d="M90 370H870"/>
+  </g>
+  <path d="M105 330 C170 300 210 342 270 270 C335 195 390 255 460 205 C535 150 585 230 650 178 C720 124 780 150 850 102" fill="none" stroke="#c48a2c" stroke-width="8" stroke-linecap="round"/>
+  <g>
+    <rect x="128" y="395" width="28" height="42" rx="5" fill="#28706c"/>
+    <rect x="188" y="378" width="28" height="59" rx="5" fill="#28706c"/>
+    <rect x="248" y="350" width="28" height="87" rx="5" fill="#28706c"/>
+    <rect x="308" y="404" width="28" height="33" rx="5" fill="#b85f55"/>
+    <rect x="368" y="334" width="28" height="103" rx="5" fill="#28706c"/>
+    <rect x="428" y="390" width="28" height="47" rx="5" fill="#28706c"/>
+    <rect x="488" y="312" width="28" height="125" rx="5" fill="#28706c"/>
+    <rect x="548" y="372" width="28" height="65" rx="5" fill="#b85f55"/>
+    <rect x="608" y="298" width="28" height="139" rx="5" fill="#28706c"/>
+    <rect x="668" y="338" width="28" height="99" rx="5" fill="#28706c"/>
+    <rect x="728" y="282" width="28" height="155" rx="5" fill="#28706c"/>
+    <rect x="788" y="360" width="28" height="77" rx="5" fill="#b85f55"/>
+  </g>
+  <text x="90" y="468" fill="#64706b" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="16">거래량은 이전과 비교하고, 가격 위치와 함께 읽어야 의미가 생깁니다.</text>
+</svg>
