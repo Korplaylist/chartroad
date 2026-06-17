@@ -1,21 +1,39 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { resultProfiles } from "@/data/results";
+
+const tierLabels = [
+  ["basic", "초보", "기초 개념"],
+  ["intermediate", "초중급", "실전 적용"],
+  ["advanced", "중급", "심화 분석"],
+  ["expert", "고급", "전문 기법"],
+] as const;
 ---
 
-<BaseLayout title="차트로드 결과 유형 12가지" description="차트로드 테스트에서 나올 수 있는 12가지 차트 공부 성향 유형을 확인하세요.">
+<BaseLayout title="차트로드 결과 유형 12가지" description="차트로드 테스트에서 나올 수 있는 12가지 차트 공부 성향 유형과 학습 단계별 추천 공부를 확인하세요.">
   <section class="section tight">
     <div class="container">
       <h1>차트로드 결과 유형 12가지</h1>
-      <p class="sublead">각 유형은 투자 판단이 아니라 차트 공부 순서를 정리하기 위한 교육용 분류입니다.</p>
-      <div class="grid cols-3" style="margin-top:24px">
+      <p class="sublead">각 유형은 투자 판단이 아니라 차트 공부 순서를 정리하기 위한 교육용 분류입니다. 학습 수준에 따라 추천되는 기법의 난이도가 달라집니다.</p>
+      <div class="grid cols-3 result-preview-grid">
         {resultProfiles.map((profile) => (
-          <article class="card" id={profile.key}>
+          <article class="card result-preview-card" id={profile.key}>
             <small>{profile.meaning}</small>
-            <h2 style="font-size:26px; margin-top:8px">{profile.name}</h2>
-            <p class="meta" style="margin-top:10px">{profile.description}</p>
-            <h3 style="margin-top:18px">먼저 공부할 개념</h3>
-            <ol class="list">{profile.recommendedStudy.map((item) => <li>{item}</li>)}</ol>
+            <h2>{profile.name}</h2>
+            <p class="meta">{profile.description}</p>
+            <div class="study-tier-list">
+              {tierLabels.map(([tier, label, caption]) => (
+                <section class="study-tier">
+                  <div class="study-tier-head">
+                    <strong>{label}</strong>
+                    <span>{caption}</span>
+                  </div>
+                  <ul>
+                    {profile.study[tier].map((item) => <li>{item}</li>)}
+                  </ul>
+                </section>
+              ))}
+            </div>
           </article>
         ))}
       </div>

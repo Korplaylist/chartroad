@@ -340,6 +340,58 @@ p { margin: 0; }
 .related-grid .card p {
   margin-top: 10px;
 }
+.result-preview-grid {
+  margin-top: 24px;
+}
+.result-preview-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.result-preview-card h2,
+.result-preview-card h3 {
+  margin-top: 2px;
+  font-size: clamp(24px, 2.4vw, 32px);
+}
+.result-preview-card .meta {
+  font-size: 16px;
+  line-height: 1.7;
+}
+.study-tier-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 8px;
+}
+.study-tier {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+.study-tier-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.study-tier-head strong {
+  color: var(--deep);
+  font-size: 17px;
+}
+.study-tier-head span {
+  color: var(--muted);
+  font-size: 13px;
+  white-space: nowrap;
+}
+.study-tier ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+.study-tier li + li {
+  margin-top: 4px;
+}
 .breadcrumb {
   color: var(--muted);
   font-size: 14px;

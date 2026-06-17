@@ -2,6 +2,13 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { resultProfiles } from "@/data/results";
 import { articles } from "@/data/articles";
+
+const tierLabels = [
+  ["basic", "초보", "기초 개념"],
+  ["intermediate", "초중급", "실전 적용"],
+  ["advanced", "중급", "심화 분석"],
+  ["expert", "고급", "전문 기법"],
+] as const;
 ---
 
 <BaseLayout>
@@ -20,15 +27,25 @@ import { articles } from "@/data/articles";
   <section class="section">
     <div class="container">
       <h2>12개 결과 유형 미리보기</h2>
-      <p class="sublead">결과 이름은 가볍게, 설명과 추천 공부는 실용적으로 구성했습니다.</p>
-      <div class="grid cols-3" style="margin-top:24px">
+      <p class="sublead">같은 결과 유형이어도 현재 학습 수준에 따라 초보, 초중급, 중급, 고급 순서로 추천 공부가 달라집니다.</p>
+      <div class="grid cols-3 result-preview-grid">
         {resultProfiles.map((profile) => (
-          <article class="card">
+          <article class="card result-preview-card">
             <small>{profile.meaning}</small>
-            <h3 style="margin-top:8px">{profile.name}</h3>
-            <p class="meta" style="margin-top:10px">{profile.summary}</p>
-            <div class="tag-row">
-              {profile.recommendedStudy.slice(0, 3).map((item) => <span class="tag">{item}</span>)}
+            <h3>{profile.name}</h3>
+            <p class="meta">{profile.summary}</p>
+            <div class="study-tier-list">
+              {tierLabels.map(([tier, label, caption]) => (
+                <section class="study-tier">
+                  <div class="study-tier-head">
+                    <strong>{label}</strong>
+                    <span>{caption}</span>
+                  </div>
+                  <ul>
+                    {profile.study[tier].slice(0, 3).map((item) => <li>{item}</li>)}
+                  </ul>
+                </section>
+              ))}
             </div>
           </article>
         ))}
