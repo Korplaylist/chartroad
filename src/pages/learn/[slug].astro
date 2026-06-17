@@ -8,7 +8,12 @@ export function getStaticPaths() {
 
 const article = articleMap[Astro.params.slug ?? ""];
 const related = articles
-  .filter((item) => item.slug !== article.slug && (item.category === article.category || item.concepts.some((concept) => article.concepts.includes(concept))))
+  .filter(
+    (item) =>
+      item.slug !== article.slug &&
+      (item.category === article.category ||
+        item.concepts.some((concept) => article.concepts.includes(concept)))
+  )
   .slice(0, 3);
 
 const faqJson = {
@@ -42,38 +47,45 @@ const breadcrumbJson = {
   <script type="application/ld+json" set:html={JSON.stringify(articleJson)} slot="head"></script>
   <script type="application/ld+json" set:html={JSON.stringify(faqJson)} slot="head"></script>
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJson)} slot="head"></script>
-  <section class="section tight">
-    <div class="container">
-      <div class="breadcrumb"><a href="/">홈</a> / <a href="/learn">공부 콘텐츠</a> / {article.title}</div>
-      <div class="split">
-        <article class="card article-body">
-          <small>{article.category}</small>
-          <h1 style="font-size:clamp(32px,5vw,54px); margin-top:8px">{article.title}</h1>
-          <p class="sublead">{article.summary}</p>
-          <div class="tag-row">{article.concepts.map((concept) => <span class="tag">{concept}</span>)}</div>
-          <hr style="border:0;border-top:1px solid var(--line);margin:28px 0" />
-          {article.body.map((paragraph) => <p>{paragraph}</p>)}
-          <div class="ad-slot" style="margin:28px 0">광고 영역</div>
-          <h2>자주 묻는 질문</h2>
-          {article.faq.map((item) => (
-            <section style="margin-top:18px">
-              <h3>{item.question}</h3>
-              <p class="meta" style="margin-top:8px">{item.answer}</p>
-            </section>
-          ))}
-        </article>
-        <aside class="card">
-          <h2>관련 글</h2>
-          <div class="grid" style="margin-top:18px">
-            {related.map((item) => (
-              <a href={`/learn/${item.slug}`}>
-                <strong>{item.title}</strong>
-                <p class="meta">{item.summary}</p>
-              </a>
-            ))}
-          </div>
-        </aside>
+
+  <section class="section tight article-section">
+    <div class="article-container">
+      <div class="breadcrumb">
+        <a href="/">홈</a> / <a href="/learn">공부 콘텐츠</a> / {article.title}
       </div>
+
+      <article class="card article-body article-main">
+        <small>{article.category}</small>
+        <h1>{article.title}</h1>
+        <p class="article-summary">{article.summary}</p>
+        <div class="tag-row">
+          {article.concepts.map((concept) => <span class="tag">{concept}</span>)}
+        </div>
+        <hr />
+        {article.body.map((paragraph) => <p>{paragraph}</p>)}
+
+        <h2>자주 묻는 질문</h2>
+        {article.faq.map((item) => (
+          <section class="faq-item">
+            <h3>{item.question}</h3>
+            <p class="meta">{item.answer}</p>
+          </section>
+        ))}
+      </article>
+
+      <section class="related-section">
+        <h2>관련 글 추천</h2>
+        <p class="sublead">이 글과 같은 카테고리 또는 연결된 개념을 이어서 읽어보세요.</p>
+        <div class="grid cols-3 related-grid">
+          {related.map((item) => (
+            <a class="card" href={`/learn/${item.slug}`}>
+              <small>{item.category}</small>
+              <h3>{item.title}</h3>
+              <p class="meta">{item.summary}</p>
+            </a>
+          ))}
+        </div>
+      </section>
     </div>
   </section>
 </BaseLayout>

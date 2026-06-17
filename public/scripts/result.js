@@ -104,7 +104,6 @@ if (complete) {
         <p class="sublead">${result.personalization.learningStyle}, ${result.personalization.interestedConcept} 관심을 반영해 정렬했습니다.</p>
         <div class="grid cols-3" style="margin-top:18px">${recommended.map((article) => `<a class="card" href="/learn/${article.slug}"><small>${article.category}</small><h3 style="margin-top:8px">${article.title}</h3><p class="meta" style="margin-top:10px">${article.summary}</p></a>`).join("")}</div>
       </section>
-      <div class="ad-slot">광고 영역</div>
       <section class="card">
         <h3>면책 문구</h3>
         <p class="meta" style="margin-top:8px">이 사이트의 내용은 투자 판단을 위한 교육용 정보이며, 특정 종목의 매수·매도 추천이 아닙니다. 모든 투자 판단과 책임은 본인에게 있습니다.</p>
