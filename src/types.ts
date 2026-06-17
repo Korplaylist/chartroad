@@ -36,6 +36,7 @@ export type ResultProfile = {
 };
 
 export type LearnCategory =
+  | "학습 로드맵"
   | "차트 기초"
   | "가격 구조 분석"
   | "보조지표"
