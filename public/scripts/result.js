@@ -72,7 +72,7 @@ if (complete) {
     <div class="grid" style="gap:24px">
       <section class="card">
         <div class="result-summary-hero">
-          <img class="result-summary-character" src="/assets/results/${result.mainType}.webp" alt="${main.name} 캐릭터 이미지" />
+          <img class="result-summary-character" src="/assets/results/${result.mainType}.webp" alt="${main.name} 캐릭터 이미지" width="640" height="640" decoding="async" />
           <div>
             <small>진단 신뢰도 ${result.confidence}</small>
             <h1 style="font-size:clamp(32px,5vw,56px); margin-top:8px">당신은 “${main.name}”입니다.</h1>

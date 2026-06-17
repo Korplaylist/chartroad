@@ -12,6 +12,7 @@ const tierLabels = [
 ---
 
 <BaseLayout>
+  <link rel="preload" href="/assets/chartroad-hero.svg" as="image" type="image/svg+xml" slot="head" />
   <section class="hero">
     <div class="container hero-inner">
       <p class="eyebrow">교육용 차트 학습 로드맵</p>
@@ -31,7 +32,7 @@ const tierLabels = [
       <div class="grid cols-3 result-preview-grid">
         {resultProfiles.map((profile) => (
           <article class="card result-preview-card">
-            <img class="result-character" src={`/assets/results/${profile.key}.webp`} alt={`${profile.name} 캐릭터 이미지`} loading="lazy" />
+            <img class="result-character" src={`/assets/results/${profile.key}.webp`} alt={`${profile.name} 캐릭터 이미지`} width="640" height="480" loading="lazy" decoding="async" />
             <small>{profile.meaning}</small>
             <h3>{profile.name}</h3>
             <p class="meta">{profile.summary}</p>
