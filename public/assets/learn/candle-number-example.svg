@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-label="시가 10000원 고가 10800원 저가 9700원 종가 10500원 예시로 양봉과 아래꼬리를 설명한 이미지">
+  <rect width="960" height="540" rx="24" fill="#faf8f2"/>
+  <rect x="40" y="42" width="880" height="456" rx="22" fill="#fff" stroke="#d9ded4"/>
+  <text x="84" y="104" fill="#152323" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="32" font-weight="800">숫자로 캔들 만들기</text>
+  <text x="84" y="140" fill="#64706b" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="18">네 가지 가격을 캔들 몸통과 꼬리로 연결해보면 구조가 훨씬 쉬워집니다.</text>
+
+  <g font-family="Pretendard, Noto Sans KR, Arial, sans-serif">
+    <g transform="translate(95 195)">
+      <rect width="270" height="230" rx="18" fill="#eef3ed" stroke="#d9ded4"/>
+      <text x="28" y="46" fill="#28706c" font-size="22" font-weight="800">예시 가격</text>
+      <text x="28" y="88" fill="#152323" font-size="19">시가 10,000원</text>
+      <text x="28" y="124" fill="#152323" font-size="19">고가 10,800원</text>
+      <text x="28" y="160" fill="#152323" font-size="19">저가 9,700원</text>
+      <text x="28" y="196" fill="#152323" font-size="19">종가 10,500원</text>
+    </g>
+
+    <path d="M405 310h78" stroke="#c48a2c" stroke-width="6" stroke-linecap="round"/>
+    <path d="M462 290l24 20-24 20" fill="none" stroke="#c48a2c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <g transform="translate(530 170)">
+      <text x="120" y="24" text-anchor="middle" fill="#28706c" font-size="24" font-weight="800">양봉 + 아래꼬리</text>
+      <line x1="120" y1="72" x2="120" y2="292" stroke="#152323" stroke-width="7" stroke-linecap="round"/>
+      <rect x="74" y="110" width="92" height="92" rx="10" fill="#28706c"/>
+      <path d="M170 72h-48M170 110h-48M170 202h-48M170 292h-48" stroke="#c48a2c" stroke-width="3" stroke-linecap="round"/>
+      <text x="184" y="78" fill="#152323" font-size="17" font-weight="700">고가 10,800</text>
+      <text x="184" y="116" fill="#152323" font-size="17">종가 10,500</text>
+      <text x="184" y="208" fill="#152323" font-size="17">시가 10,000</text>
+      <text x="184" y="298" fill="#152323" font-size="17" font-weight="700">저가 9,700</text>
+    </g>
+  </g>
+</svg>

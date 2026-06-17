@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-label="같은 양봉도 바닥권 박스권 중간 고점권에서 의미가 달라지는 것을 비교한 이미지">
+  <rect width="960" height="540" rx="24" fill="#faf8f2"/>
+  <rect x="40" y="42" width="880" height="456" rx="22" fill="#fff" stroke="#d9ded4"/>
+  <text x="84" y="104" fill="#152323" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="32" font-weight="800">같은 양봉도 위치에 따라 다릅니다</text>
+  <text x="84" y="140" fill="#64706b" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="18">캔들은 색보다 어디에서 나왔는지가 더 중요할 때가 많습니다.</text>
+  <g font-family="Pretendard, Noto Sans KR, Arial, sans-serif">
+    <g transform="translate(80 198)">
+      <rect width="250" height="222" rx="18" fill="#eef3ed" stroke="#d9ded4"/>
+      <text x="24" y="44" fill="#28706c" font-size="22" font-weight="800">바닥권</text>
+      <path d="M34 154 C74 178 112 170 148 140 C184 110 205 118 220 96" fill="none" stroke="#c48a2c" stroke-width="6" stroke-linecap="round"/>
+      <line x1="34" y1="164" x2="220" y2="164" stroke="#28706c" stroke-width="4" stroke-dasharray="8 7"/>
+      <line x1="128" y1="100" x2="128" y2="176" stroke="#152323" stroke-width="5" stroke-linecap="round"/>
+      <rect x="104" y="126" width="48" height="32" rx="7" fill="#28706c"/>
+      <text x="24" y="202" fill="#64706b" font-size="16">회복 반응을 관찰</text>
+    </g>
+    <g transform="translate(355 198)">
+      <rect width="250" height="222" rx="18" fill="#fff8e9" stroke="#d9ded4"/>
+      <text x="24" y="44" fill="#c48a2c" font-size="22" font-weight="800">박스권 중간</text>
+      <line x1="34" y1="82" x2="220" y2="82" stroke="#b85f55" stroke-width="4" stroke-dasharray="8 7"/>
+      <line x1="34" y1="174" x2="220" y2="174" stroke="#28706c" stroke-width="4" stroke-dasharray="8 7"/>
+      <path d="M34 142 C72 104 108 158 146 122 C180 90 202 128 220 112" fill="none" stroke="#c48a2c" stroke-width="6" stroke-linecap="round"/>
+      <line x1="128" y1="102" x2="128" y2="154" stroke="#152323" stroke-width="5" stroke-linecap="round"/>
+      <rect x="104" y="118" width="48" height="28" rx="7" fill="#28706c"/>
+      <text x="24" y="202" fill="#64706b" font-size="16">방향 판단은 아직 애매</text>
+    </g>
+    <g transform="translate(630 198)">
+      <rect width="250" height="222" rx="18" fill="#f7eeee" stroke="#d9ded4"/>
+      <text x="24" y="44" fill="#b85f55" font-size="22" font-weight="800">고점권</text>
+      <path d="M34 172 C74 118 112 96 150 70 C184 48 204 54 220 42" fill="none" stroke="#c48a2c" stroke-width="6" stroke-linecap="round"/>
+      <line x1="34" y1="64" x2="220" y2="64" stroke="#b85f55" stroke-width="4" stroke-dasharray="8 7"/>
+      <line x1="150" y1="42" x2="150" y2="132" stroke="#152323" stroke-width="5" stroke-linecap="round"/>
+      <rect x="126" y="70" width="48" height="42" rx="7" fill="#28706c"/>
+      <text x="24" y="202" fill="#64706b" font-size="16">늦은 진입 위험 점검</text>
+    </g>
+  </g>
+</svg>
