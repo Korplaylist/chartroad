@@ -2,22 +2,66 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="차트로드 소개" description="차트로드는 투자 추천이 아닌 교육용 차트 학습 로드맵 진단 플랫폼입니다.">
+<BaseLayout
+  title="차트로드 소개 | 차트 공부 순서 진단 플랫폼"
+  description="차트로드는 투자 추천이 아니라 차트 기초, 보조지표, 리스크 관리, 매매 스타일을 어떤 순서로 공부할지 알려주는 교육용 로드맵 플랫폼입니다."
+>
   <section class="section">
     <div class="container split">
       <div>
         <p class="eyebrow">About Chartroad</p>
-        <h1>차트 공부의 순서를 먼저 정합니다</h1>
-        <p class="sublead">차트로드는 사용자의 매매 환경, 차트 이해도, 반복 실수를 바탕으로 어떤 개념부터 공부하면 좋을지 정리해주는 교육용 플랫폼입니다.</p>
+        <h1>차트 공부의 순서를 먼저 정하는 교육용 플랫폼</h1>
+        <p class="sublead">
+          차트로드는 사용자의 차트 이해도, 매매 기준, 리스크 관리 습관, 관심 있는 매매 스타일을 바탕으로
+          어떤 차트 개념부터 공부하면 좋을지 정리해주는 학습 로드맵 서비스입니다.
+        </p>
       </div>
       <div class="card">
-        <h2>차트로드가 하지 않는 것</h2>
-        <ul class="list">
-          <li>특정 종목의 매수·매도 추천</li>
-          <li>수익 보장 또는 투자 성과 약속</li>
-          <li>회원가입을 통한 민감한 투자정보 수집</li>
-        </ul>
+        <h2>차트로드의 목적</h2>
+        <p class="meta" style="margin-top:10px">
+          차트로드는 특정 종목을 추천하거나 수익을 보장하지 않습니다. 초보자가 차트 공부를 시작할 때
+          캔들, 거래량, 이동평균선, 지지선과 저항선, 보조지표, 손절 기준을 어떤 순서로 익히면 좋은지
+          스스로 점검할 수 있도록 돕습니다.
+        </p>
       </div>
+    </div>
+  </section>
+
+  <section class="section tight">
+    <div class="container grid cols-3">
+      <article class="card">
+        <small>학습 진단</small>
+        <h2 style="margin-top:8px">나에게 맞는 공부 순서</h2>
+        <p class="meta" style="margin-top:10px">
+          테스트 답변을 바탕으로 입문, 초보, 중급, 고급 단계에 맞는 공부 주제를 추천합니다.
+        </p>
+      </article>
+      <article class="card">
+        <small>교육 콘텐츠</small>
+        <h2 style="margin-top:8px">차트 개념별 글</h2>
+        <p class="meta" style="margin-top:10px">
+          차트 기초, 보조지표, 매매 스타일, 리스크 관리 등 학습 목적에 맞는 글을 제공합니다.
+        </p>
+      </article>
+      <article class="card">
+        <small>주의 원칙</small>
+        <h2 style="margin-top:8px">투자 판단과 분리</h2>
+        <p class="meta" style="margin-top:10px">
+          모든 콘텐츠는 교육용 정보이며, 실제 매수·매도 판단은 사용자의 책임 아래 이루어져야 합니다.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section tight">
+    <div class="container card">
+      <h2>차트로드가 제공하지 않는 것</h2>
+      <ul class="list">
+        <li>특정 주식, 코인, ETF, 선물 등 금융상품의 매수·매도 추천</li>
+        <li>수익률 보장, 손실 회피 보장, 투자 성과 약속</li>
+        <li>개인별 투자 자문, 계좌 운용, 리딩방 형태의 매매 지시</li>
+        <li>회원가입을 통한 민감한 투자정보 수집</li>
+      </ul>
     </div>
   </section>
 </BaseLayout>
