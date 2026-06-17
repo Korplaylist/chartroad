@@ -37,9 +37,13 @@ export type ResultProfile = {
 
 export type LearnCategory =
   | "차트 기초"
+  | "가격 구조 분석"
   | "보조지표"
+  | "거래량·수급 해석"
   | "매매 스타일"
-  | "리스크 관리";
+  | "매매 전략 설계"
+  | "리스크 관리"
+  | "고급 차트 기술";
 
 export type LearnArticle = {
   slug: string;
