@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">손절선 설정 연습지</title>
+  <desc id="desc">진입 이유, 무효화 조건, 손절 위치, 손실폭, 목표가를 기록하는 손절선 연습지 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/>
+  <rect x="60" y="50" width="840" height="440" rx="22" fill="#fffefa" stroke="#d7d8cc"/>
+  <text x="96" y="106" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#132321">손절선 설정 연습</text>
+  <text x="96" y="144" font-family="Arial, sans-serif" font-size="20" fill="#5b6663">진입 전 이 다섯 가지를 적지 못하면 아직 기준이 없는 상태입니다.</text>
+  <g font-family="Arial, sans-serif" font-size="20" fill="#132321">
+    <rect x="96" y="184" width="768" height="48" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/>
+    <text x="122" y="215">1. 진입 이유는 무엇인가요?</text>
+    <rect x="96" y="244" width="768" height="48" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/>
+    <text x="122" y="275">2. 그 이유가 틀렸다고 볼 조건은 무엇인가요?</text>
+    <rect x="96" y="304" width="768" height="48" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/>
+    <text x="122" y="335">3. 손절 가격은 어디인가요?</text>
+    <rect x="96" y="364" width="768" height="48" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/>
+    <text x="122" y="395">4. 손절폭과 1R은 얼마인가요?</text>
+    <rect x="96" y="424" width="768" height="48" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/>
+    <text x="122" y="455">5. 목표가는 최소 손절폭보다 충분히 큰가요?</text>
+  </g>
+</svg>

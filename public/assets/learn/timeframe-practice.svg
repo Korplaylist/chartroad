@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">시간축 관찰 연습지</title>
+  <desc id="desc">주봉, 일봉, 분봉에서 각각 큰 방향, 기본 판단, 세부 위치를 기록하는 시간축 연습지 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/>
+  <rect x="60" y="50" width="840" height="440" rx="22" fill="#fffefa" stroke="#d7d8cc"/>
+  <text x="96" y="106" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#132321">시간축 관찰 연습</text>
+  <text x="96" y="144" font-family="Arial, sans-serif" font-size="20" fill="#5b6663">주봉으로 방향, 일봉으로 판단, 분봉으로 세부 위치를 나누어 적습니다.</text>
+  <g font-family="Arial, sans-serif" font-size="21" fill="#132321">
+    <rect x="96" y="190" width="768" height="62" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/>
+    <text x="122" y="229">1. 주봉: 큰 추세와 가까운 주요 가격대는 어디인가요?</text>
+    <rect x="96" y="270" width="768" height="62" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/>
+    <text x="122" y="309">2. 일봉: 현재 캔들, 거래량, 이동평균선 위치는 어떤가요?</text>
+    <rect x="96" y="350" width="768" height="62" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/>
+    <text x="122" y="389">3. 분봉: 세부 진입보다 상위 기준과 충돌하지 않나요?</text>
+  </g>
+</svg>

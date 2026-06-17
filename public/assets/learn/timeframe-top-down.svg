@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">상위 시간축에서 하위 시간축으로 보는 순서</title>
+  <desc id="desc">주봉, 일봉, 분봉 순서로 차트를 확인하는 탑다운 분석 흐름 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/>
+  <text x="70" y="78" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#132321">시간축은 위에서 아래로 내려오며 확인합니다</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="100" y="142" width="220" height="250" rx="18" fill="#fffefa" stroke="#d7d8cc"/>
+    <text x="134" y="198" font-size="32" font-weight="800" fill="#345995">1. 주봉</text>
+    <text x="134" y="242" font-size="21" fill="#132321">큰 추세</text>
+    <text x="134" y="276" font-size="21" fill="#132321">중요 가격대</text>
+    <text x="134" y="310" font-size="21" fill="#132321">과열 위치</text>
+    <rect x="370" y="142" width="220" height="250" rx="18" fill="#fffefa" stroke="#d7d8cc"/>
+    <text x="404" y="198" font-size="32" font-weight="800" fill="#c98d2e">2. 일봉</text>
+    <text x="404" y="242" font-size="21" fill="#132321">기본 판단</text>
+    <text x="404" y="276" font-size="21" fill="#132321">지지·저항</text>
+    <text x="404" y="310" font-size="21" fill="#132321">거래량</text>
+    <rect x="640" y="142" width="220" height="250" rx="18" fill="#fffefa" stroke="#d7d8cc"/>
+    <text x="674" y="198" font-size="32" font-weight="800" fill="#146b5f">3. 분봉</text>
+    <text x="674" y="242" font-size="21" fill="#132321">세부 진입</text>
+    <text x="674" y="276" font-size="21" fill="#132321">짧은 대응</text>
+    <text x="674" y="310" font-size="21" fill="#132321">손절 위치</text>
+  </g>
+  <path d="M326 266 L360 266" stroke="#132321" stroke-width="5" marker-end="url(#arrow)"/>
+  <path d="M596 266 L630 266" stroke="#132321" stroke-width="5" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#132321"/>
+    </marker>
+  </defs>
+</svg>

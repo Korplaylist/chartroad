@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">손절선 기본 개념</title>
+  <desc id="desc">진입가, 손절선, 목표가를 함께 표시해 손절선을 진입 전에 정해야 함을 설명하는 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/>
+  <rect x="58" y="48" width="844" height="444" rx="22" fill="#fffefa" stroke="#d7d8cc"/>
+  <text x="96" y="108" font-family="Arial, sans-serif" font-size="36" font-weight="800" fill="#132321">손절선은 진입 전에 정하는 안전 기준입니다</text>
+  <text x="96" y="146" font-family="Arial, sans-serif" font-size="20" fill="#5b6663">가격이 내 생각과 다르게 움직일 때 판단을 멈출 위치를 미리 정합니다.</text>
+  <line x1="128" y1="230" x2="836" y2="230" stroke="#146b5f" stroke-width="5"/>
+  <line x1="128" y1="306" x2="836" y2="306" stroke="#c98d2e" stroke-width="5"/>
+  <line x1="128" y1="382" x2="836" y2="382" stroke="#b64a4a" stroke-width="5"/>
+  <text x="146" y="220" font-family="Arial, sans-serif" font-size="22" font-weight="800" fill="#146b5f">목표가</text>
+  <text x="146" y="296" font-family="Arial, sans-serif" font-size="22" font-weight="800" fill="#8b5a16">진입가</text>
+  <text x="146" y="372" font-family="Arial, sans-serif" font-size="22" font-weight="800" fill="#9d3e3e">손절선</text>
+  <path d="M260 340 C330 300 390 310 448 286 C512 260 560 304 620 306 C700 308 760 268 820 244" fill="none" stroke="#132321" stroke-width="7" stroke-linecap="round"/>
+  <rect x="642" y="340" width="180" height="82" rx="12" fill="#fff3f3" stroke="#d08c8c"/>
+  <text x="666" y="374" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#9d3e3e">이탈하면</text>
+  <text x="666" y="402" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#9d3e3e">판단 중단</text>
+</svg>

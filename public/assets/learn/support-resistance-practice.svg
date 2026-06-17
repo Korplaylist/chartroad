@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">지지선 저항선 관찰 연습지</title>
+  <desc id="desc">반복 반응 횟수, 가격 구간, 캔들 반응, 거래량, 이탈 기준을 기록하는 연습지 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/>
+  <rect x="60" y="50" width="840" height="440" rx="22" fill="#fffefa" stroke="#d7d8cc"/>
+  <text x="96" y="106" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#132321">지지선·저항선 관찰 연습</text>
+  <text x="96" y="144" font-family="Arial, sans-serif" font-size="20" fill="#5b6663">선을 예쁘게 긋는 것보다 반복 반응한 근거를 적는 것이 먼저입니다.</text>
+  <g font-family="Arial, sans-serif" font-size="21" fill="#132321">
+    <rect x="96" y="184" width="768" height="54" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/>
+    <text x="122" y="219">1. 같은 가격대에서 최소 2번 이상 반응했나요?</text>
+    <rect x="96" y="252" width="768" height="54" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/>
+    <text x="122" y="287">2. 한 줄이 아니라 어느 정도 폭의 구간인가요?</text>
+    <rect x="96" y="320" width="768" height="54" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/>
+    <text x="122" y="355">3. 그 구간에서 캔들 꼬리와 거래량은 어떻게 나왔나요?</text>
+    <rect x="96" y="388" width="768" height="54" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/>
+    <text x="122" y="423">4. 이탈하면 판단을 멈출 기준은 어디인가요?</text>
+  </g>
+</svg>

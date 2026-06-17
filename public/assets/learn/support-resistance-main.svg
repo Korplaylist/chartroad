@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">지지선과 저항선 기본 구조</title>
+  <desc id="desc">가격이 반복 반응한 아래 구간은 지지, 위 구간은 저항으로 표시한 차트 공부 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/>
+  <rect x="58" y="48" width="844" height="444" rx="22" fill="#fffefa" stroke="#d7d8cc"/>
+  <text x="96" y="108" font-family="Arial, sans-serif" font-size="36" font-weight="800" fill="#132321">지지선과 저항선은 반복 반응한 가격대입니다</text>
+  <text x="96" y="147" font-family="Arial, sans-serif" font-size="20" fill="#5b6663">정확한 한 줄보다 여러 번 멈춘 구간을 넓게 표시하는 것이 더 실전적입니다.</text>
+  <rect x="116" y="190" width="724" height="60" rx="10" fill="#fff3eb" stroke="#d19169"/>
+  <text x="132" y="228" font-family="Arial, sans-serif" font-size="22" font-weight="800" fill="#9d4b25">저항 구간: 가격이 여러 번 밀린 자리</text>
+  <rect x="116" y="356" width="724" height="60" rx="10" fill="#eaf8f3" stroke="#69a88d"/>
+  <text x="132" y="394" font-family="Arial, sans-serif" font-size="22" font-weight="800" fill="#146b5f">지지 구간: 가격이 여러 번 버틴 자리</text>
+  <path d="M132 370 C190 250 238 210 292 232 C342 252 372 362 424 378 C482 396 530 246 586 222 C646 196 690 356 742 376 C780 390 812 334 834 292" fill="none" stroke="#132321" stroke-width="7" stroke-linecap="round"/>
+  <g fill="#132321">
+    <circle cx="292" cy="232" r="7"/><circle cx="586" cy="222" r="7"/>
+    <circle cx="424" cy="378" r="7"/><circle cx="742" cy="376" r="7"/>
+  </g>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">분봉 일봉 주봉 시간축 비교</title>
+  <desc id="desc">같은 가격 흐름을 분봉, 일봉, 주봉으로 나누어 보는 차트 공부 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/>
+  <rect x="58" y="50" width="844" height="440" rx="22" fill="#fffefa" stroke="#d7d8cc"/>
+  <text x="94" y="106" font-family="Arial, sans-serif" font-size="35" font-weight="800" fill="#132321">시간축은 차트를 보는 거리입니다</text>
+  <text x="94" y="144" font-family="Arial, sans-serif" font-size="20" fill="#5b6663">가까이 보면 작은 흔들림이 크고, 멀리 보면 큰 방향이 보입니다.</text>
+  <g transform="translate(96 196)">
+    <rect width="220" height="214" rx="16" fill="#f7f4ec" stroke="#d7d8cc"/>
+    <text x="28" y="42" font-family="Arial, sans-serif" font-size="28" font-weight="800" fill="#146b5f">분봉</text>
+    <path d="M28 150 L58 92 L88 134 L118 74 L148 128 L190 86" fill="none" stroke="#132321" stroke-width="6" stroke-linecap="round"/>
+    <text x="28" y="184" font-family="Arial, sans-serif" font-size="18" fill="#5b6663">짧은 대응과 진입 위치</text>
+  </g>
+  <g transform="translate(370 196)">
+    <rect width="220" height="214" rx="16" fill="#f7f4ec" stroke="#d7d8cc"/>
+    <text x="28" y="42" font-family="Arial, sans-serif" font-size="28" font-weight="800" fill="#c98d2e">일봉</text>
+    <path d="M28 150 C72 126 104 118 136 92 C160 72 182 76 192 64" fill="none" stroke="#132321" stroke-width="6" stroke-linecap="round"/>
+    <text x="28" y="184" font-family="Arial, sans-serif" font-size="18" fill="#5b6663">기본 판단과 학습 중심</text>
+  </g>
+  <g transform="translate(644 196)">
+    <rect width="220" height="214" rx="16" fill="#f7f4ec" stroke="#d7d8cc"/>
+    <text x="28" y="42" font-family="Arial, sans-serif" font-size="28" font-weight="800" fill="#345995">주봉</text>
+    <path d="M28 150 C80 136 122 106 162 84 C178 76 188 68 198 58" fill="none" stroke="#132321" stroke-width="6" stroke-linecap="round"/>
+    <text x="28" y="184" font-family="Arial, sans-serif" font-size="18" fill="#5b6663">큰 추세와 주요 가격대</text>
+  </g>
+</svg>
