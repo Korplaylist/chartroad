@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">정배열과 역배열 비교</title>
+  <desc id="desc">이동평균선 정배열과 역배열의 차이를 비교하는 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/>
+  <text x="60" y="70" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#132321">정배열과 역배열은 흐름의 방향을 정리해줍니다</text>
+  <g transform="translate(56 112)">
+    <rect width="400" height="360" rx="18" fill="#fffefa" stroke="#d7d8cc"/>
+    <text x="34" y="50" font-family="Arial, sans-serif" font-size="28" font-weight="800" fill="#146b5f">정배열</text>
+    <text x="34" y="82" font-family="Arial, sans-serif" font-size="18" fill="#5b6663">짧은 선이 긴 선 위에 있고 가격도 위에서 움직임</text>
+    <line x1="40" y1="292" x2="360" y2="292" stroke="#e1ded3"/>
+    <path d="M52 256 C115 232 168 212 220 184 C270 158 312 132 350 100" fill="none" stroke="#345995" stroke-width="5"/>
+    <path d="M52 232 C120 204 174 180 226 150 C276 122 316 94 350 70" fill="none" stroke="#c98d2e" stroke-width="5"/>
+    <path d="M52 204 C116 174 176 146 236 114 C284 88 320 62 350 42" fill="none" stroke="#10806f" stroke-width="5"/>
+    <text x="52" y="330" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#132321">해석: 상승 흐름이 유지되는지 관찰</text>
+  </g>
+  <g transform="translate(504 112)">
+    <rect width="400" height="360" rx="18" fill="#fffefa" stroke="#d7d8cc"/>
+    <text x="34" y="50" font-family="Arial, sans-serif" font-size="28" font-weight="800" fill="#9d3e3e">역배열</text>
+    <text x="34" y="82" font-family="Arial, sans-serif" font-size="18" fill="#5b6663">짧은 선이 긴 선 아래에 있고 가격도 눌려 있음</text>
+    <line x1="40" y1="292" x2="360" y2="292" stroke="#e1ded3"/>
+    <path d="M52 86 C118 112 172 140 226 170 C276 198 318 226 350 254" fill="none" stroke="#345995" stroke-width="5"/>
+    <path d="M52 112 C118 142 172 170 226 202 C276 230 318 258 350 286" fill="none" stroke="#c98d2e" stroke-width="5"/>
+    <path d="M52 144 C118 176 172 204 226 236 C276 264 318 294 350 322" fill="none" stroke="#10806f" stroke-width="5"/>
+    <text x="52" y="330" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#132321">해석: 반등보다 저항 여부를 먼저 확인</text>
+  </g>
+</svg>

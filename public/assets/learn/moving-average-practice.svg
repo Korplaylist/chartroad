@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">이동평균선 관찰 연습지</title>
+  <desc id="desc">이동평균선 공부를 위해 가격 위치와 배열, 눌림 반응, 손절 기준을 기록하는 연습지 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/>
+  <rect x="60" y="50" width="840" height="440" rx="22" fill="#fffefa" stroke="#d7d8cc"/>
+  <text x="96" y="106" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#132321">이동평균선 관찰 연습</text>
+  <text x="96" y="144" font-family="Arial, sans-serif" font-size="20" fill="#5b6663">정답을 맞히기보다 같은 기준으로 반복 기록하는 것이 중요합니다.</text>
+  <g font-family="Arial, sans-serif" font-size="21" fill="#132321">
+    <rect x="96" y="186" width="768" height="58" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/>
+    <text x="122" y="223">1. 현재 가격은 5일선, 20일선, 60일선 중 어디에 있나요?</text>
+    <rect x="96" y="260" width="768" height="58" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/>
+    <text x="122" y="297">2. 배열은 정배열, 역배열, 꼬임 중 무엇인가요?</text>
+    <rect x="96" y="334" width="768" height="58" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/>
+    <text x="122" y="371">3. 눌림이 나왔다면 어느 선에서 멈췄나요?</text>
+    <rect x="96" y="408" width="768" height="58" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/>
+    <text x="122" y="445">4. 이탈하면 판단을 멈출 기준은 어디인가요?</text>
+  </g>
+</svg>

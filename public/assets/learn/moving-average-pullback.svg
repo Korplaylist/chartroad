@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">이동평균선 눌림 관찰</title>
+  <desc id="desc">상승 흐름에서 가격이 20일선 근처로 눌렸다가 반응하는 과정을 보여주는 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/>
+  <rect x="62" y="54" width="836" height="430" rx="22" fill="#fffefa" stroke="#d7d8cc"/>
+  <text x="98" y="112" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#132321">눌림은 선에 닿는 순간이 아니라 반응을 확인하는 구간입니다</text>
+  <text x="98" y="150" font-family="Arial, sans-serif" font-size="20" fill="#5b6663">20일선 근처에서 캔들, 거래량, 지지 구간이 함께 맞는지 봅니다.</text>
+  <line x1="110" y1="384" x2="840" y2="384" stroke="#d7d8cc"/>
+  <path d="M126 330 C210 300 278 268 352 220 C420 176 476 160 536 190 C590 216 622 250 672 222 C730 190 780 158 836 128" fill="none" stroke="#132321" stroke-width="6"/>
+  <path d="M126 354 C236 326 330 292 420 252 C512 214 612 206 700 190 C760 178 810 160 836 150" fill="none" stroke="#c98d2e" stroke-width="6"/>
+  <path d="M126 384 C246 360 352 330 460 296 C566 262 676 230 836 198" fill="none" stroke="#345995" stroke-width="5"/>
+  <circle cx="610" cy="248" r="52" fill="#fff6d8" stroke="#c98d2e" stroke-width="4"/>
+  <text x="552" y="252" font-family="Arial, sans-serif" font-size="19" font-weight="800" fill="#132321">눌림 관찰 구간</text>
+  <path d="M596 304 L548 372" stroke="#c98d2e" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="434" y="414" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#132321">선에서 바로 매수보다, 지켜주는지 먼저 확인</text>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#c98d2e"/>
+    </marker>
+  </defs>
+</svg>
