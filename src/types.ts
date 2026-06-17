@@ -53,5 +53,11 @@ export type LearnArticle = {
   concepts: string[];
   style: string[];
   body: string[];
+  bodyHtml?: string[];
+  images?: {
+    src: string;
+    alt: string;
+    caption: string;
+  }[];
   faq: { question: string; answer: string }[];
 };

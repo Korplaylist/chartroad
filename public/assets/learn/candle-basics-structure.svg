@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-label="양봉과 음봉의 몸통과 꼬리 구조를 설명한 차트 공부 이미지">
+  <rect width="960" height="540" rx="24" fill="#faf8f2"/>
+  <rect x="36" y="36" width="888" height="468" rx="22" fill="#ffffff" stroke="#d9ded4"/>
+  <text x="82" y="96" fill="#152323" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="34" font-weight="800">캔들 구조의 기본</text>
+  <text x="82" y="132" fill="#64706b" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="18">양봉과 음봉은 시가, 고가, 저가, 종가를 한 번에 보여주는 가격 언어입니다.</text>
+
+  <g transform="translate(145 190)">
+    <text x="80" y="-28" text-anchor="middle" fill="#28706c" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="22" font-weight="800">양봉</text>
+    <line x1="80" y1="18" x2="80" y2="244" stroke="#152323" stroke-width="7" stroke-linecap="round"/>
+    <rect x="34" y="78" width="92" height="118" rx="10" fill="#28706c"/>
+    <text x="152" y="58" fill="#152323" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="17" font-weight="700">고가</text>
+    <text x="152" y="106" fill="#152323" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="17">종가</text>
+    <text x="152" y="178" fill="#152323" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="17">시가</text>
+    <text x="152" y="246" fill="#152323" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="17" font-weight="700">저가</text>
+    <path d="M134 54h-44M134 102h-44M134 174h-44M134 242h-44" stroke="#c48a2c" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(535 190)">
+    <text x="80" y="-28" text-anchor="middle" fill="#b85f55" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="22" font-weight="800">음봉</text>
+    <line x1="80" y1="18" x2="80" y2="244" stroke="#152323" stroke-width="7" stroke-linecap="round"/>
+    <rect x="34" y="78" width="92" height="118" rx="10" fill="#b85f55"/>
+    <text x="152" y="58" fill="#152323" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="17" font-weight="700">고가</text>
+    <text x="152" y="106" fill="#152323" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="17">시가</text>
+    <text x="152" y="178" fill="#152323" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="17">종가</text>
+    <text x="152" y="246" fill="#152323" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="17" font-weight="700">저가</text>
+    <path d="M134 54h-44M134 102h-44M134 174h-44M134 242h-44" stroke="#c48a2c" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <g fill="#64706b" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="16">
+    <text x="82" y="462">몸통: 시가와 종가 사이의 움직임</text>
+    <text x="382" y="462">위꼬리: 고가까지 갔다가 밀린 흔적</text>
+    <text x="662" y="462">아래꼬리: 저가까지 갔다가 회복한 흔적</text>
+  </g>
+</svg>
