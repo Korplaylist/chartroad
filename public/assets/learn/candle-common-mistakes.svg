@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-label="캔들 해석에서 색만 보고 판단하는 실수와 위치를 함께 보는 방법을 비교한 이미지">
+  <rect width="960" height="540" rx="24" fill="#faf8f2"/>
+  <rect x="40" y="42" width="880" height="456" rx="22" fill="#ffffff" stroke="#d9ded4"/>
+  <text x="86" y="104" fill="#152323" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="32" font-weight="800">캔들 해석에서 가장 흔한 실수</text>
+  <text x="86" y="140" fill="#64706b" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="18">양봉과 음봉 자체보다 캔들이 나온 위치와 거래량을 함께 봐야 합니다.</text>
+
+  <g font-family="Pretendard, Noto Sans KR, Arial, sans-serif">
+    <g transform="translate(86 205)">
+      <rect width="370" height="220" rx="18" fill="#f7eeee" stroke="#d9ded4"/>
+      <text x="28" y="44" fill="#b85f55" font-size="22" font-weight="800">색만 보고 판단</text>
+      <text x="28" y="80" fill="#152323" font-size="18">양봉이면 좋고, 음봉이면 나쁘다고 단정</text>
+      <path d="M42 158 C92 98 142 108 188 74 C244 32 286 55 330 35" fill="none" stroke="#c48a2c" stroke-width="6" stroke-linecap="round"/>
+      <line x1="42" y1="62" x2="330" y2="62" stroke="#b85f55" stroke-width="4" stroke-dasharray="10 8"/>
+      <rect x="257" y="70" width="44" height="86" rx="8" fill="#28706c"/>
+      <line x1="279" y1="42" x2="279" y2="176" stroke="#152323" stroke-width="5" stroke-linecap="round"/>
+      <text x="42" y="196" fill="#64706b" font-size="16">이미 높은 위치의 양봉은 늦은 진입 위험일 수 있습니다.</text>
+    </g>
+
+    <g transform="translate(505 205)">
+      <rect width="370" height="220" rx="18" fill="#eef3ed" stroke="#d9ded4"/>
+      <text x="28" y="44" fill="#28706c" font-size="22" font-weight="800">위치와 함께 판단</text>
+      <text x="28" y="80" fill="#152323" font-size="18">지지·저항, 꼬리, 거래량을 같이 확인</text>
+      <line x1="42" y1="162" x2="330" y2="162" stroke="#28706c" stroke-width="4" stroke-dasharray="10 8"/>
+      <path d="M42 98 C88 150 135 132 176 162 C222 194 270 124 330 112" fill="none" stroke="#c48a2c" stroke-width="6" stroke-linecap="round"/>
+      <rect x="148" y="104" width="44" height="48" rx="8" fill="#28706c"/>
+      <line x1="170" y1="82" x2="170" y2="174" stroke="#152323" stroke-width="5" stroke-linecap="round"/>
+      <rect x="232" y="132" width="20" height="38" rx="4" fill="#28706c"/>
+      <rect x="262" y="112" width="20" height="58" rx="4" fill="#28706c"/>
+      <rect x="292" y="92" width="20" height="78" rx="4" fill="#28706c"/>
+      <text x="42" y="196" fill="#64706b" font-size="16">지지선 근처 회복과 거래량 증가는 따로 확인할 가치가 있습니다.</text>
+    </g>
+  </g>
+</svg>
