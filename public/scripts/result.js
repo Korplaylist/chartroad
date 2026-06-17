@@ -45,6 +45,19 @@ function metric(label, value) {
   return `<div class="metric"><div class="metric-head"><span>${label}</span><span>${rounded}</span></div><div class="bar"><span style="--value:${rounded}%"></span></div></div>`;
 }
 
+function detailCard(label, title, body, options = {}) {
+  const tag = options.tag ? ` ${options.tag}` : "";
+  const note = options.note ? `<p class="result-detail-note">${options.note}</p>` : "";
+  return `
+    <article class="card result-detail-card${tag}">
+      <small>${label}</small>
+      <h3>${title}</h3>
+      ${body}
+      ${note}
+    </article>
+  `;
+}
+
 if (complete) {
   const result = calculateResult(answers);
   const main = profiles[result.mainType];
@@ -91,18 +104,20 @@ if (complete) {
           ${metric("익절 기준 이슈", result.metrics.profitTakingIssue)}
         </div>
       </section>
-      <section class="split">
-        <article class="card"><h2>위험 플래그</h2><ul class="list">${flags.map((item) => `<li>${item}</li>`).join("")}</ul></article>
-        <article class="card"><h2>먼저 공부할 것 TOP 5</h2><ol class="list">${study.map((item) => `<li>${item}</li>`).join("")}</ol></article>
+      <section class="split result-detail-grid">
+        ${detailCard("리스크 점검", "위험 플래그", `<ul class="list">${flags.map((item) => `<li>${item}</li>`).join("")}</ul>`)}
+        ${detailCard("우선순위", "먼저 공부할 것 TOP 5", `<ol class="list">${study.map((item) => `<li>${item}</li>`).join("")}</ol>`)}
       </section>
-      <section class="grid cols-3">
-        <article class="card"><h2>그다음 공부하면 좋은 심화 기법</h2><ol class="list">${studySections.nextStudies.map((item) => `<li>${item}</li>`).join("")}</ol></article>
-        <article class="card"><h2>${result.canShowExpertTechniques ? "전문 기법으로 확장하기" : "나중에 도전하면 좋은 고급 기법"}</h2><ol class="list">${studySections.futureExpertStudies.map((item) => `<li>${item}</li>`).join("")}</ol><p class="meta" style="margin-top:12px">${result.canShowExpertTechniques ? "현재 답변 기준으로 전문 기법을 학습 후보에 포함할 수 있습니다." : "지금 당장 추천하기보다 기초와 실전 기준이 잡힌 뒤 도전하는 편이 좋습니다."}</p></article>
-        <article class="card"><h2>지금은 피해야 할 기법</h2><ul class="list">${avoid.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+      <section class="grid cols-3 result-detail-grid">
+        ${detailCard("다음 단계", "그다음 공부하면 좋은 심화 기법", `<ol class="list">${studySections.nextStudies.map((item) => `<li>${item}</li>`).join("")}</ol>`)}
+        ${detailCard("확장 학습", result.canShowExpertTechniques ? "전문 기법으로 확장하기" : "나중에 도전하면 좋은 고급 기법", `<ol class="list">${studySections.futureExpertStudies.map((item) => `<li>${item}</li>`).join("")}</ol>`, {
+          note: result.canShowExpertTechniques ? "현재 답변 기준으로 전문 기법을 학습 후보에 포함할 수 있습니다." : "기초와 실전 기준이 잡힌 뒤 도전하는 편이 좋습니다.",
+        })}
+        ${detailCard("학습 순서 주의", "지금은 피해야 할 기법", `<ul class="list">${avoid.map((item) => `<li>${item}</li>`).join("")}</ul>`, { tag: "wide-on-mobile" })}
       </section>
-      <section class="split">
-        <article class="card"><h2>실전 체크리스트</h2><ol class="list">${studySections.practicalChecklist.map((item) => `<li>${item}</li>`).join("")}</ol></article>
-        <article class="card"><h2>7일 공부 로드맵</h2><ol class="list">${roadmap(study).map((item) => `<li>${item.replace(/^\\d일차: /, "")}</li>`).join("")}</ol></article>
+      <section class="split result-detail-grid">
+        ${detailCard("매매 전 확인", "실전 체크리스트", `<ol class="list">${studySections.practicalChecklist.map((item) => `<li>${item}</li>`).join("")}</ol>`)}
+        ${detailCard("일주일 루틴", "7일 공부 로드맵", `<ol class="list">${roadmap(study).map((item) => `<li>${item.replace(/^\\d일차: /, "")}</li>`).join("")}</ol>`)}
       </section>
       <section class="card">
         <h2>추천 콘텐츠</h2>
