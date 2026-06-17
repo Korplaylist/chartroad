@@ -1,0 +1,79 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { articles, articleMap } from "@/data/articles";
+
+export function getStaticPaths() {
+  return articles.map((article) => ({ params: { slug: article.slug } }));
+}
+
+const article = articleMap[Astro.params.slug ?? ""];
+const related = articles
+  .filter((item) => item.slug !== article.slug && (item.category === article.category || item.concepts.some((concept) => article.concepts.includes(concept))))
+  .slice(0, 3);
+
+const faqJson = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: article.faq.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+};
+const articleJson = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: article.title,
+  description: article.summary,
+  inLanguage: "ko-KR",
+};
+const breadcrumbJson = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "홈", item: "https://chartroad.pages.dev/" },
+    { "@type": "ListItem", position: 2, name: "공부 콘텐츠", item: "https://chartroad.pages.dev/learn" },
+    { "@type": "ListItem", position: 3, name: article.title },
+  ],
+};
+---
+
+<BaseLayout title={`${article.title} | 차트로드`} description={article.summary}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleJson)} slot="head"></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqJson)} slot="head"></script>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJson)} slot="head"></script>
+  <section class="section tight">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">홈</a> / <a href="/learn">공부 콘텐츠</a> / {article.title}</div>
+      <div class="split">
+        <article class="card article-body">
+          <small>{article.category}</small>
+          <h1 style="font-size:clamp(32px,5vw,54px); margin-top:8px">{article.title}</h1>
+          <p class="sublead">{article.summary}</p>
+          <div class="tag-row">{article.concepts.map((concept) => <span class="tag">{concept}</span>)}</div>
+          <hr style="border:0;border-top:1px solid var(--line);margin:28px 0" />
+          {article.body.map((paragraph) => <p>{paragraph}</p>)}
+          <div class="ad-slot" style="margin:28px 0">광고 영역</div>
+          <h2>자주 묻는 질문</h2>
+          {article.faq.map((item) => (
+            <section style="margin-top:18px">
+              <h3>{item.question}</h3>
+              <p class="meta" style="margin-top:8px">{item.answer}</p>
+            </section>
+          ))}
+        </article>
+        <aside class="card">
+          <h2>관련 글</h2>
+          <div class="grid" style="margin-top:18px">
+            {related.map((item) => (
+              <a href={`/learn/${item.slug}`}>
+                <strong>{item.title}</strong>
+                <p class="meta">{item.summary}</p>
+              </a>
+            ))}
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

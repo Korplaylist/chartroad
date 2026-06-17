@@ -1,0 +1,33 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { articles } from "@/data/articles";
+
+const categories = ["차트 기초", "보조지표", "매매 스타일", "리스크 관리"];
+---
+
+<BaseLayout title="차트 공부 콘텐츠 | 차트로드" description="차트 기초, 보조지표, 매매 스타일, 리스크 관리 글을 순서대로 읽어보세요.">
+  <section class="section tight">
+    <div class="container">
+      <h1>차트 공부 콘텐츠</h1>
+      <p class="sublead">테스트 결과와 연결되는 교육용 글입니다. 실제 판단보다 학습 기준을 세우는 데 초점을 둡니다.</p>
+    </div>
+  </section>
+  {categories.map((category) => (
+    <section class="section tight">
+      <div class="container">
+        <h2>{category}</h2>
+        <div class="grid cols-4" style="margin-top:20px">
+          {articles.filter((article) => article.category === category).map((article) => (
+            <a class="card" href={`/learn/${article.slug}`}>
+              <small>{article.category}</small>
+              <h3 style="margin-top:8px">{article.title}</h3>
+              <p class="meta" style="margin-top:10px">{article.summary}</p>
+              <div class="tag-row">{article.concepts.map((concept) => <span class="tag">{concept}</span>)}</div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+  <section class="section tight"><div class="container"><div class="ad-slot">광고 영역</div></div></section>
+</BaseLayout>

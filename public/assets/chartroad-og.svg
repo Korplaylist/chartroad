@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="차트로드 오픈그래프 이미지">
+  <rect width="1200" height="630" fill="#1d3a3a"/>
+  <path d="M0 470 C220 390 340 520 530 420 C760 300 920 330 1200 210 L1200 630 L0 630 Z" fill="#28706c"/>
+  <path d="M100 390 C260 340 310 420 455 355 C620 280 700 190 860 225 C1010 258 1080 175 1160 145" fill="none" stroke="#c48a2c" stroke-width="8" stroke-linecap="round"/>
+  <text x="80" y="155" fill="#fff" font-family="Arial, sans-serif" font-size="56" font-weight="800">차트로드</text>
+  <text x="80" y="225" fill="#f3ead9" font-family="Arial, sans-serif" font-size="34" font-weight="700">나에게 맞는 차트 공부 순서 테스트</text>
+  <text x="80" y="285" fill="#d7e3de" font-family="Arial, sans-serif" font-size="24">매매 성향과 실수를 바탕으로 교육용 학습 로드맵을 제안합니다</text>
+</svg>

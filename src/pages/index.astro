@@ -1,0 +1,72 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { resultProfiles } from "@/data/results";
+import { articles } from "@/data/articles";
+---
+
+<BaseLayout>
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow">교육용 차트 학습 로드맵</p>
+      <h1>나에게 맞는 차트 공부 순서 테스트</h1>
+      <p class="lead">3~5분 테스트로 현재 매매 습관, 차트 이해도, 리스크 성향을 진단하고 먼저 공부하면 좋은 차트 개념을 추천받아보세요.</p>
+      <div class="actions">
+        <a class="btn primary" href="/test">테스트 시작하기</a>
+        <a class="btn ghost" href="/learn">공부 콘텐츠 보기</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>12개 결과 유형 미리보기</h2>
+      <p class="sublead">결과 이름은 가볍게, 설명과 추천 공부는 실용적으로 구성했습니다.</p>
+      <div class="grid cols-3" style="margin-top:24px">
+        {resultProfiles.map((profile) => (
+          <article class="card">
+            <small>{profile.meaning}</small>
+            <h3 style="margin-top:8px">{profile.name}</h3>
+            <p class="meta" style="margin-top:10px">{profile.summary}</p>
+            <div class="tag-row">
+              {profile.recommendedStudy.slice(0, 3).map((item) => <span class="tag">{item}</span>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="container split">
+      <div>
+        <h2>나는 어떤 차트 공부부터 해야 할까?</h2>
+        <p class="sublead">차트로드는 특정 종목이나 매매 판단을 추천하지 않습니다. 답변을 바탕으로 차트 공부의 우선순위와 반복 실수를 정리해주는 교육용 진단 서비스입니다.</p>
+      </div>
+      <div class="card">
+        <h3>진단에 반영되는 기준</h3>
+        <ul class="list">
+          <li>현재 차트 이해도와 매매 기준 명확도</li>
+          <li>차트 확인 가능 시간과 선호 시간축</li>
+          <li>손절, 물타기, 추격매수, 익절 습관</li>
+          <li>선호 학습 방식과 관심 개념</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>추천 공부 콘텐츠</h2>
+      <p class="sublead">테스트 결과에 따라 먼저 읽을 글이 달라집니다.</p>
+      <div class="grid cols-4" style="margin-top:24px">
+        {articles.slice(0, 8).map((article) => (
+          <a class="card" href={`/learn/${article.slug}`}>
+            <small>{article.category}</small>
+            <h3 style="margin-top:8px">{article.title}</h3>
+            <p class="meta" style="margin-top:10px">{article.summary}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

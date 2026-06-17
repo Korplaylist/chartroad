@@ -1,0 +1,19 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { questions } from "@/data/questions";
+import { resultProfileMap } from "@/data/results";
+import { articles } from "@/data/articles";
+---
+
+<BaseLayout title="차트로드 결과 | 차트 공부 로드맵" description="차트로드 테스트 결과를 바탕으로 먼저 공부하면 좋은 차트 개념과 7일 학습 로드맵을 확인하세요.">
+  <section class="section tight">
+    <div class="container" id="result-app" data-questions={JSON.stringify(questions)} data-profiles={JSON.stringify(resultProfileMap)} data-articles={JSON.stringify(articles)}>
+      <div class="card">
+        <h1 style="font-size:clamp(30px,5vw,52px)">결과를 불러오는 중입니다</h1>
+        <p class="sublead">답변이 없다면 테스트를 먼저 진행해주세요.</p>
+        <div class="actions"><a class="btn dark" href="/test">테스트 시작하기</a></div>
+      </div>
+    </div>
+  </section>
+  <script type="module" src="/scripts/result.js"></script>
+</BaseLayout>

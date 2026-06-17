@@ -1,0 +1,71 @@
+---
+import "@/styles/global.css";
+
+type Props = {
+  title?: string;
+  description?: string;
+  image?: string;
+};
+
+const {
+  title = "차트로드 | 나에게 맞는 차트 공부 순서 테스트",
+  description = "매매 성향과 실수를 바탕으로 나에게 맞는 차트 공부 순서를 추천받아보세요.",
+  image = "/assets/chartroad-hero.png",
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://chartroad.pages.dev").toString();
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#1d3a3a" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(image, Astro.site ?? "https://chartroad.pages.dev").toString()} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.site ?? "https://chartroad.pages.dev").toString()} />
+    <slot name="head" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="주요 메뉴">
+        <a class="brand" href="/" aria-label="차트로드 홈">
+          <span class="brand-mark">C</span>
+          <span>차트로드</span>
+        </a>
+        <div class="nav-links">
+          <a href="/test">테스트</a>
+          <a href="/learn">공부 콘텐츠</a>
+          <a href="/results">결과 유형</a>
+          <a href="/about">소개</a>
+          <a href="/disclaimer">유의사항</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <strong>차트로드</strong>
+          <p class="disclaimer">이 사이트의 내용은 투자 판단을 위한 교육용 정보이며, 특정 종목의 매수·매도 추천이 아닙니다. 모든 투자 판단과 책임은 본인에게 있습니다.</p>
+        </div>
+        <div class="nav-links">
+          <a href="/privacy">개인정보처리방침</a>
+          <a href="/contact">문의</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

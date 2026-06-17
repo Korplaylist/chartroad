@@ -1,0 +1,10 @@
+{
+  "name": "차트로드",
+  "short_name": "차트로드",
+  "description": "나에게 맞는 차트 공부 순서를 추천하는 교육용 진단 플랫폼",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f4ee",
+  "theme_color": "#1d3a3a",
+  "lang": "ko-KR"
+}
