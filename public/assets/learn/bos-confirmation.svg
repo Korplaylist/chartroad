@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">단순 이탈과 구조 변화 비교</title>
+  <desc id="desc">꼬리만 이탈한 경우와 종가로 구조가 깨진 경우를 비교한 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/>
+  <text x="60" y="70" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#132321">BOS는 꼬리 하나보다 종가와 이후 반응을 봅니다</text>
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(58 116)"><rect width="394" height="350" rx="18" fill="#fffefa" stroke="#d7d8cc"/><text x="30" y="48" font-size="27" font-weight="800" fill="#8b5a16">흔들림</text><line x1="40" y1="210" x2="350" y2="210" stroke="#c98d2e" stroke-width="5"/><path d="M52 260 C102 188 150 186 192 206 C226 222 256 236 302 200 C326 180 340 176 354 170" fill="none" stroke="#132321" stroke-width="6"/><line x1="190" y1="230" x2="190" y2="246" stroke="#132321" stroke-width="6"/><text x="42" y="310" font-size="20" fill="#132321">꼬리만 잠깐 이탈 후 회복</text></g>
+    <g transform="translate(508 116)"><rect width="394" height="350" rx="18" fill="#fffefa" stroke="#d7d8cc"/><text x="30" y="48" font-size="27" font-weight="800" fill="#9d3e3e">구조 변화</text><line x1="40" y1="210" x2="350" y2="210" stroke="#b64a4a" stroke-width="5"/><path d="M52 170 C104 198 144 188 190 212 C230 232 266 260 350 294" fill="none" stroke="#132321" stroke-width="6"/><text x="42" y="310" font-size="20" fill="#132321">종가 이탈 후 회복 실패</text></g>
+  </g>
+</svg>

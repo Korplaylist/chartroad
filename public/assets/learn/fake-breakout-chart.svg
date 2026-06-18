@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">가짜 돌파 차트 예시</title>
+  <desc id="desc">박스권 상단을 돌파한 것처럼 보였지만 다시 박스 안으로 들어오는 가짜 돌파 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/><rect x="56" y="42" width="848" height="456" rx="22" fill="#fffefa" stroke="#d7d8cc"/>
+  <text x="92" y="96" font-family="Arial, sans-serif" font-size="32" font-weight="800" fill="#132321">가짜 돌파는 돌파 후 유지 실패를 확인합니다</text>
+  <rect x="116" y="178" width="720" height="178" rx="12" fill="#fff8e8" stroke="#c98d2e" stroke-dasharray="10 8"/>
+  <text x="132" y="210" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#8b5a16">박스권</text>
+  <path d="M130 318 C190 220 246 210 296 292 C342 360 400 210 456 268 C506 318 562 194 620 226 C658 248 680 142 714 124 C744 110 774 226 826 276" fill="none" stroke="#132321" stroke-width="6"/>
+  <line x1="648" y1="178" x2="770" y2="178" stroke="#b64a4a" stroke-width="5"/>
+  <text x="646" y="152" font-family="Arial, sans-serif" font-size="21" font-weight="800" fill="#9d3e3e">돌파처럼 보임</text>
+  <text x="708" y="326" font-family="Arial, sans-serif" font-size="21" font-weight="800" fill="#9d3e3e">박스 안 복귀</text>
+  <g fill="#9da59f"><rect x="132" y="422" width="24" height="34"/><rect x="196" y="410" width="24" height="46"/><rect x="260" y="424" width="24" height="32"/><rect x="324" y="400" width="24" height="56"/><rect x="388" y="418" width="24" height="38"/><rect x="452" y="392" width="24" height="64"/><rect x="516" y="410" width="24" height="46"/><rect x="580" y="382" width="24" height="74"/><rect x="644" y="358" width="24" height="98"/><rect x="708" y="364" width="24" height="92"/><rect x="772" y="390" width="24" height="66"/></g>
+</svg>

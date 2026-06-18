@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">저항 지지 역할 전환 차트</title>
+  <desc id="desc">저항 돌파 후 되돌림에서 같은 가격대가 지지로 바뀌는 실제 차트형 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/><rect x="56" y="42" width="848" height="456" rx="22" fill="#fffefa" stroke="#d7d8cc"/>
+  <text x="92" y="96" font-family="Arial, sans-serif" font-size="32" font-weight="800" fill="#132321">저항이 지지로 바뀌려면 되돌림 확인이 필요합니다</text>
+  <rect x="112" y="238" width="730" height="54" rx="10" fill="#fff3da" stroke="#c98d2e"/><text x="126" y="272" font-family="Arial, sans-serif" font-size="21" font-weight="800" fill="#8b5a16">이전 저항 → 돌파 후 지지 후보</text>
+  <path d="M120 332 C184 268 240 256 300 270 C350 282 390 248 442 252 C492 256 514 188 566 176 C620 164 666 216 712 248 C764 282 804 268 842 226" fill="none" stroke="#132321" stroke-width="6"/>
+  <g stroke-width="7" stroke-linecap="round"><line x1="160" y1="330" x2="160" y2="292" stroke="#1f7a6b"/><line x1="230" y1="292" x2="230" y2="254" stroke="#b64a4a"/><line x1="300" y1="282" x2="300" y2="248" stroke="#1f7a6b"/><line x1="370" y1="270" x2="370" y2="236" stroke="#b64a4a"/><line x1="440" y1="260" x2="440" y2="226" stroke="#1f7a6b"/><line x1="510" y1="218" x2="510" y2="176" stroke="#1f7a6b"/><line x1="580" y1="190" x2="580" y2="158" stroke="#1f7a6b"/><line x1="650" y1="232" x2="650" y2="194" stroke="#b64a4a"/><line x1="720" y1="264" x2="720" y2="228" stroke="#b64a4a"/><line x1="790" y1="252" x2="790" y2="214" stroke="#1f7a6b"/></g>
+  <text x="512" y="164" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#146b5f">돌파</text><text x="690" y="326" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#146b5f">되돌림 지지</text>
+</svg>
