@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+<title id="title">Max Drawdown 관리: 최대 낙폭을 기준으로 전략 통제하기 이해용 차트 이미지</title>
+<desc id="desc">Max Drawdown 관리 항목을 가격 위치, 거래량, 무효화 기준과 함께 설명하는 교육용 차트형 이미지</desc>
+<style>.title{font:800 34px system-ui,-apple-system,Segoe UI,sans-serif;fill:#10201f}.item{font:600 20px system-ui,-apple-system,Segoe UI,sans-serif;fill:#475569}.small{font:700 16px system-ui,-apple-system,Segoe UI,sans-serif;fill:#475569}.label{font:800 15px system-ui,-apple-system,Segoe UI,sans-serif;fill:#10201f}</style>
+<rect width="960" height="540" fill="#f8fafc"/>
+<rect x="32" y="32" width="896" height="476" rx="22" fill="white" stroke="#d8ded6"/>
+<rect x="64" y="42" width="92" height="34" rx="17" fill="#fef3c7"/>
+<text x="84" y="65" class="small">고급</text>
+<text x="176" y="65" class="small">리스크 관리</text>
+<text x="64" y="78" class="title">Max Drawdown 관리: 최대 낙폭을 </text><text x="64" y="120" class="title">기준으로 전략 통제하기</text>
+<text x="64" y="205" class="item">Max Drawdown 관리</text>
+<g transform="translate(0,0)">
+  <line x1="120" y1="398" x2="900" y2="398" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="120" y1="278" x2="900" y2="278" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="8 8"/>
+  <path d="M120 330 C200 270 270 350 350 285 C430 220 500 300 580 240 C660 180 730 240 820 190 C850 175 875 160 900 150" fill="none" stroke="#dc2626" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="210" y1="272" x2="210" y2="346" stroke="#16a34a" stroke-width="5" stroke-linecap="round"/><rect x="196" y="288" width="28" height="42" rx="4" fill="#16a34a" opacity="0.9"/><line x1="350" y1="226" x2="350" y2="300" stroke="#dc2626" stroke-width="5" stroke-linecap="round"/><rect x="336" y="255" width="28" height="42" rx="4" fill="#dc2626" opacity="0.9"/><line x1="520" y1="196" x2="520" y2="270" stroke="#16a34a" stroke-width="5" stroke-linecap="round"/><rect x="506" y="212" width="28" height="42" rx="4" fill="#16a34a" opacity="0.9"/><line x1="735" y1="144" x2="735" y2="218" stroke="#16a34a" stroke-width="5" stroke-linecap="round"/><rect x="721" y="160" width="28" height="42" rx="4" fill="#16a34a" opacity="0.9"/><line x1="835" y1="111" x2="835" y2="185" stroke="#dc2626" stroke-width="5" stroke-linecap="round"/><rect x="821" y="140" width="28" height="42" rx="4" fill="#dc2626" opacity="0.9"/>
+  <rect x="132" y="406" width="26" height="42" rx="5" fill="#dc2626" opacity="0.72"/><rect x="184" y="390" width="26" height="58" rx="5" fill="#94a3b8" opacity="0.72"/><rect x="236" y="412" width="26" height="36" rx="5" fill="#94a3b8" opacity="0.72"/><rect x="288" y="372" width="26" height="76" rx="5" fill="#94a3b8" opacity="0.72"/><rect x="340" y="394" width="26" height="54" rx="5" fill="#dc2626" opacity="0.72"/><rect x="392" y="356" width="26" height="92" rx="5" fill="#94a3b8" opacity="0.72"/><rect x="444" y="400" width="26" height="48" rx="5" fill="#94a3b8" opacity="0.72"/><rect x="496" y="378" width="26" height="70" rx="5" fill="#94a3b8" opacity="0.72"/><rect x="548" y="393" width="26" height="55" rx="5" fill="#dc2626" opacity="0.72"/><rect x="600" y="338" width="26" height="110" rx="5" fill="#94a3b8" opacity="0.72"/><rect x="652" y="383" width="26" height="65" rx="5" fill="#94a3b8" opacity="0.72"/><rect x="704" y="366" width="26" height="82" rx="5" fill="#94a3b8" opacity="0.72"/><rect x="756" y="404" width="26" height="44" rx="5" fill="#dc2626" opacity="0.72"/><rect x="808" y="352" width="26" height="96" rx="5" fill="#94a3b8" opacity="0.72"/>
+  <rect x="642" y="248" width="192" height="42" rx="21" fill="#fef3c7" stroke="#b45309"/>
+  <text x="665" y="275" class="label">확인 구간</text>
+  <line x1="650" y1="332" x2="852" y2="332" stroke="#dc2626" stroke-width="4" stroke-dasharray="9 8"/>
+  <text x="662" y="358" class="small">무효화 기준</text>
+</g>
+</svg>

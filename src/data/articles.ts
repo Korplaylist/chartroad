@@ -793,13 +793,22 @@ const basicStudyLinkByCategory: Record<string, string[]> = {
   "리스크 관리": [`<a href="/learn/stop-loss-basic/">손절선 잡는 법</a>`, `<a href="/learn/risk-reward/">손익비 계산</a>`, `<a href="/learn/profit-taking/">익절 기준</a>`],
 };
 
+const studyVisual = (definition: BasicStudyDefinition, levelLabel: string) => ({
+  src: `/assets/study/${definition.slug}.svg`,
+  alt: `${definition.title} 이해를 돕는 실제 차트형 학습 이미지`,
+  caption: `${levelLabel} 학습 항목인 ${definition.item}을 가격 위치, 거래량, 무효화 기준과 함께 보는 이미지입니다.`,
+});
+
 const buildBasicStudyBodyHtml = (definition: BasicStudyDefinition) => {
   const links = basicStudyLinkByCategory[definition.category] ?? basicStudyLinkByCategory["차트 기초"];
   return [
     `<p>${definition.title}은 차트로드 테스트 결과의 초보 단계에서 추천되는 핵심 공부 항목입니다. 이 글은 ${definition.summary}</p><p>초보 단계에서 중요한 것은 신호 하나를 외우는 것이 아니라, 같은 기준으로 차트를 반복해서 관찰하는 것입니다. 그래서 이 글은 개념, 차트에서 보는 순서, 자주 하는 실수, 직접 해보는 연습으로 나누어 정리합니다.</p>`,
+    `<h2>학습 목표</h2><p>이 글을 읽은 뒤에는 ${definition.item}을 차트에서 어디에 표시해야 하는지, 어떤 상황에서 조심해야 하는지, 판단이 틀렸을 때 어디서 멈춰야 하는지를 설명할 수 있어야 합니다.</p><p>초보 단계의 목표는 매매 결론을 빨리 내는 것이 아니라 관찰 순서를 만드는 것입니다. 같은 차트를 보더라도 가격 위치, 캔들, 거래량, 시간축, 손절 기준을 같은 순서로 확인하는 연습이 필요합니다.</p>`,
     `<h2>이 개념을 먼저 배워야 하는 이유</h2><p>${definition.focus}</p><p>이 항목이 잡히면 ${links[0]}와 ${links[1]}을 읽을 때 기준이 훨씬 선명해집니다. 반대로 이 기초가 약하면 보조지표나 고급 기법을 배워도 차트 위치를 놓치기 쉽습니다.</p>`,
     `<h2>차트에서 확인하는 순서</h2><ol><li>먼저 현재 가격이 지지선, 저항선, 박스권 중 어디에 있는지 봅니다.</li><li>그다음 캔들 모양과 거래량 변화를 함께 확인합니다.</li><li>주봉, 일봉, 분봉 중 어떤 시간축으로 판단하는지 정합니다.</li><li>내 해석이 틀렸다고 볼 무효화 조건을 적습니다.</li><li>마지막으로 손절 기준과 복기할 내용을 노트에 남깁니다.</li></ol>`,
+    `<h2>예시를 나누어 보는 법</h2><p>좋은 사례만 찾으면 실력이 빨리 느는 것처럼 보이지만 실제로는 위험합니다. 같은 ${definition.item}이라도 지지 근처에서 나온 장면, 저항 바로 아래에서 나온 장면, 박스권 중앙에서 나온 장면은 의미가 다를 수 있습니다.</p><p>그래서 연습할 때는 성공 사례 3개와 실패 사례 3개를 함께 모으세요. 성공 사례에서는 어떤 조건이 맞았는지, 실패 사례에서는 어떤 조건을 놓쳤는지 비교해야 공부 자료가 됩니다.</p>`,
     `<h2>직접 해보는 연습</h2><p>${definition.observe}</p><p>처음에는 결과를 맞히려고 하지 말고, 같은 기준을 여러 차트에 적용하는 데 집중하세요. 최소 5개 차트에서 같은 항목을 반복해서 표시하면 어떤 장면이 선명하고 어떤 장면이 애매한지 구분할 수 있습니다.</p>`,
+    `<h2>기록 양식</h2><p>노트에는 종목명보다 관찰 내용을 먼저 적는 편이 좋습니다. 예를 들어 가격 위치, 캔들 반응, 거래량 변화, 상위 시간축, 무효화 조건을 한 줄씩 기록하면 나중에 같은 기준으로 복기할 수 있습니다.</p><p>기록의 마지막 줄에는 항상 “다음에 같은 장면을 보면 무엇을 먼저 확인할 것인가?”를 적어두세요. 이 문장이 다음 학습으로 이어지는 연결고리가 됩니다.</p>`,
     `<h2>초보자가 자주 하는 실수</h2><p>${definition.mistake}</p><p>실수를 줄이려면 판단 전에 기준을 적고, 판단 후에는 실제 가격이 그 기준을 지켰는지 복기해야 합니다. 이 과정은 ${links[2]}와 연결해서 공부하면 좋습니다.</p>`,
     `<h2>복습 체크리스트</h2><ul><li>이 개념을 한 문장으로 설명할 수 있나요?</li><li>현재 가격 위치와 함께 해석했나요?</li><li>거래량이나 캔들 반응을 함께 확인했나요?</li><li>상위 시간축과 충돌하지 않는지 봤나요?</li><li>틀렸다고 볼 손절 또는 무효화 기준을 적었나요?</li></ul>`,
   ];
@@ -814,7 +823,7 @@ const basicStudyArticles: LearnArticle[] = basicStudyDefinitions.map((definition
   style: ["개념부터 차근차근", "실제 차트 예시 위주", "체크리스트 형태"],
   body: [],
   bodyHtml: buildBasicStudyBodyHtml(definition),
-  images: [studyImageMeta[definition.image]],
+  images: [studyVisual(definition, "초보")],
   studyItems: [definition.item],
   faq: [
     { question: `${definition.item}은 초보자가 바로 공부해도 되나요?`, answer: "네. 이 글은 테스트 결과의 초보 단계 추천 항목을 기준으로 만든 교육용 글이며, 차트 위치와 리스크 기준을 함께 보는 방식으로 읽으면 좋습니다." },
@@ -889,9 +898,12 @@ const buildIntermediateStudyBodyHtml = (definition: BasicStudyDefinition) => {
   const links = basicStudyLinkByCategory[definition.category] ?? basicStudyLinkByCategory["차트 기초"];
   return [
     `<p>${definition.title}은 차트로드 테스트 결과의 초중급 단계에서 추천되는 실전 적용 공부 항목입니다. ${definition.summary}</p><p>초중급 단계에서는 개념을 아는 것에서 멈추지 않고, 실제 차트 위에서 조건이 맞는지 확인하고 틀렸을 때 멈추는 기준까지 세워야 합니다.</p>`,
+    `<h2>학습 목표</h2><p>이 글의 목표는 ${definition.item}을 단순 용어가 아니라 실제 차트 판단 절차로 바꾸는 것입니다. 읽은 뒤에는 이 개념이 잘 맞는 장면, 애매한 장면, 피해야 할 장면을 나누어 설명할 수 있어야 합니다.</p><p>초중급 단계에서는 “보인다”보다 “어떤 조건에서 유효한가”가 중요합니다. 조건을 말할 수 없으면 아직 적용이 아니라 암기에 가깝습니다.</p>`,
     `<h2>실전에서 이 개념이 필요한 이유</h2><p>${definition.focus}</p><p>이 주제는 ${links[0]}와 ${links[1]}을 이미 읽은 뒤 적용하면 더 안정적입니다. 초중급 학습의 핵심은 신호를 더 많이 찾는 것이 아니라, 유효한 장면과 피해야 할 장면을 나누는 것입니다.</p>`,
     `<h2>차트 적용 순서</h2><ol><li>먼저 상위 시간축에서 큰 방향과 주요 가격대를 확인합니다.</li><li>현재 가격이 지지, 저항, 돌파, 눌림, 과열 중 어디에 있는지 분류합니다.</li><li>거래량과 캔들 종가가 같은 방향의 근거를 주는지 확인합니다.</li><li>진입 전 무효화 조건과 손절 위치를 차트에 표시합니다.</li><li>결과를 맞히기보다 기준이 지켜졌는지 복기합니다.</li></ol>`,
+    `<h2>좋은 장면과 피해야 할 장면</h2><p>좋은 장면은 가격 위치, 거래량, 종가, 시간축이 같은 방향을 말할 때입니다. 예를 들어 지지 구간에서 반응이 나오고 거래량이 확인되며 상위 시간축도 같은 방향이면 학습 가치가 높아집니다.</p><p>반대로 저항 바로 아래, 거래량 없는 돌파, 손절선이 너무 먼 자리, 상위 시간축과 충돌하는 장면은 피해야 합니다. 이런 장면은 결과가 맞더라도 반복 가능한 기준으로 만들기 어렵습니다.</p>`,
     `<h2>직접 해보는 적용 연습</h2><p>${definition.observe}</p><p>가능하면 성공한 차트만 고르지 말고 실패한 차트도 함께 모아보세요. 초중급 실력은 맞는 장면을 찾는 능력보다 애매하거나 실패하기 쉬운 장면을 거르는 능력에서 빨리 늘어납니다.</p>`,
+    `<h2>복기 질문</h2><p>복기할 때는 수익과 손실보다 기준이 맞았는지를 먼저 물어야 합니다. 진입 전 조건이 실제로 충족되었는지, 무효화 조건이 나왔을 때 계획대로 멈췄는지, 다음에는 어떤 필터를 추가해야 하는지 적어보세요.</p><p>이 과정을 반복하면 ${definition.item}이 단순한 공부 주제가 아니라 나만의 체크리스트 항목으로 바뀝니다.</p>`,
     `<h2>실패하기 쉬운 상황</h2><p>${definition.mistake}</p><p>이 실수를 줄이려면 진입 전 체크리스트를 만들고, 판단이 틀렸을 때 어떤 행동을 할지 미리 정해야 합니다. 이 과정은 ${links[2]}와 연결해서 복기하면 좋습니다.</p>`,
     `<h2>초중급 체크리스트</h2><ul><li>상위 시간축 방향과 충돌하지 않나요?</li><li>가격 위치가 지지나 저항 기준과 맞나요?</li><li>거래량과 종가가 같은 방향을 말하나요?</li><li>무효화 조건과 손절 위치가 명확한가요?</li><li>실패 사례까지 함께 복기했나요?</li></ul>`,
   ];
@@ -906,7 +918,7 @@ const intermediateStudyArticles: LearnArticle[] = intermediateStudyDefinitions.m
   style: ["실제 차트 예시 위주", "체크리스트 형태", "개념부터 차근차근"],
   body: [],
   bodyHtml: buildIntermediateStudyBodyHtml(definition),
-  images: [studyImageMeta[definition.image]],
+  images: [studyVisual(definition, "초중급")],
   studyItems: [definition.item],
   faq: [
     { question: `${definition.item}은 언제 공부하면 좋나요?`, answer: "초보 기초 개념을 읽고 실제 차트에 적용해보고 싶은 단계에서 공부하면 좋습니다. 반드시 가격 위치, 거래량, 손절 기준과 함께 확인하세요." },
@@ -980,9 +992,12 @@ const buildAdvancedStudyBodyHtml = (definition: BasicStudyDefinition) => {
   const links = basicStudyLinkByCategory[definition.category] ?? basicStudyLinkByCategory["차트 기초"];
   return [
     `<p>${definition.title}은 차트로드 테스트 결과의 중급 단계에서 추천되는 심화 학습 항목입니다. ${definition.summary}</p><p>중급 단계에서는 기법 이름을 아는 것보다, 그 기법이 유효한 조건과 실패하는 조건을 함께 구분하는 것이 중요합니다.</p>`,
+    `<h2>학습 목표</h2><p>이 글을 읽은 뒤에는 ${definition.item}을 언제 적용할 수 있고, 언제 보류해야 하는지 말할 수 있어야 합니다. 중급 단계의 목표는 더 많은 기법을 외우는 것이 아니라, 기법별 사용 조건을 분명히 나누는 것입니다.</p><p>특히 성공 사례보다 실패 사례를 더 꼼꼼하게 봐야 합니다. 실패 조건을 모르면 같은 기법을 배워도 실제 차트에서는 계속 늦게 대응하게 됩니다.</p>`,
     `<h2>이 기법의 역할</h2><p>${definition.focus}</p><p>이 주제는 ${links[0]}와 ${links[1]}에서 배운 기본 기준 위에 얹어야 의미가 생깁니다. 기본 가격 구조와 리스크 기준 없이 사용하면 기법이 아니라 해석을 복잡하게 만드는 장식이 될 수 있습니다.</p>`,
     `<h2>적용 조건</h2><ol><li>상위 시간축에서 추세와 가격 위치가 먼저 정리되어 있어야 합니다.</li><li>지지·저항, 거래량, 종가 유지 여부 중 최소 두 가지 근거가 함께 있어야 합니다.</li><li>진입 전에 무효화 조건과 손절 위치가 명확해야 합니다.</li><li>같은 기법의 성공 사례와 실패 사례를 함께 비교해야 합니다.</li><li>결론보다 기준이 반복 가능한지 복기해야 합니다.</li></ol>`,
+    `<h2>실전에서 비교해야 할 사례</h2><p>중급 학습에서는 같은 기법이 작동한 사례와 작동하지 않은 사례를 반드시 나란히 비교해야 합니다. 작동한 사례에서는 가격 위치와 거래량이 어떤 공통점을 가졌는지 보고, 실패한 사례에서는 어떤 조건이 빠졌는지 찾습니다.</p><p>이 비교를 하지 않으면 기법이 맞았던 장면만 기억하게 되고, 실제 시장에서는 불리한 장면까지 같은 방식으로 해석하게 됩니다.</p>`,
     `<h2>직접 해보는 심화 연습</h2><p>${definition.observe}</p><p>중급 연습에서는 한두 장의 예쁜 차트보다 최소 10개 이상의 사례를 모으는 것이 좋습니다. 성공한 장면만 모으면 과신이 생기므로 실패 사례도 반드시 같은 기준으로 기록하세요.</p>`,
+    `<h2>기록할 항목</h2><p>각 사례마다 적용 조건, 진입 후보 위치, 무효화 가격, 거래량 변화, 결과를 같은 순서로 기록하세요. 특히 “기법은 맞아 보였지만 들어가면 안 됐던 이유”를 따로 모으면 실전 필터가 빠르게 생깁니다.</p><p>중급 실력은 더 복잡한 분석보다 불리한 조건을 제거하는 능력에서 만들어집니다.</p>`,
     `<h2>무효화와 실패 조건</h2><p>${definition.mistake}</p><p>기법이 틀렸다고 볼 조건을 미리 정하지 않으면, 차트가 반대로 움직일 때 새로운 근거를 계속 붙이게 됩니다. 이 부분은 ${links[2]}와 연결해 기록하는 것이 좋습니다.</p>`,
     `<h2>중급 체크리스트</h2><ul><li>기법보다 가격 구조를 먼저 확인했나요?</li><li>거래량과 종가 유지 여부를 함께 봤나요?</li><li>성공 사례와 실패 사례를 모두 모았나요?</li><li>무효화 조건과 손절 위치가 명확한가요?</li><li>다음 복기 때 같은 기준으로 반복할 수 있나요?</li></ul>`,
   ];
@@ -997,7 +1012,7 @@ const advancedStudyArticles: LearnArticle[] = advancedStudyDefinitions.map((defi
   style: ["실제 차트 예시 위주", "체크리스트 형태", "개념부터 차근차근"],
   body: [],
   bodyHtml: buildAdvancedStudyBodyHtml(definition),
-  images: [studyImageMeta[definition.image]],
+  images: [studyVisual(definition, "중급")],
   studyItems: [definition.item],
   faq: [
     { question: `${definition.item}은 어떤 단계에서 공부하면 좋나요?`, answer: "기초 가격 구조, 거래량, 손절 기준을 어느 정도 이해한 뒤 중급 단계에서 공부하는 것이 좋습니다. 기법 이름보다 적용 조건과 실패 조건을 함께 익히는 것이 중요합니다." },
@@ -1068,9 +1083,12 @@ const buildExpertStudyBodyHtml = (definition: BasicStudyDefinition) => {
   const links = basicStudyLinkByCategory[definition.category] ?? basicStudyLinkByCategory["고급 차트 기술"] ?? basicStudyLinkByCategory["차트 기초"];
   return [
     `<p>${definition.title}은 차트로드 테스트 결과의 고급 단계에서 추천되는 전문 학습 항목입니다. ${definition.summary}</p><p>고급 기법은 기초를 대체하지 않습니다. 가격 구조, 거래량, 시간축, 손절 기준이 먼저 잡힌 뒤에 해석을 정교하게 만드는 도구로 사용해야 합니다.</p>`,
+    `<h2>학습 목표</h2><p>이 글의 목표는 ${definition.item}을 멋진 용어로 외우는 것이 아니라, 어떤 선행 조건이 있을 때만 사용할 수 있는지 구분하는 것입니다. 고급 단계에서는 기법을 더하는 것보다 기법을 제한하는 능력이 중요합니다.</p><p>전문 기법은 잘못 쓰면 차트를 더 복잡하게 만듭니다. 따라서 적용 전에는 반드시 가격 구조, 거래량, 시간축, 리스크 기준이 먼저 정리되어 있어야 합니다.</p>`,
     `<h2>선행 조건</h2><p>${definition.focus}</p><p>이 주제는 ${links[0]}와 ${links[1]}을 충분히 익힌 뒤 공부해야 합니다. 선행 조건 없이 적용하면 차트 위에 멋진 이름만 늘어나고 실제 판단 기준은 흐려질 수 있습니다.</p>`,
     `<h2>적용 맥락</h2><ol><li>먼저 상위 시간축의 추세와 주요 가격대를 확인합니다.</li><li>해당 기법이 적용될 수 있는 시장 환경인지 구분합니다.</li><li>가격 반응, 거래량, 종가 유지 여부로 가설을 검증합니다.</li><li>무효화 조건과 손절 위치를 기법보다 먼저 정합니다.</li><li>성공 사례와 실패 사례를 같은 기준으로 기록합니다.</li></ol>`,
+    `<h2>적용하면 안 되는 상황</h2><p>상위 시간축이 명확히 반대 방향이거나, 손절 위치를 정할 수 없거나, 기법의 기준점을 억지로 골라야 한다면 적용을 보류해야 합니다. 고급 기법은 애매한 차트를 확신 있게 만들어주는 도구가 아닙니다.</p><p>또한 거래량과 종가 반응이 따라오지 않는다면 패턴 이름이 맞아 보여도 학습 사례로만 남기는 편이 좋습니다.</p>`,
     `<h2>전문 학습 연습</h2><p>${definition.observe}</p><p>고급 단계에서는 예쁜 사례만 모으면 위험합니다. 최소 20개 사례를 모으고, 그중 실패 사례가 어떤 조건에서 나왔는지 따로 분류해야 실제 학습 자료가 됩니다.</p>`,
+    `<h2>검증 노트 작성법</h2><p>검증 노트에는 기법 이름, 선행 조건, 가격 위치, 거래량 반응, 무효화 기준, 결과를 같은 양식으로 적으세요. 특히 “왜 이 장면은 적용하면 안 되는가?”를 적는 칸을 반드시 두는 것이 좋습니다.</p><p>이 기록이 쌓이면 고급 기법을 무작정 많이 쓰는 것이 아니라, 필요한 상황에서만 제한적으로 쓰는 기준이 생깁니다.</p>`,
     `<h2>오해하기 쉬운 점</h2><p>${definition.mistake}</p><p>고급 기법일수록 틀렸을 때 빠르게 인정하는 기준이 필요합니다. 이 부분은 ${links[2]}와 연결해 무효화 조건을 먼저 기록하는 방식으로 공부하세요.</p>`,
     `<h2>고급 체크리스트</h2><ul><li>기초 가격 구조가 먼저 정리되어 있나요?</li><li>이 기법이 맞는 시장 환경인지 확인했나요?</li><li>거래량과 종가 반응이 가설을 뒷받침하나요?</li><li>무효화 조건과 포지션 크기를 먼저 정했나요?</li><li>실패 사례까지 같은 기준으로 복기했나요?</li></ul>`,
   ];
@@ -1085,7 +1103,7 @@ const expertStudyArticles: LearnArticle[] = expertStudyDefinitions.map((definiti
   style: ["실제 차트 예시 위주", "체크리스트 형태", "개념부터 차근차근"],
   body: [],
   bodyHtml: buildExpertStudyBodyHtml(definition),
-  images: [studyImageMeta[definition.image]],
+  images: [studyVisual(definition, "고급")],
   studyItems: [definition.item],
   faq: [
     { question: `${definition.item}은 초보자도 바로 공부해도 되나요?`, answer: "권장하지 않습니다. 이 글은 고급 단계의 전문 학습 항목이며, 가격 구조와 리스크 기준을 먼저 익힌 뒤 공부하는 편이 좋습니다." },
