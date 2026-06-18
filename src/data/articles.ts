@@ -799,7 +799,6 @@ const buildBasicStudyBodyHtml = (definition: BasicStudyDefinition) => {
     `<p>${definition.title}은 차트로드 테스트 결과의 초보 단계에서 추천되는 핵심 공부 항목입니다. 이 글은 ${definition.summary}</p><p>초보 단계에서 중요한 것은 신호 하나를 외우는 것이 아니라, 같은 기준으로 차트를 반복해서 관찰하는 것입니다. 그래서 이 글은 개념, 차트에서 보는 순서, 자주 하는 실수, 직접 해보는 연습으로 나누어 정리합니다.</p>`,
     `<h2>이 개념을 먼저 배워야 하는 이유</h2><p>${definition.focus}</p><p>이 항목이 잡히면 ${links[0]}와 ${links[1]}을 읽을 때 기준이 훨씬 선명해집니다. 반대로 이 기초가 약하면 보조지표나 고급 기법을 배워도 차트 위치를 놓치기 쉽습니다.</p>`,
     `<h2>차트에서 확인하는 순서</h2><ol><li>먼저 현재 가격이 지지선, 저항선, 박스권 중 어디에 있는지 봅니다.</li><li>그다음 캔들 모양과 거래량 변화를 함께 확인합니다.</li><li>주봉, 일봉, 분봉 중 어떤 시간축으로 판단하는지 정합니다.</li><li>내 해석이 틀렸다고 볼 무효화 조건을 적습니다.</li><li>마지막으로 손절 기준과 복기할 내용을 노트에 남깁니다.</li></ol>`,
-    `<figure class="article-figure"><img src="${studyImageMeta[definition.image].src}" alt="${studyImageMeta[definition.image].alt}" width="960" height="540" loading="lazy" decoding="async" /><figcaption>${studyImageMeta[definition.image].caption}</figcaption></figure>`,
     `<h2>직접 해보는 연습</h2><p>${definition.observe}</p><p>처음에는 결과를 맞히려고 하지 말고, 같은 기준을 여러 차트에 적용하는 데 집중하세요. 최소 5개 차트에서 같은 항목을 반복해서 표시하면 어떤 장면이 선명하고 어떤 장면이 애매한지 구분할 수 있습니다.</p>`,
     `<h2>초보자가 자주 하는 실수</h2><p>${definition.mistake}</p><p>실수를 줄이려면 판단 전에 기준을 적고, 판단 후에는 실제 가격이 그 기준을 지켰는지 복기해야 합니다. 이 과정은 ${links[2]}와 연결해서 공부하면 좋습니다.</p>`,
     `<h2>복습 체크리스트</h2><ul><li>이 개념을 한 문장으로 설명할 수 있나요?</li><li>현재 가격 위치와 함께 해석했나요?</li><li>거래량이나 캔들 반응을 함께 확인했나요?</li><li>상위 시간축과 충돌하지 않는지 봤나요?</li><li>틀렸다고 볼 손절 또는 무효화 기준을 적었나요?</li></ul>`,
