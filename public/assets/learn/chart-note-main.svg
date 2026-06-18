@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">차트 관찰 노트 작성법</title>
+  <desc id="desc">차트 관찰 노트에 캔들, 거래량, 위치, 시간축, 손절 기준을 기록하는 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/><rect x="60" y="50" width="840" height="440" rx="22" fill="#fffefa" stroke="#d7d8cc"/>
+  <text x="96" y="106" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#132321">차트 관찰 노트는 공부를 실력으로 바꾸는 장치입니다</text>
+  <g font-family="Arial, sans-serif" font-size="20" fill="#132321">
+    <rect x="96" y="160" width="360" height="58" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/><text x="118" y="197">캔들: 몸통과 꼬리</text>
+    <rect x="504" y="160" width="360" height="58" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/><text x="526" y="197">거래량: 평소 대비 변화</text>
+    <rect x="96" y="244" width="360" height="58" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/><text x="118" y="281">위치: 지지·저항·추세</text>
+    <rect x="504" y="244" width="360" height="58" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/><text x="526" y="281">시간축: 주봉·일봉·분봉</text>
+    <rect x="96" y="328" width="768" height="58" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/><text x="118" y="365">손절 기준: 내 생각이 틀렸다고 볼 조건</text>
+    <rect x="96" y="412" width="768" height="42" rx="12" fill="#eaf8f3" stroke="#69a88d"/><text x="118" y="440" font-weight="800" fill="#146b5f">결론: 매매 여부가 아니라 다음에 확인할 기준</text>
+  </g>
+</svg>

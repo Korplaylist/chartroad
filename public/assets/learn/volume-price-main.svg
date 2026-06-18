@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">거래량과 가격 위치 심화</title>
+  <desc id="desc">바닥권, 돌파, 고점권에서 같은 거래량 증가가 다르게 해석되는 실제 차트형 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/><rect x="56" y="42" width="848" height="456" rx="22" fill="#fffefa" stroke="#d7d8cc"/>
+  <text x="92" y="96" font-family="Arial, sans-serif" font-size="32" font-weight="800" fill="#132321">거래량은 위치에 따라 완전히 다르게 해석됩니다</text>
+  <rect x="110" y="316" width="190" height="42" rx="8" fill="#eaf8f3" stroke="#69a88d"/><text x="126" y="344" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#146b5f">바닥권 반응</text>
+  <rect x="382" y="214" width="190" height="42" rx="8" fill="#fff3da" stroke="#c98d2e"/><text x="398" y="242" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#8b5a16">저항 돌파</text>
+  <rect x="652" y="142" width="190" height="42" rx="8" fill="#fff3f3" stroke="#d08c8c"/><text x="668" y="170" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#9d3e3e">고점권 과열</text>
+  <path d="M118 330 C180 284 238 316 292 282 C350 246 394 218 452 222 C510 226 548 164 606 158 C672 152 706 126 838 150" fill="none" stroke="#132321" stroke-width="6"/>
+  <g fill="#9da59f"><rect x="130" y="430" width="28" height="68"/><rect x="206" y="452" width="28" height="46"/><rect x="282" y="440" width="28" height="58"/><rect x="388" y="394" width="28" height="104"/><rect x="464" y="430" width="28" height="68"/><rect x="540" y="418" width="28" height="80"/><rect x="660" y="360" width="28" height="138"/><rect x="736" y="372" width="28" height="126"/><rect x="812" y="410" width="28" height="88"/></g>
+</svg>

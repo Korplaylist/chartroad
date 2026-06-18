@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">손익비 기본</title>
+  <desc id="desc">진입가, 손절가, 목표가를 기준으로 1R 손실과 2R 기대수익을 계산하는 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/><rect x="56" y="42" width="848" height="456" rx="22" fill="#fffefa" stroke="#d7d8cc"/>
+  <text x="92" y="96" font-family="Arial, sans-serif" font-size="32" font-weight="800" fill="#132321">손익비는 들어가기 전에 계산하는 공부 기준입니다</text>
+  <line x1="140" y1="170" x2="820" y2="170" stroke="#146b5f" stroke-width="5"/><line x1="140" y1="286" x2="820" y2="286" stroke="#c98d2e" stroke-width="5"/><line x1="140" y1="344" x2="820" y2="344" stroke="#b64a4a" stroke-width="5"/>
+  <text x="156" y="160" font-family="Arial, sans-serif" font-size="22" font-weight="800" fill="#146b5f">목표가 12,000원</text><text x="156" y="276" font-family="Arial, sans-serif" font-size="22" font-weight="800" fill="#8b5a16">진입가 10,000원</text><text x="156" y="374" font-family="Arial, sans-serif" font-size="22" font-weight="800" fill="#9d3e3e">손절가 9,000원</text>
+  <path d="M674 286 L674 344" stroke="#9d3e3e" stroke-width="5"/><text x="694" y="324" font-family="Arial, sans-serif" font-size="24" font-weight="800" fill="#9d3e3e">-1R</text><path d="M740 286 L740 170" stroke="#146b5f" stroke-width="5"/><text x="760" y="236" font-family="Arial, sans-serif" font-size="24" font-weight="800" fill="#146b5f">+2R</text>
+</svg>

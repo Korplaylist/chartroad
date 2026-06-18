@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">박스권 차트 구조</title>
+  <desc id="desc">박스권 상단 저항과 하단 지지, 중간 구간, 거래량을 표시한 실제 차트형 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/><rect x="56" y="42" width="848" height="456" rx="22" fill="#fffefa" stroke="#d7d8cc"/>
+  <text x="92" y="96" font-family="Arial, sans-serif" font-size="32" font-weight="800" fill="#132321">박스권은 상단과 하단 사이의 반복 움직임입니다</text>
+  <rect x="118" y="168" width="724" height="192" rx="12" fill="#fff8e8" stroke="#c98d2e" stroke-dasharray="10 8"/>
+  <text x="132" y="202" font-family="Arial, sans-serif" font-size="21" font-weight="800" fill="#8b5a16">상단 저항</text><text x="132" y="342" font-family="Arial, sans-serif" font-size="21" font-weight="800" fill="#146b5f">하단 지지</text>
+  <path d="M130 322 C188 188 248 190 300 314 C350 364 410 178 468 248 C528 330 584 180 640 230 C700 290 748 250 834 176" fill="none" stroke="#132321" stroke-width="6"/>
+  <g fill="#9da59f"><rect x="130" y="424" width="24" height="34"/><rect x="190" y="408" width="24" height="50"/><rect x="250" y="432" width="24" height="26"/><rect x="310" y="394" width="24" height="64"/><rect x="370" y="418" width="24" height="40"/><rect x="430" y="382" width="24" height="76"/><rect x="490" y="414" width="24" height="44"/><rect x="550" y="390" width="24" height="68"/><rect x="610" y="406" width="24" height="52"/><rect x="670" y="386" width="24" height="72"/><rect x="730" y="370" width="24" height="88"/></g>
+</svg>

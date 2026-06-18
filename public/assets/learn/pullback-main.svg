@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">눌림목과 하락 전환 비교</title>
+  <desc id="desc">상승 흐름의 정상 눌림과 지지 실패 후 하락 전환을 비교하는 실제 차트형 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/>
+  <text x="60" y="72" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#132321">눌림목은 지켜야 할 기준을 지킬 때만 의미가 있습니다</text>
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(58 116)"><rect width="394" height="350" rx="18" fill="#fffefa" stroke="#d7d8cc"/><text x="30" y="48" font-size="27" font-weight="800" fill="#146b5f">정상 눌림</text><path d="M44 260 C100 210 144 188 194 154 C240 124 276 190 318 168 C344 154 360 130 366 118" fill="none" stroke="#132321" stroke-width="6"/><line x1="60" y1="238" x2="352" y2="158" stroke="#c98d2e" stroke-width="5"/><text x="44" y="310" font-size="20" fill="#132321">20일선과 이전 저점을 지키며 반등</text></g>
+    <g transform="translate(508 116)"><rect width="394" height="350" rx="18" fill="#fffefa" stroke="#d7d8cc"/><text x="30" y="48" font-size="27" font-weight="800" fill="#9d3e3e">하락 전환</text><path d="M44 150 C96 126 148 118 196 152 C240 184 268 238 320 274 C344 290 360 308 366 318" fill="none" stroke="#132321" stroke-width="6"/><line x1="60" y1="206" x2="352" y2="206" stroke="#b64a4a" stroke-width="5" stroke-dasharray="10 8"/><text x="44" y="310" font-size="20" fill="#132321">기준 저점 이탈 후 회복 실패</text></g>
+  </g>
+</svg>

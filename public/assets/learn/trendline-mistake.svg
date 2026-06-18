@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">억지 추세선과 좋은 추세선 비교</title>
+  <desc id="desc">캔들을 억지로 관통하는 추세선과 반응점이 맞는 추세선을 비교한 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/>
+  <text x="60" y="72" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#132321">추세선은 맞추는 선이 아니라 확인하는 선입니다</text>
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(58 116)"><rect width="394" height="350" rx="18" fill="#fffefa" stroke="#d7d8cc"/><text x="28" y="48" font-size="27" font-weight="800" fill="#9d3e3e">억지 추세선</text><path d="M46 260 C96 170 156 230 206 180 C256 130 300 210 350 126" fill="none" stroke="#132321" stroke-width="6"/><line x1="48" y1="290" x2="350" y2="92" stroke="#b64a4a" stroke-width="5"/><text x="38" y="318" font-size="20" fill="#132321">캔들을 많이 관통하고 기준이 애매함</text></g>
+    <g transform="translate(508 116)"><rect width="394" height="350" rx="18" fill="#fffefa" stroke="#d7d8cc"/><text x="28" y="48" font-size="27" font-weight="800" fill="#146b5f">좋은 추세선</text><path d="M46 260 C98 214 150 230 202 196 C252 164 300 178 350 126" fill="none" stroke="#132321" stroke-width="6"/><line x1="48" y1="274" x2="350" y2="138" stroke="#146b5f" stroke-width="5"/><circle cx="150" cy="226" r="8" fill="#146b5f"/><circle cx="300" cy="164" r="8" fill="#146b5f"/><text x="38" y="318" font-size="20" fill="#132321">반응점이 분명하고 현재 가격과 관련 있음</text></g>
+  </g>
+</svg>
