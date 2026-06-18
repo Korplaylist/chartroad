@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { articles } from "@/data/articles";
 import { resultProfiles } from "@/data/results";
 
 const tierLabels = [
@@ -8,6 +9,10 @@ const tierLabels = [
   ["advanced", "중급", "심화 분석"],
   ["expert", "고급", "전문 기법"],
 ] as const;
+
+const studyItemSlugMap = Object.fromEntries(
+  articles.flatMap((article) => (article.studyItems ?? []).map((item) => [item, article.slug]))
+);
 ---
 
 <BaseLayout title="차트로드 결과 유형 12가지" description="차트로드 테스트에서 나올 수 있는 12가지 차트 공부 성향 유형과 학습 단계별 추천 공부를 확인하세요.">
@@ -30,7 +35,11 @@ const tierLabels = [
                     <span>{caption}</span>
                   </div>
                   <ul>
-                    {profile.study[tier].map((item) => <li>{item}</li>)}
+                    {profile.study[tier].map((item) => (
+                      <li>
+                        {studyItemSlugMap[item] ? <a href={`/learn/${studyItemSlugMap[item]}`}>{item}</a> : item}
+                      </li>
+                    ))}
                   </ul>
                 </section>
               ))}

@@ -5,6 +5,9 @@ const questions = JSON.parse(app.dataset.questions);
 const profiles = JSON.parse(app.dataset.profiles);
 const articles = JSON.parse(app.dataset.articles);
 const answers = JSON.parse(localStorage.getItem("chartroad.answers") || "{}");
+const studyItemSlugMap = Object.fromEntries(
+  articles.flatMap((article) => (article.studyItems || []).map((item) => [item, article.slug]))
+);
 
 const complete = questions.every((question) => answers[question.id]);
 
@@ -25,6 +28,11 @@ function roadmap(study) {
     "6일차: 메인 유형과 보조 유형의 조심할 점을 비교해 반복 실수를 찾습니다.",
     "7일차: 한 주 동안 만든 기준을 5줄 로드맵으로 요약합니다.",
   ];
+}
+
+function studyLink(item) {
+  const slug = studyItemSlugMap[item];
+  return slug ? `<a href="/learn/${slug}">${item}</a>` : item;
 }
 
 function rankArticles(learningStyle, interestedConcept) {
@@ -106,11 +114,11 @@ if (complete) {
       </section>
       <section class="split result-detail-grid">
         ${detailCard("리스크 점검", "위험 플래그", `<ul class="list">${flags.map((item) => `<li>${item}</li>`).join("")}</ul>`)}
-        ${detailCard("우선순위", "먼저 공부할 것 TOP 5", `<ol class="list">${study.map((item) => `<li>${item}</li>`).join("")}</ol>`)}
+        ${detailCard("우선순위", "먼저 공부할 것 TOP 5", `<ol class="list">${study.map((item) => `<li>${studyLink(item)}</li>`).join("")}</ol>`)}
       </section>
       <section class="grid cols-3 result-detail-grid">
-        ${detailCard("다음 단계", "그다음 공부하면 좋은 심화 기법", `<ol class="list">${studySections.nextStudies.map((item) => `<li>${item}</li>`).join("")}</ol>`)}
-        ${detailCard("확장 학습", result.canShowExpertTechniques ? "전문 기법으로 확장하기" : "나중에 도전하면 좋은 고급 기법", `<ol class="list">${studySections.futureExpertStudies.map((item) => `<li>${item}</li>`).join("")}</ol>`, {
+        ${detailCard("다음 단계", "그다음 공부하면 좋은 심화 기법", `<ol class="list">${studySections.nextStudies.map((item) => `<li>${studyLink(item)}</li>`).join("")}</ol>`)}
+        ${detailCard("확장 학습", result.canShowExpertTechniques ? "전문 기법으로 확장하기" : "나중에 도전하면 좋은 고급 기법", `<ol class="list">${studySections.futureExpertStudies.map((item) => `<li>${studyLink(item)}</li>`).join("")}</ol>`, {
           note: result.canShowExpertTechniques ? "현재 답변 기준으로 전문 기법을 학습 후보에 포함할 수 있습니다." : "기초와 실전 기준이 잡힌 뒤 도전하는 편이 좋습니다.",
         })}
         ${detailCard("학습 순서 주의", "지금은 피해야 할 기법", `<ul class="list">${avoid.map((item) => `<li>${item}</li>`).join("")}</ul>`, { tag: "wide-on-mobile" })}

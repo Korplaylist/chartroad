@@ -60,5 +60,6 @@ export type LearnArticle = {
     alt: string;
     caption: string;
   }[];
+  studyItems?: string[];
   faq: { question: string; answer: string }[];
 };
