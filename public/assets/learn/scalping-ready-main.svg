@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">단타 준비 조건</title>
+  <desc id="desc">분봉 차트와 거래량, 손절 기준, 시간 확인을 단타 준비 체크리스트로 보여주는 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/><rect x="56" y="42" width="848" height="456" rx="22" fill="#fffefa" stroke="#d7d8cc"/>
+  <text x="92" y="94" font-family="Arial, sans-serif" font-size="32" font-weight="800" fill="#132321">단타는 빠른 수익보다 빠른 기준 확인이 먼저입니다</text>
+  <rect x="100" y="136" width="460" height="248" rx="14" fill="#ffffff" stroke="#e1ded3"/>
+  <path d="M124 314 L164 244 L206 286 L248 204 L290 260 L332 196 L374 238 L420 174 L526 154" fill="none" stroke="#132321" stroke-width="6"/>
+  <g fill="#9da59f"><rect x="130" y="340" width="20" height="34"/><rect x="188" y="326" width="20" height="48"/><rect x="246" y="314" width="20" height="60"/><rect x="304" y="298" width="20" height="76"/><rect x="362" y="318" width="20" height="56"/><rect x="420" y="286" width="20" height="88"/><rect x="478" y="300" width="20" height="74"/></g>
+  <g font-family="Arial, sans-serif" font-size="21" fill="#132321"><rect x="604" y="146" width="220" height="52" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/><text x="628" y="180">차트 볼 시간</text><rect x="604" y="218" width="220" height="52" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/><text x="628" y="252">거래량 충분</text><rect x="604" y="290" width="220" height="52" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/><text x="628" y="324">빠른 손절</text></g>
+</svg>

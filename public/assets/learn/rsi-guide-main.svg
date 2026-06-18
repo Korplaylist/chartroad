@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">RSI와 가격 위치</title>
+  <desc id="desc">가격 차트 아래 RSI 70과 30 기준선을 표시하고 지지 저항 위치와 함께 보는 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/><rect x="56" y="42" width="848" height="456" rx="22" fill="#fffefa" stroke="#d7d8cc"/>
+  <text x="92" y="94" font-family="Arial, sans-serif" font-size="32" font-weight="800" fill="#132321">RSI는 숫자보다 가격 위치와 함께 봅니다</text>
+  <rect x="112" y="128" width="720" height="212" rx="12" fill="#ffffff" stroke="#e1ded3"/>
+  <rect x="112" y="158" width="720" height="42" rx="8" fill="#fff3f3" stroke="#d08c8c"/><text x="126" y="185" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#9d3e3e">저항/고점권</text>
+  <rect x="112" y="276" width="720" height="42" rx="8" fill="#eaf8f3" stroke="#69a88d"/><text x="126" y="303" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#146b5f">지지/바닥권</text>
+  <path d="M130 294 C196 210 250 198 306 238 C360 278 416 168 470 184 C536 204 586 150 648 166 C704 184 746 134 824 154" fill="none" stroke="#132321" stroke-width="6"/>
+  <rect x="112" y="366" width="720" height="92" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/>
+  <line x1="132" y1="388" x2="812" y2="388" stroke="#b64a4a" stroke-dasharray="10 8"/><text x="820" y="394" font-family="Arial, sans-serif" font-size="16" fill="#9d3e3e">70</text>
+  <line x1="132" y1="438" x2="812" y2="438" stroke="#146b5f" stroke-dasharray="10 8"/><text x="820" y="444" font-family="Arial, sans-serif" font-size="16" fill="#146b5f">30</text>
+  <path d="M132 430 C220 410 280 392 348 416 C420 438 480 380 548 392 C630 404 700 382 812 386" fill="none" stroke="#345995" stroke-width="5"/>
+</svg>

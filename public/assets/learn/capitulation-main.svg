@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">바닥권 투매 거래량</title>
+  <desc id="desc">하락 후 바닥권에서 거래량이 폭증하고 아래꼬리가 생기는 실제 차트형 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/><rect x="56" y="42" width="848" height="456" rx="22" fill="#fffefa" stroke="#d7d8cc"/>
+  <text x="92" y="94" font-family="Arial, sans-serif" font-size="32" font-weight="800" fill="#132321">바닥권 투매 거래량은 회복 확인이 필요합니다</text>
+  <rect x="576" y="310" width="230" height="54" rx="10" fill="#eaf8f3" stroke="#69a88d"/><text x="598" y="344" font-family="Arial, sans-serif" font-size="21" font-weight="800" fill="#146b5f">투매 후 회복 관찰</text>
+  <path d="M130 160 C196 190 248 220 306 242 C370 270 430 300 490 330 C548 360 608 384 668 328 C730 270 774 286 824 252" fill="none" stroke="#132321" stroke-width="6"/>
+  <g fill="#9da59f"><rect x="130" y="420" width="28" height="48"/><rect x="210" y="410" width="28" height="58"/><rect x="290" y="398" width="28" height="70"/><rect x="370" y="386" width="28" height="82"/><rect x="450" y="374" width="28" height="94"/><rect x="530" y="322" width="28" height="146" fill="#b64a4a"/><rect x="610" y="300" width="28" height="168" fill="#b64a4a"/><rect x="690" y="366" width="28" height="102"/><rect x="770" y="392" width="28" height="76"/></g>
+</svg>

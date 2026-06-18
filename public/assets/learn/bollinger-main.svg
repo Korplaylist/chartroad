@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">볼린저밴드 중심선과 변동성</title>
+  <desc id="desc">가격 차트에 볼린저밴드 상단 중심선 하단과 밴드 폭 변화를 표시한 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/><rect x="56" y="42" width="848" height="456" rx="22" fill="#fffefa" stroke="#d7d8cc"/>
+  <text x="92" y="94" font-family="Arial, sans-serif" font-size="32" font-weight="800" fill="#132321">볼린저밴드는 상하단보다 중심선과 폭을 먼저 봅니다</text>
+  <path d="M120 190 C220 130 330 150 430 180 C540 214 650 118 836 146" fill="none" stroke="#9db5d7" stroke-width="4"/>
+  <path d="M120 280 C220 238 330 250 430 270 C540 300 650 224 836 238" fill="none" stroke="#c98d2e" stroke-width="5"/>
+  <path d="M120 370 C220 340 330 350 430 360 C540 390 650 330 836 330" fill="none" stroke="#9db5d7" stroke-width="4"/>
+  <path d="M130 310 C190 264 240 250 300 268 C360 288 410 224 470 240 C528 256 576 198 638 214 C700 230 748 196 824 206" fill="none" stroke="#132321" stroke-width="6"/>
+  <text x="128" y="176" font-family="Arial, sans-serif" font-size="18" fill="#345995">상단</text><text x="128" y="266" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#8b5a16">중심선</text><text x="128" y="396" font-family="Arial, sans-serif" font-size="18" fill="#345995">하단</text>
+</svg>

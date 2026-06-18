@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">눌림에서 거래량 감소</title>
+  <desc id="desc">상승 흐름 중 가격이 눌릴 때 거래량이 줄어드는 실제 차트형 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/><rect x="56" y="42" width="848" height="456" rx="22" fill="#fffefa" stroke="#d7d8cc"/>
+  <text x="92" y="94" font-family="Arial, sans-serif" font-size="32" font-weight="800" fill="#132321">눌림에서 거래량이 줄면 쉬어가는 흐름일 수 있습니다</text>
+  <path d="M130 320 C196 260 248 238 306 252 C366 268 412 192 470 208 C528 224 574 270 632 256 C700 240 750 196 824 176" fill="none" stroke="#132321" stroke-width="6"/>
+  <line x1="126" y1="330" x2="824" y2="180" stroke="#c98d2e" stroke-width="5"/>
+  <rect x="520" y="232" width="154" height="54" rx="10" fill="#fff3da" stroke="#c98d2e"/><text x="540" y="266" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#8b5a16">거래량 감소 눌림</text>
+  <g fill="#9da59f"><rect x="130" y="420" width="26" height="72"/><rect x="198" y="406" width="26" height="86"/><rect x="266" y="430" width="26" height="62"/><rect x="334" y="392" width="26" height="100"/><rect x="402" y="414" width="26" height="78"/><rect x="470" y="438" width="26" height="54"/><rect x="538" y="452" width="26" height="40"/><rect x="606" y="458" width="26" height="34"/><rect x="674" y="432" width="26" height="60"/><rect x="742" y="406" width="26" height="86"/></g>
+</svg>

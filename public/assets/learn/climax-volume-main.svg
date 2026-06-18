@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">클라이맥스 볼륨</title>
+  <desc id="desc">고점권에서 거래량이 폭증했지만 가격이 더 가지 못하는 실제 차트형 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/><rect x="56" y="42" width="848" height="456" rx="22" fill="#fffefa" stroke="#d7d8cc"/>
+  <text x="92" y="94" font-family="Arial, sans-serif" font-size="32" font-weight="800" fill="#132321">고점권 거래량 폭증은 과열 신호일 수 있습니다</text>
+  <rect x="610" y="126" width="220" height="58" rx="10" fill="#fff3f3" stroke="#d08c8c"/><text x="632" y="162" font-family="Arial, sans-serif" font-size="21" font-weight="800" fill="#9d3e3e">고점권 과열</text>
+  <path d="M130 326 C190 270 250 250 306 220 C370 186 430 172 486 150 C552 124 612 118 670 142 C724 164 768 178 824 172" fill="none" stroke="#132321" stroke-width="6"/>
+  <g fill="#9da59f"><rect x="130" y="430" width="28" height="44"/><rect x="210" y="416" width="28" height="58"/><rect x="290" y="398" width="28" height="76"/><rect x="370" y="390" width="28" height="84"/><rect x="450" y="374" width="28" height="100"/><rect x="530" y="360" width="28" height="114"/><rect x="610" y="310" width="28" height="164" fill="#b64a4a"/><rect x="690" y="324" width="28" height="150" fill="#b64a4a"/><rect x="770" y="390" width="28" height="84"/></g>
+</svg>

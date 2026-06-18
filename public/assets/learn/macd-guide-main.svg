@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">MACD 추세 맥락</title>
+  <desc id="desc">가격 차트와 MACD 0선, 골든크로스 위치를 함께 보여주는 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/><rect x="56" y="42" width="848" height="456" rx="22" fill="#fffefa" stroke="#d7d8cc"/>
+  <text x="92" y="94" font-family="Arial, sans-serif" font-size="32" font-weight="800" fill="#132321">MACD는 교차보다 추세 맥락을 먼저 봅니다</text>
+  <rect x="112" y="126" width="720" height="208" rx="12" fill="#ffffff" stroke="#e1ded3"/>
+  <path d="M130 280 C190 248 234 230 286 248 C344 268 394 212 452 228 C512 244 560 184 624 198 C690 212 748 168 820 144" fill="none" stroke="#132321" stroke-width="6"/>
+  <line x1="130" y1="252" x2="820" y2="190" stroke="#c98d2e" stroke-width="5"/><text x="672" y="182" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#8b5a16">가격은 이미 추세 위</text>
+  <rect x="112" y="360" width="720" height="96" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/>
+  <line x1="132" y1="408" x2="812" y2="408" stroke="#999" stroke-dasharray="8 8"/><text x="820" y="414" font-family="Arial, sans-serif" font-size="16" fill="#666">0선</text>
+  <path d="M132 430 C220 424 280 420 354 410 C434 398 500 382 590 386 C682 390 740 374 812 360" fill="none" stroke="#146b5f" stroke-width="5"/>
+  <path d="M132 448 C220 444 288 434 360 420 C438 404 510 396 594 398 C680 400 742 392 812 382" fill="none" stroke="#345995" stroke-width="5"/>
+  <circle cx="368" cy="418" r="9" fill="#b64a4a"/><text x="384" y="424" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#9d3e3e">교차만 보지 않기</text>
+</svg>

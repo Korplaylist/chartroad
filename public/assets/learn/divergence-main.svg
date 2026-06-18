@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">다이버전스 기본</title>
+  <desc id="desc">가격은 높은 고점을 만들지만 RSI는 낮은 고점을 만드는 다이버전스 예시 이미지</desc>
+  <rect width="960" height="540" fill="#f7f4ec"/><rect x="56" y="42" width="848" height="456" rx="22" fill="#fffefa" stroke="#d7d8cc"/>
+  <text x="92" y="94" font-family="Arial, sans-serif" font-size="32" font-weight="800" fill="#132321">다이버전스는 가격과 지표의 힘이 어긋나는 장면입니다</text>
+  <rect x="112" y="124" width="720" height="202" rx="12" fill="#ffffff" stroke="#e1ded3"/>
+  <path d="M130 270 C214 210 278 224 342 180 C418 128 492 168 560 142 C640 112 710 144 822 122" fill="none" stroke="#132321" stroke-width="6"/>
+  <line x1="342" y1="180" x2="560" y2="142" stroke="#b64a4a" stroke-width="5"/><text x="586" y="148" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#9d3e3e">가격 고점 상승</text>
+  <rect x="112" y="360" width="720" height="96" rx="12" fill="#f7f4ec" stroke="#d7d8cc"/>
+  <path d="M132 426 C214 392 282 398 346 386 C420 372 492 404 562 410 C640 416 710 396 812 404" fill="none" stroke="#345995" stroke-width="5"/>
+  <line x1="346" y1="386" x2="562" y2="410" stroke="#b64a4a" stroke-width="5"/><text x="586" y="418" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#9d3e3e">RSI 고점 하락</text>
+</svg>
