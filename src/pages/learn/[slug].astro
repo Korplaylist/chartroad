@@ -7,14 +7,6 @@ export function getStaticPaths() {
 }
 
 const article = articleMap[Astro.params.slug ?? ""];
-const related = articles
-  .filter(
-    (item) =>
-      item.slug !== article.slug &&
-      (item.category === article.category ||
-        item.concepts.some((concept) => article.concepts.includes(concept)))
-  )
-  .slice(0, 3);
 
 const faqJson = {
   "@context": "https://schema.org",
@@ -86,20 +78,6 @@ const breadcrumbJson = {
           </section>
         ))}
       </article>
-
-      <section class="related-section">
-        <h2>관련 글 추천</h2>
-        <p class="sublead">이 글과 같은 카테고리 또는 연결된 개념을 이어서 읽어보세요.</p>
-        <div class="grid cols-3 related-grid">
-          {related.map((item) => (
-            <a class="card" href={`/learn/${item.slug}`}>
-              <small>{item.category}</small>
-              <h3>{item.title}</h3>
-              <p class="meta">{item.summary}</p>
-            </a>
-          ))}
-        </div>
-      </section>
     </div>
   </section>
 </BaseLayout>
