@@ -808,72 +808,72 @@ const studyCompanionVisuals = (definition: BasicStudyDefinition, levelLabel: str
 
   if (source.includes("elliott") || source.includes("엘리엇")) {
     return [
-      studyImage("/assets/study-guides/elliott-impulse-abc.svg", `${prefix} 5파 상승과 ABC 조정 구조 이미지`, "5파 상승은 추세 방향의 추진 구조이고, ABC는 그 뒤에 나오는 대표 조정 구조입니다."),
-      studyImage("/assets/study-guides/elliott-correction-types.svg", `${prefix} Zigzag Flat Triangle 조정 비교 이미지`, "Zigzag, Flat, Triangle은 조정의 깊이와 모양이 달라서 같은 ABC라도 해석 기준이 달라집니다."),
-      studyImage("/assets/study-guides/elliott-validation.svg", `${prefix} 엘리엇파동 검증 순서 이미지`, "파동 번호를 붙이기 전에는 무효화 기준, 3파 강도, 5파 약화 신호를 함께 확인해야 합니다."),
+      studyImage("/assets/study/guide-elliott-impulse-abc.svg", `${prefix} 5파 상승과 ABC 조정 구조 이미지`, "5파 상승은 추세 방향의 추진 구조이고, ABC는 그 뒤에 나오는 대표 조정 구조입니다."),
+      studyImage("/assets/study/guide-elliott-correction-types.svg", `${prefix} Zigzag Flat Triangle 조정 비교 이미지`, "Zigzag, Flat, Triangle은 조정의 깊이와 모양이 달라서 같은 ABC라도 해석 기준이 달라집니다."),
+      studyImage("/assets/study/guide-elliott-validation.svg", `${prefix} 엘리엇파동 검증 순서 이미지`, "파동 번호를 붙이기 전에는 무효화 기준, 3파 강도, 5파 약화 신호를 함께 확인해야 합니다."),
     ];
   }
 
   if (source.includes("fibonacci") || source.includes("피보나치")) {
     return [
-      studyImage("/assets/study-guides/fibonacci-retracement-extension.svg", `${prefix} 피보나치 되돌림과 확장 비율 이미지`, "되돌림 비율은 눌림 후보를, 확장 비율은 목표 후보를 정리하는 데 씁니다."),
-      studyImage("/assets/study-guides/support-volume-confirmation.svg", `${prefix} 지지 저항 거래량 확인 이미지`, "비율만 보지 말고 지지·저항과 거래량 반응이 겹치는지 확인해야 합니다."),
-      studyImage("/assets/study-guides/risk-checklist.svg", `${prefix} 손절 목표가 체크 이미지`, "비율 구간이 좋아 보여도 손절가와 목표가가 먼저 계산되어야 합니다."),
+      studyImage("/assets/study/guide-fibonacci-retracement-extension.svg", `${prefix} 피보나치 되돌림과 확장 비율 이미지`, "되돌림 비율은 눌림 후보를, 확장 비율은 목표 후보를 정리하는 데 씁니다."),
+      studyImage("/assets/study/guide-support-volume-confirmation.svg", `${prefix} 지지 저항 거래량 확인 이미지`, "비율만 보지 말고 지지·저항과 거래량 반응이 겹치는지 확인해야 합니다."),
+      studyImage("/assets/study/guide-risk-checklist.svg", `${prefix} 손절 목표가 체크 이미지`, "비율 구간이 좋아 보여도 손절가와 목표가가 먼저 계산되어야 합니다."),
     ];
   }
 
   if (source.includes("wyckoff") || source.includes("와이코프") || source.includes("spring") || source.includes("upthrust")) {
     return [
-      studyImage("/assets/study-guides/wyckoff-range-spring-upthrust.svg", `${prefix} 와이코프 박스권 Spring Upthrust 이미지`, "와이코프는 박스권 안에서 이탈, 회복, 테스트, 실패 돌파를 순서대로 봅니다."),
-      studyImage("/assets/study-guides/volume-confirmation.svg", `${prefix} 거래량과 종가 확인 이미지`, "Spring과 Upthrust는 거래량, 종가 회복, 다음 캔들 반응으로 검증해야 합니다."),
-      studyImage("/assets/study-guides/risk-checklist.svg", `${prefix} 무효화와 손절 기준 이미지`, "박스권 구조는 좋아 보여도 무효화 가격을 먼저 정해야 실전 기준이 생깁니다."),
+      studyImage("/assets/study/guide-wyckoff-range-spring-upthrust.svg", `${prefix} 와이코프 박스권 Spring Upthrust 이미지`, "와이코프는 박스권 안에서 이탈, 회복, 테스트, 실패 돌파를 순서대로 봅니다."),
+      studyImage("/assets/study/guide-volume-confirmation.svg", `${prefix} 거래량과 종가 확인 이미지`, "Spring과 Upthrust는 거래량, 종가 회복, 다음 캔들 반응으로 검증해야 합니다."),
+      studyImage("/assets/study/guide-risk-checklist.svg", `${prefix} 무효화와 손절 기준 이미지`, "박스권 구조는 좋아 보여도 무효화 가격을 먼저 정해야 실전 기준이 생깁니다."),
     ];
   }
 
   if (imageKind === "rsi" || imageKind === "macd" || source.includes("divergence") || source.includes("다이버전스")) {
     return [
-      studyImage("/assets/study-guides/indicator-price-context.svg", `${prefix} 가격 위치와 RSI MACD 비교 이미지`, "보조지표는 가격 위치와 추세 구조를 먼저 본 뒤 확인용으로 써야 합니다."),
-      studyImage("/assets/study-guides/divergence-confirmation.svg", `${prefix} 다이버전스와 가격 확인 이미지`, "다이버전스는 반전 확정이 아니라 힘의 약화 후보이며 가격 구조 확인이 필요합니다."),
-      studyImage("/assets/study-guides/support-volume-confirmation.svg", `${prefix} 지표 신호 검증 이미지`, "지표 신호는 지지·저항, 거래량, 종가 위치와 함께 확인해야 합니다."),
+      studyImage("/assets/study/guide-indicator-price-context.svg", `${prefix} 가격 위치와 RSI MACD 비교 이미지`, "보조지표는 가격 위치와 추세 구조를 먼저 본 뒤 확인용으로 써야 합니다."),
+      studyImage("/assets/study/guide-divergence-confirmation.svg", `${prefix} 다이버전스와 가격 확인 이미지`, "다이버전스는 반전 확정이 아니라 힘의 약화 후보이며 가격 구조 확인이 필요합니다."),
+      studyImage("/assets/study/guide-support-volume-confirmation.svg", `${prefix} 지표 신호 검증 이미지`, "지표 신호는 지지·저항, 거래량, 종가 위치와 함께 확인해야 합니다."),
     ];
   }
 
   if (imageKind === "volume") {
     return [
-      studyImage("/assets/study-guides/volume-location-map.svg", `${prefix} 거래량 위치별 해석 이미지`, "거래량 증가는 바닥권, 돌파 구간, 고점권에서 의미가 다르게 바뀝니다."),
-      studyImage("/assets/study-guides/volume-confirmation.svg", `${prefix} 거래량 이후 가격 반응 이미지`, "거래량이 나온 뒤 가격이 지켜지는지, 되돌아오는지까지 봐야 합니다."),
-      studyImage("/assets/study-guides/support-volume-confirmation.svg", `${prefix} 거래량 지지 저항 결합 이미지`, "거래량은 혼자 보지 말고 가격대와 함께 볼 때 공부 자료가 됩니다."),
+      studyImage("/assets/study/guide-volume-location-map.svg", `${prefix} 거래량 위치별 해석 이미지`, "거래량 증가는 바닥권, 돌파 구간, 고점권에서 의미가 다르게 바뀝니다."),
+      studyImage("/assets/study/guide-volume-confirmation.svg", `${prefix} 거래량 이후 가격 반응 이미지`, "거래량이 나온 뒤 가격이 지켜지는지, 되돌아오는지까지 봐야 합니다."),
+      studyImage("/assets/study/guide-support-volume-confirmation.svg", `${prefix} 거래량 지지 저항 결합 이미지`, "거래량은 혼자 보지 말고 가격대와 함께 볼 때 공부 자료가 됩니다."),
     ];
   }
 
   if (imageKind === "ma") {
     return [
-      studyImage("/assets/study-guides/moving-average-order-pullback.svg", `${prefix} 이동평균선 정배열과 눌림 이미지`, "이동평균선은 추세 방향과 눌림 위치를 정리하는 기준선입니다."),
-      studyImage("/assets/study-guides/moving-average-breakdown.svg", `${prefix} 이동평균선 이탈과 회복 이미지`, "선에 닿는 것보다 지켜지는지, 이탈 후 회복하는지가 더 중요합니다."),
-      studyImage("/assets/study-guides/risk-checklist.svg", `${prefix} 이동평균선 무효화 기준 이미지`, "평균선 근처 진입도 무효화 가격과 손절폭을 먼저 정해야 합니다."),
+      studyImage("/assets/study/guide-moving-average-order-pullback.svg", `${prefix} 이동평균선 정배열과 눌림 이미지`, "이동평균선은 추세 방향과 눌림 위치를 정리하는 기준선입니다."),
+      studyImage("/assets/study/guide-moving-average-breakdown.svg", `${prefix} 이동평균선 이탈과 회복 이미지`, "선에 닿는 것보다 지켜지는지, 이탈 후 회복하는지가 더 중요합니다."),
+      studyImage("/assets/study/guide-risk-checklist.svg", `${prefix} 이동평균선 무효화 기준 이미지`, "평균선 근처 진입도 무효화 가격과 손절폭을 먼저 정해야 합니다."),
     ];
   }
 
   if (imageKind === "risk" || imageKind === "reward" || imageKind === "profit" || source.includes("risk") || source.includes("position") || source.includes("atr")) {
     return [
-      studyImage("/assets/study-guides/risk-reward-map.svg", `${prefix} 진입가 손절가 목표가 손익비 이미지`, "진입 전에는 손절가, 목표가, 1R 기준을 먼저 눈으로 확인해야 합니다."),
-      studyImage("/assets/study-guides/position-sizing-map.svg", `${prefix} 포지션 크기와 계좌 위험 이미지`, "같은 진입이라도 손절폭과 계좌 위험 한도에 따라 포지션 크기가 달라집니다."),
-      studyImage("/assets/study-guides/risk-checklist.svg", `${prefix} 리스크 체크리스트 이미지`, "리스크 관리는 예측이 틀렸을 때 계좌를 지키는 공부입니다."),
+      studyImage("/assets/study/guide-risk-reward-map.svg", `${prefix} 진입가 손절가 목표가 손익비 이미지`, "진입 전에는 손절가, 목표가, 1R 기준을 먼저 눈으로 확인해야 합니다."),
+      studyImage("/assets/study/guide-position-sizing-map.svg", `${prefix} 포지션 크기와 계좌 위험 이미지`, "같은 진입이라도 손절폭과 계좌 위험 한도에 따라 포지션 크기가 달라집니다."),
+      studyImage("/assets/study/guide-risk-checklist.svg", `${prefix} 리스크 체크리스트 이미지`, "리스크 관리는 예측이 틀렸을 때 계좌를 지키는 공부입니다."),
     ];
   }
 
   if (imageKind === "candle") {
     return [
-      studyImage("/assets/study-guides/candle-ohlc-location.svg", `${prefix} 캔들 OHLC와 위치 이미지`, "캔들은 색보다 시가·고가·저가·종가와 위치를 함께 봐야 합니다."),
-      studyImage("/assets/study-guides/candle-wick-pressure.svg", `${prefix} 꼬리와 매수 매도 압력 이미지`, "꼬리는 밀렸다가 회복했는지, 올랐다가 밀렸는지를 보여주는 흔적입니다."),
-      studyImage("/assets/study-guides/support-volume-confirmation.svg", `${prefix} 캔들 지지 저항 거래량 이미지`, "캔들 하나보다 가격대, 거래량, 다음 캔들 반응이 더 중요합니다."),
+      studyImage("/assets/study/guide-candle-ohlc-location.svg", `${prefix} 캔들 OHLC와 위치 이미지`, "캔들은 색보다 시가·고가·저가·종가와 위치를 함께 봐야 합니다."),
+      studyImage("/assets/study/guide-candle-wick-pressure.svg", `${prefix} 꼬리와 매수 매도 압력 이미지`, "꼬리는 밀렸다가 회복했는지, 올랐다가 밀렸는지를 보여주는 흔적입니다."),
+      studyImage("/assets/study/guide-support-volume-confirmation.svg", `${prefix} 캔들 지지 저항 거래량 이미지`, "캔들 하나보다 가격대, 거래량, 다음 캔들 반응이 더 중요합니다."),
     ];
   }
 
   return [
-    studyImage("/assets/study-guides/market-structure-map.svg", `${prefix} 고점 저점 가격 구조 이미지`, "먼저 고점과 저점이 높아지는지 낮아지는지로 큰 구조를 확인합니다."),
-    studyImage("/assets/study-guides/support-volume-confirmation.svg", `${prefix} 지지 저항 거래량 확인 이미지`, "핵심 가격대에서는 캔들 반응과 거래량을 함께 봐야 합니다."),
-    studyImage("/assets/study-guides/risk-checklist.svg", `${prefix} 실전 확인 체크리스트 이미지`, "학습 글의 마지막 기준은 항상 무효화 조건과 손절 기준입니다."),
+    studyImage("/assets/study/guide-market-structure-map.svg", `${prefix} 고점 저점 가격 구조 이미지`, "먼저 고점과 저점이 높아지는지 낮아지는지로 큰 구조를 확인합니다."),
+    studyImage("/assets/study/guide-support-volume-confirmation.svg", `${prefix} 지지 저항 거래량 확인 이미지`, "핵심 가격대에서는 캔들 반응과 거래량을 함께 봐야 합니다."),
+    studyImage("/assets/study/guide-risk-checklist.svg", `${prefix} 실전 확인 체크리스트 이미지`, "학습 글의 마지막 기준은 항상 무효화 조건과 손절 기준입니다."),
   ];
 };
 
@@ -1399,40 +1399,40 @@ const articleCompanionVisuals = (article: LearnArticle) => {
 
   if (source.includes("elliott") || source.includes("엘리엇")) {
     return [
-      studyImage("/assets/study-guides/elliott-impulse-abc.svg", `${prefix} 5파 상승과 ABC 조정 구조 이미지`, "5파 상승과 ABC 조정은 엘리엇파동을 이해할 때 가장 먼저 나눠 봐야 하는 구조입니다."),
-      studyImage("/assets/study-guides/elliott-correction-types.svg", `${prefix} Zigzag Flat Triangle 조정 비교 이미지`, "조정은 한 가지 모양만 나오지 않으므로 대표 조정 유형을 비교해 보는 것이 좋습니다."),
-      studyImage("/assets/study-guides/elliott-validation.svg", `${prefix} 엘리엇파동 검증 체크 이미지`, "파동 해석은 무효화 기준과 약화 신호를 함께 확인할 때 공부 자료가 됩니다."),
+      studyImage("/assets/study/guide-elliott-impulse-abc.svg", `${prefix} 5파 상승과 ABC 조정 구조 이미지`, "5파 상승과 ABC 조정은 엘리엇파동을 이해할 때 가장 먼저 나눠 봐야 하는 구조입니다."),
+      studyImage("/assets/study/guide-elliott-correction-types.svg", `${prefix} Zigzag Flat Triangle 조정 비교 이미지`, "조정은 한 가지 모양만 나오지 않으므로 대표 조정 유형을 비교해 보는 것이 좋습니다."),
+      studyImage("/assets/study/guide-elliott-validation.svg", `${prefix} 엘리엇파동 검증 체크 이미지`, "파동 해석은 무효화 기준과 약화 신호를 함께 확인할 때 공부 자료가 됩니다."),
     ];
   }
 
   if (source.includes("fibonacci") || source.includes("피보나치")) {
     return [
-      studyImage("/assets/study-guides/fibonacci-retracement-extension.svg", `${prefix} 피보나치 되돌림과 확장 이미지`, "되돌림과 확장 비율은 각각 눌림 후보와 목표 후보를 정리하는 기준입니다."),
-      studyImage("/assets/study-guides/support-volume-confirmation.svg", `${prefix} 지지 저항 거래량 확인 이미지`, "피보나치 비율은 지지·저항과 거래량 반응이 겹칠 때 학습 가치가 커집니다."),
-      studyImage("/assets/study-guides/risk-checklist.svg", `${prefix} 손절 목표가 체크리스트 이미지`, "비율보다 먼저 손절가와 무효화 조건을 정해야 합니다."),
+      studyImage("/assets/study/guide-fibonacci-retracement-extension.svg", `${prefix} 피보나치 되돌림과 확장 이미지`, "되돌림과 확장 비율은 각각 눌림 후보와 목표 후보를 정리하는 기준입니다."),
+      studyImage("/assets/study/guide-support-volume-confirmation.svg", `${prefix} 지지 저항 거래량 확인 이미지`, "피보나치 비율은 지지·저항과 거래량 반응이 겹칠 때 학습 가치가 커집니다."),
+      studyImage("/assets/study/guide-risk-checklist.svg", `${prefix} 손절 목표가 체크리스트 이미지`, "비율보다 먼저 손절가와 무효화 조건을 정해야 합니다."),
     ];
   }
 
   if (source.includes("wyckoff") || source.includes("와이코프") || source.includes("order block") || source.includes("liquidity")) {
     return [
-      studyImage("/assets/study-guides/wyckoff-range-spring-upthrust.svg", `${prefix} 박스권과 유동성 회수 구조 이미지`, "박스권 안팎의 이탈, 회복, 실패 돌파를 순서대로 보면 구조가 더 선명해집니다."),
-      studyImage("/assets/study-guides/volume-confirmation.svg", `${prefix} 거래량과 종가 검증 이미지`, "고급 구조도 거래량과 종가 회복이 빠지면 단순 그림 맞추기가 됩니다."),
-      studyImage("/assets/study-guides/risk-checklist.svg", `${prefix} 무효화 기준 이미지`, "복잡한 구조일수록 무효화 기준을 더 먼저 정해야 합니다."),
+      studyImage("/assets/study/guide-wyckoff-range-spring-upthrust.svg", `${prefix} 박스권과 유동성 회수 구조 이미지`, "박스권 안팎의 이탈, 회복, 실패 돌파를 순서대로 보면 구조가 더 선명해집니다."),
+      studyImage("/assets/study/guide-volume-confirmation.svg", `${prefix} 거래량과 종가 검증 이미지`, "고급 구조도 거래량과 종가 회복이 빠지면 단순 그림 맞추기가 됩니다."),
+      studyImage("/assets/study/guide-risk-checklist.svg", `${prefix} 무효화 기준 이미지`, "복잡한 구조일수록 무효화 기준을 더 먼저 정해야 합니다."),
     ];
   }
 
   if (source.includes("risk") || source.includes("손절") || source.includes("손익") || source.includes("포지션") || source.includes("익절") || source.includes("r-multiple") || source.includes("expected value")) {
     return [
-      studyImage("/assets/study-guides/risk-reward-map.svg", `${prefix} 진입가 손절가 목표가 이미지`, "리스크 글은 진입가, 손절가, 목표가를 시각적으로 분리해서 봐야 이해가 빠릅니다."),
-      studyImage("/assets/study-guides/position-sizing-map.svg", `${prefix} 포지션 크기 계산 이미지`, "손절폭과 계좌 위험 한도에 따라 포지션 크기는 달라져야 합니다."),
-      studyImage("/assets/study-guides/risk-checklist.svg", `${prefix} 리스크 체크리스트 이미지`, "마지막에는 무효화 조건과 기록 기준까지 함께 점검합니다."),
+      studyImage("/assets/study/guide-risk-reward-map.svg", `${prefix} 진입가 손절가 목표가 이미지`, "리스크 글은 진입가, 손절가, 목표가를 시각적으로 분리해서 봐야 이해가 빠릅니다."),
+      studyImage("/assets/study/guide-position-sizing-map.svg", `${prefix} 포지션 크기 계산 이미지`, "손절폭과 계좌 위험 한도에 따라 포지션 크기는 달라져야 합니다."),
+      studyImage("/assets/study/guide-risk-checklist.svg", `${prefix} 리스크 체크리스트 이미지`, "마지막에는 무효화 조건과 기록 기준까지 함께 점검합니다."),
     ];
   }
 
   return [
-    studyImage("/assets/study-guides/market-structure-map.svg", `${prefix} 가격 구조 이미지`, "차트 공부는 고점과 저점이 어떻게 배열되는지 보는 것에서 시작합니다."),
-    studyImage("/assets/study-guides/support-volume-confirmation.svg", `${prefix} 지지 저항 거래량 확인 이미지`, "중요 가격대에서는 캔들 반응과 거래량을 함께 확인해야 합니다."),
-    studyImage("/assets/study-guides/risk-checklist.svg", `${prefix} 실전 체크리스트 이미지`, "읽은 내용을 매매 판단으로 옮기기 전에는 무효화 기준을 먼저 확인해야 합니다."),
+    studyImage("/assets/study/guide-market-structure-map.svg", `${prefix} 가격 구조 이미지`, "차트 공부는 고점과 저점이 어떻게 배열되는지 보는 것에서 시작합니다."),
+    studyImage("/assets/study/guide-support-volume-confirmation.svg", `${prefix} 지지 저항 거래량 확인 이미지`, "중요 가격대에서는 캔들 반응과 거래량을 함께 확인해야 합니다."),
+    studyImage("/assets/study/guide-risk-checklist.svg", `${prefix} 실전 체크리스트 이미지`, "읽은 내용을 매매 판단으로 옮기기 전에는 무효화 기준을 먼저 확인해야 합니다."),
   ];
 };
 
