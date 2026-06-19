@@ -7,6 +7,11 @@ export function getStaticPaths() {
 }
 
 const article = articleMap[Astro.params.slug ?? ""];
+const seoDescription =
+  article.summary.length >= 55
+    ? article.summary
+    : `${article.summary} ${article.category} 관점에서 ${article.concepts.slice(0, 3).join(", ")}을 차트 공부 순서와 실전 체크 기준으로 쉽게 정리합니다.`;
+const pageUrl = new URL(Astro.url.pathname, Astro.site ?? "https://chartroad.pages.dev").toString();
 
 const faqJson = {
   "@context": "https://schema.org",
@@ -21,8 +26,10 @@ const articleJson = {
   "@context": "https://schema.org",
   "@type": "Article",
   headline: article.title,
-  description: article.summary,
+  description: seoDescription,
   inLanguage: "ko-KR",
+  image: article.images?.[0]?.src ? new URL(article.images[0].src, Astro.site ?? "https://chartroad.pages.dev").toString() : undefined,
+  mainEntityOfPage: pageUrl,
 };
 const breadcrumbJson = {
   "@context": "https://schema.org",
@@ -36,7 +43,6 @@ const breadcrumbJson = {
 
 const companionImages = article.images?.slice(1) ?? [];
 const inlineImageAt = (index: number) => companionImages[index === 1 ? 0 : index === 4 ? 1 : index === 7 ? 2 : -1];
-const pageUrl = new URL(Astro.url.pathname, Astro.site ?? "https://chartroad.pages.dev").toString();
 const encodedUrl = encodeURIComponent(pageUrl);
 const encodedTitle = encodeURIComponent(article.title);
 const relatedArticles = articles
@@ -54,7 +60,7 @@ const relatedArticles = articles
   .map((item) => item.article);
 ---
 
-<BaseLayout title={`${article.title} | 차트로드`} description={article.summary}>
+<BaseLayout title={`${article.title} | 차트로드`} description={seoDescription} image={article.images?.[0]?.src ?? "/assets/chartroad-og.webp"} ogType="article">
   <script type="application/ld+json" set:html={JSON.stringify(articleJson)} slot="head"></script>
   <script type="application/ld+json" set:html={JSON.stringify(faqJson)} slot="head"></script>
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJson)} slot="head"></script>
@@ -100,6 +106,15 @@ const relatedArticles = articles
             <p class="meta">{item.answer}</p>
           </section>
         ))}
+
+        <section class="learning-checkpoints" aria-labelledby="learning-checkpoints-title">
+          <h2 id="learning-checkpoints-title">학습 체크포인트</h2>
+          <ul>
+            <li>{article.category} 관점에서 이 글의 기준을 실제 차트 3개 이상에 적용해봅니다.</li>
+            <li>{article.concepts.slice(0, 2).join("·")} 개념이 가격 위치, 거래량, 시간축과 어떻게 연결되는지 확인합니다.</li>
+            <li>판단이 틀렸다고 볼 조건과 다음에 이어서 공부할 글을 함께 기록합니다.</li>
+          </ul>
+        </section>
 
         <section class="share-section" aria-labelledby="share-title">
           <h2 id="share-title">공유하기</h2>

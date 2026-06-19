@@ -5,14 +5,25 @@ type Props = {
   title?: string;
   description?: string;
   image?: string;
+  ogType?: "website" | "article";
 };
 
 const {
   title = "차트로드 | 나에게 맞는 차트 공부 순서 테스트",
-  description = "매매 성향과 실수를 바탕으로 나에게 맞는 차트 공부 순서를 추천받아보세요.",
-  image = "/assets/chartroad-hero.png",
+  description = "차트로드는 매매 성향과 실수를 바탕으로 캔들, 거래량, 이동평균선, 지지선과 저항선, 리스크 관리까지 나에게 맞는 차트 공부 순서를 추천하는 교육용 플랫폼입니다.",
+  image = "/assets/chartroad-og.webp",
+  ogType = "website",
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://chartroad.pages.dev").toString();
+const absoluteImage = new URL(image, Astro.site ?? "https://chartroad.pages.dev").toString();
+const websiteJson = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "차트로드",
+  url: Astro.site ?? "https://chartroad.pages.dev",
+  inLanguage: "ko-KR",
+  description: "차트 공부 순서와 학습 로드맵을 제공하는 교육용 플랫폼",
+};
 ---
 
 <!doctype html>
@@ -22,20 +33,26 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://chartroad.p
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/assets/chartroad-mark.svg" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#1d3a3a" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:site_name" content="차트로드" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL(image, Astro.site ?? "https://chartroad.pages.dev").toString()} />
+    <meta property="og:image" content={absoluteImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(image, Astro.site ?? "https://chartroad.pages.dev").toString()} />
+    <meta name="twitter:image" content={absoluteImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteJson)}></script>
     <slot name="head" />
   </head>
   <body>
