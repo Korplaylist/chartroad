@@ -149,9 +149,6 @@ const relatedArticles = articles
             <div class="related-grid">
               {relatedArticles.map((item) => (
                 <a class="related-card" href={`/learn/${item.slug}/`}>
-                  {item.images?.[0] && (
-                    <img src={item.images[0].src} alt="" width="480" height="270" loading="lazy" decoding="async" />
-                  )}
                   <div class="related-card-body">
                     <small>{item.category}</small>
                     <h3>{item.title}</h3>

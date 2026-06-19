@@ -418,41 +418,41 @@ p { margin: 0; }
 .related-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
+  gap: 16px;
   margin-top: 20px;
 }
 .related-card {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  overflow: hidden;
-  padding: 0;
+  padding: 22px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #fff;
   color: inherit;
   text-decoration: none;
   box-shadow: var(--shadow-soft);
-}
-.related-card img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-bottom: 1px solid var(--line);
-  background: #f3f0e8;
+  transition:
+    border-color 0.18s ease,
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
 }
 .related-card-body {
-  padding: 18px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .related-card h3 {
-  margin-top: 8px;
-  font-size: 19px;
-  line-height: 1.35;
+  margin-top: 10px;
+  font-size: clamp(20px, 2vw, 24px);
+  line-height: 1.32;
+  letter-spacing: 0;
 }
 .related-card p {
-  margin-top: 10px;
-  font-size: 14px;
-  line-height: 1.62;
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.68;
   color: var(--muted);
 }
 .share-section {
@@ -519,9 +519,14 @@ p { margin: 0; }
   color: var(--muted);
   font-size: 14px;
 }
-.share-button:hover,
-.related-card:hover {
+.share-button:hover {
   border-color: var(--teal);
+}
+.related-card:hover,
+.related-card:focus-visible {
+  border-color: rgba(12, 113, 105, 0.42);
+  box-shadow: 0 18px 34px rgba(17, 24, 20, 0.08);
+  transform: translateY(-2px);
 }
 .result-preview-grid {
   margin-top: 24px;
