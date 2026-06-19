@@ -569,22 +569,6 @@ p { margin: 0; }
   font-weight: 800;
   text-decoration: none;
 }
-.result-detail-link {
-  margin-top: auto;
-  min-height: 42px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  color: var(--deep);
-  font-weight: 800;
-  background: #f8fbf8;
-}
-.result-detail-link:hover {
-  border-color: var(--teal);
-  background: #eef7f5;
-}
 .result-summary-hero {
   display: grid;
   grid-template-columns: 240px minmax(0, 1fr);
