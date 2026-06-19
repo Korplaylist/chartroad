@@ -399,13 +399,61 @@ p { margin: 0; }
   margin: 38px auto 0;
 }
 .related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
   margin-top: 20px;
 }
-.related-grid .card h3 {
-  margin-top: 8px;
+.related-card {
+  display: block;
+  min-height: 180px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: inherit;
+  text-decoration: none;
+  box-shadow: var(--shadow-soft);
 }
-.related-grid .card p {
+.related-card h3 {
+  margin-top: 8px;
+  font-size: 20px;
+  line-height: 1.35;
+}
+.related-card p {
   margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+.share-section {
+  max-width: 760px;
+  margin: 44px auto 0;
+  border-top: 1px solid var(--line);
+  padding-top: 8px;
+}
+.share-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+.share-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  font-weight: 800;
+  text-decoration: none;
+}
+.share-button:hover,
+.related-card:hover {
+  border-color: var(--teal);
 }
 .result-preview-grid {
   margin-top: 24px;
@@ -526,7 +574,7 @@ p { margin: 0; }
   .nav-links { width: 100%; overflow-x: auto; padding-bottom: 4px; }
   .hero { min-height: 620px; }
   .hero-inner { padding-top: 60px; padding-bottom: 120px; }
-  .grid.cols-3, .grid.cols-4, .split { grid-template-columns: 1fr; }
+  .grid.cols-3, .grid.cols-4, .split, .related-grid { grid-template-columns: 1fr; }
   .result-summary-hero { grid-template-columns: 1fr; }
   .result-summary-character { max-width: 260px; }
   .result-detail-card {

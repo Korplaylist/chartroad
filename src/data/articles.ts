@@ -801,6 +801,153 @@ const studyVisual = (definition: BasicStudyDefinition, levelLabel: string) => ({
 
 const studyImage = (src: string, alt: string, caption: string) => ({ src, alt, caption });
 
+const studyCompanionVisualsV2 = (definition: BasicStudyDefinition, levelLabel: string) => {
+  const source = normalizeStudyText(definition);
+  const imageKind = definition.image;
+  const prefix = `${levelLabel} ${definition.item}`;
+
+  if (source.includes("elliott") || source.includes("엘리엇") || source.includes("파동")) {
+    return [
+      studyImage("/assets/study/guide-elliott-impulse-abc.svg", `${prefix} 5파 상승과 ABC 조정 구조 이미지`, "5파 상승은 추세 방향의 추진 구조이고, ABC는 그 뒤에 나오는 대표 조정 구조입니다."),
+      studyImage("/assets/study/guide-elliott-correction-types.svg", `${prefix} 지그재그 플랫 삼각 조정 비교 이미지`, "조정은 지그재그, 플랫, 삼각 조정처럼 깊이와 모양이 다르게 나타납니다."),
+      studyImage("/assets/study/guide-elliott-validation.svg", `${prefix} 엘리엇파동 검증 순서 이미지`, "파동 번호를 붙이기 전에는 무효화 기준, 3파 강도, 5파 약화 신호를 함께 확인해야 합니다."),
+    ];
+  }
+
+  if (source.includes("fibonacci") || source.includes("피보나치")) {
+    return [
+      studyImage("/assets/study/guide-fibonacci-retracement-extension.svg", `${prefix} 피보나치 되돌림과 확장 이미지`, "되돌림 비율은 눌림 후보를, 확장 비율은 목표 후보를 정리하는 기준입니다."),
+      studyImage("/assets/study/guide-support-volume-confirmation.svg", `${prefix} 피보나치 가격대와 거래량 확인 이미지`, "피보나치 비율은 지지·저항과 거래량 반응이 겹칠 때 학습 가치가 커집니다."),
+      studyImage("/assets/study/guide-risk-checklist.svg", `${prefix} 피보나치 무효화 기준 이미지`, "비율보다 먼저 손절가와 무효화 조건을 정해야 합니다."),
+    ];
+  }
+
+  if (source.includes("wyckoff") || source.includes("와이코프") || source.includes("spring") || source.includes("upthrust")) {
+    return [
+      studyImage("/assets/study/guide-wyckoff-range-spring-upthrust.svg", `${prefix} 와이코프 박스권과 스프링 이미지`, "박스권 안팎의 이탈, 회복, 실패 돌파를 순서대로 보면 구조가 선명해집니다."),
+      studyImage("/assets/study/guide-volume-confirmation.svg", `${prefix} 와이코프 거래량 검증 이미지`, "고급 구조도 거래량과 종가 회복이 빠지면 단순 그림 맞추기가 됩니다."),
+      studyImage("/assets/study/guide-risk-checklist.svg", `${prefix} 와이코프 무효화 기준 이미지`, "복잡한 구조일수록 무효화 기준을 더 먼저 정해야 합니다."),
+    ];
+  }
+
+  if (imageKind === "rsi" || imageKind === "macd" || source.includes("divergence") || source.includes("다이버전스")) {
+    return [
+      studyImage("/assets/study/guide-indicator-price-context.svg", `${prefix} 보조지표와 가격 위치 비교 이미지`, "보조지표는 가격 위치와 추세 구조를 먼저 본 뒤 확인용으로 써야 합니다."),
+      studyImage("/assets/study/guide-divergence-confirmation.svg", `${prefix} 다이버전스와 가격 확인 이미지`, "다이버전스는 반전 확정이 아니라 힘의 약화 후보이며 가격 구조 확인이 필요합니다."),
+      studyImage("/assets/study/guide-support-volume-confirmation.svg", `${prefix} 지표 신호 검증 이미지`, "지표 신호는 지지·저항, 거래량, 종가 위치와 함께 확인해야 합니다."),
+    ];
+  }
+
+  if (imageKind === "bollinger" || source.includes("볼린저") || source.includes("bollinger")) {
+    return [
+      studyImage("/assets/study/guide-bollinger-squeeze.svg", `${prefix} 볼린저밴드 수축과 확장 이미지`, "볼린저밴드는 밴드 수축 이후 어느 방향으로 확장되는지 거래량과 함께 확인해야 합니다."),
+      studyImage("/assets/study/guide-support-volume-confirmation.svg", `${prefix} 볼린저밴드 돌파와 거래량 확인 이미지`, "밴드 확장은 가격대 돌파와 거래량 확인이 함께 있어야 학습 기준이 됩니다."),
+      studyImage("/assets/study/guide-risk-checklist.svg", `${prefix} 볼린저밴드 무효화 기준 이미지`, "밴드만 보고 판단하지 말고 실패했을 때 멈출 가격을 먼저 정해야 합니다."),
+    ];
+  }
+
+  if (imageKind === "volume") {
+    return [
+      studyImage("/assets/study/guide-volume-location-map.svg", `${prefix} 거래량 위치별 해석 이미지`, "거래량 증가는 바닥권, 돌파 구간, 고점권에서 의미가 다르게 바뀝니다."),
+      studyImage("/assets/study/guide-volume-confirmation.svg", `${prefix} 거래량 이후 가격 유지 이미지`, "거래량이 나온 뒤 가격이 지켜지는지, 되돌아오는지까지 보아야 합니다."),
+      studyImage("/assets/study/guide-support-volume-confirmation.svg", `${prefix} 거래량과 지지 저항 결합 이미지`, "거래량은 혼자 보지 말고 가격대와 함께 볼 때 공부 자료가 됩니다."),
+    ];
+  }
+
+  if (imageKind === "box" || source.includes("박스") || source.includes("base") || source.includes("돌파") || source.includes("이탈")) {
+    return [
+      studyImage("/assets/study/guide-box-breakout.svg", `${prefix} 박스권 상단 하단 돌파 확인 이미지`, "박스권은 상단·하단·중앙의 위치를 나누고, 돌파 후 유지 여부를 확인해야 합니다."),
+      studyImage("/assets/study/guide-support-volume-confirmation.svg", `${prefix} 박스권 거래량 검증 이미지`, "박스권 돌파와 이탈은 종가 위치와 거래량이 함께 확인되어야 합니다."),
+      studyImage("/assets/study/guide-risk-checklist.svg", `${prefix} 박스권 무효화 기준 이미지`, "박스권 매매는 상단 추격과 하단 이탈 위험을 먼저 정리해야 합니다."),
+    ];
+  }
+
+  if (imageKind === "ma" || source.includes("이동평균") || source.includes("20일선") || source.includes("60일선")) {
+    return [
+      studyImage("/assets/study/guide-moving-average-order-pullback.svg", `${prefix} 이동평균선 배열과 눌림 이미지`, "이동평균선은 추세 방향과 눌림 위치를 정리하는 기준선입니다."),
+      studyImage("/assets/study/guide-moving-average-breakdown.svg", `${prefix} 이동평균선 이탈과 회복 이미지`, "선에 닿는 것보다 지켜지는지, 이탈 후 회복하는지가 더 중요합니다."),
+      studyImage("/assets/study/guide-risk-checklist.svg", `${prefix} 이동평균선 무효화 기준 이미지`, "평균선 근처 진입은 무효화 가격과 손절폭을 먼저 정해야 합니다."),
+    ];
+  }
+
+  if (imageKind === "trendline" || source.includes("추세선") || source.includes("trendline")) {
+    return [
+      studyImage("/assets/study/guide-trendline-reaction.svg", `${prefix} 추세선 반응점과 이탈 확인 이미지`, "추세선은 원하는 방향에 맞춰 긋는 선이 아니라 실제 반응점을 연결하는 기준입니다."),
+      studyImage("/assets/study/guide-market-structure-map.svg", `${prefix} 고점 저점 구조 이미지`, "추세선만 보지 말고 고점과 저점 배열이 함께 유지되는지 확인해야 합니다."),
+      studyImage("/assets/study/guide-risk-checklist.svg", `${prefix} 추세선 무효화 기준 이미지`, "추세선 이탈 후 회복 실패가 나올 때 관점을 접을 기준이 필요합니다."),
+    ];
+  }
+
+  if (imageKind === "timeframe" || imageKind === "swing" || source.includes("시간축") || source.includes("주봉") || source.includes("일봉") || source.includes("스윙")) {
+    return [
+      studyImage("/assets/study/guide-timeframe-alignment.svg", `${prefix} 주봉 일봉 분봉 시간축 정렬 이미지`, "시간축은 큰 방향, 기본 판단, 세부 진입 위치를 나누어 보아야 합니다."),
+      studyImage("/assets/study/guide-market-structure-map.svg", `${prefix} 상위 시간축 가격 구조 이미지`, "스윙과 시간축 분석은 고점·저점 구조가 상위 시간축과 충돌하지 않는지 확인해야 합니다."),
+      studyImage("/assets/study/guide-risk-checklist.svg", `${prefix} 시간축별 무효화 기준 이미지`, "분봉 판단을 스윙으로 바꾸지 않도록 시간축별 손절 기준을 정해야 합니다."),
+    ];
+  }
+
+  if (imageKind === "journal" || source.includes("체크리스트") || source.includes("복기") || source.includes("setup") || source.includes("셋업")) {
+    return [
+      studyImage("/assets/study/guide-setup-journal.svg", `${prefix} 셋업과 복기 노트 이미지`, "진입 이유, 무효화 조건, 손절과 목표, 복기 질문을 한 표로 정리해야 합니다."),
+      studyImage("/assets/study/guide-risk-checklist.svg", `${prefix} 진입 전 체크리스트 이미지`, "기록형 글은 판단을 실행하기 전에 체크리스트로 기준을 확인하는 데 목적이 있습니다."),
+      studyImage("/assets/study/guide-support-volume-confirmation.svg", `${prefix} 차트 근거 확인 이미지`, "기록한 조건은 실제 가격대와 거래량 반응으로 검증해야 합니다."),
+    ];
+  }
+
+  if (imageKind === "scalping" || source.includes("단타") || source.includes("분봉") || source.includes("vwap") || source.includes("opening range") || source.includes("장 초반")) {
+    return [
+      studyImage("/assets/study/guide-scalping-intraday.svg", `${prefix} 단타 당일 범위와 평균가 이미지`, "단타는 당일 고점·저점·평균가·거래량을 기준으로 빠르게 무효화해야 합니다."),
+      studyImage("/assets/study/guide-volume-confirmation.svg", `${prefix} 장중 거래량 확인 이미지`, "장중 거래량은 돌파 이후 가격 유지 여부까지 확인해야 합니다."),
+      studyImage("/assets/study/guide-risk-checklist.svg", `${prefix} 단타 진입 전 체크리스트 이미지`, "단타 손실을 스윙으로 바꾸지 않도록 진입 전 기준이 필요합니다."),
+    ];
+  }
+
+  if (imageKind === "overheat" || source.includes("과열") || source.includes("고점권") || source.includes("distribution") || source.includes("분산")) {
+    return [
+      studyImage("/assets/study/guide-overheat-distribution.svg", `${prefix} 고점권 과열과 분산 위험 이미지`, "고점권 거래량 폭증과 윗꼬리는 강함과 동시에 분산 위험을 함께 보여줄 수 있습니다."),
+      studyImage("/assets/study/guide-volume-location-map.svg", `${prefix} 거래량 위치별 해석 이미지`, "거래량 증가는 바닥권과 고점권에서 의미가 완전히 달라집니다."),
+      studyImage("/assets/study/guide-risk-checklist.svg", `${prefix} 과열 구간 추격 방지 체크 이미지`, "과열 구간은 손절폭이 커지기 쉬우므로 진입 전 위험을 먼저 계산해야 합니다."),
+    ];
+  }
+
+  if (imageKind === "risk" || imageKind === "reward" || imageKind === "profit" || source.includes("risk") || source.includes("position") || source.includes("atr")) {
+    if (imageKind === "profit" || source.includes("익절") || source.includes("목표가") || source.includes("trailing") || source.includes("트레일링")) {
+      return [
+        studyImage("/assets/study/guide-profit-plan.svg", `${prefix} 1차 2차 목표와 잔여 관리 이미지`, "익절은 한 번에 맞히는 것이 아니라 1차 목표, 2차 목표, 잔여 관리 기준으로 나누어 설계합니다."),
+        studyImage("/assets/study/guide-risk-reward-map.svg", `${prefix} R 기준 목표가 이미지`, "목표가는 손절폭 1R과 비교해야 수익 구조를 이해할 수 있습니다."),
+        studyImage("/assets/study/guide-risk-checklist.svg", `${prefix} 익절 계획 체크리스트 이미지`, "수익 구간에서도 감정이 아니라 사전에 정한 기준으로 관리해야 합니다."),
+      ];
+    }
+    return [
+      studyImage("/assets/study/guide-risk-reward-map.svg", `${prefix} 진입가 손절가 목표가 손익비 이미지`, "진입 전에는 손절가, 목표가, 1R 기준을 먼저 눈으로 확인해야 합니다."),
+      studyImage("/assets/study/guide-position-sizing-map.svg", `${prefix} 포지션 크기와 계좌 위험 이미지`, "같은 진입이라도 손절폭과 계좌 위험 한도에 따라 포지션 크기가 달라집니다."),
+      studyImage("/assets/study/guide-risk-checklist.svg", `${prefix} 리스크 체크리스트 이미지`, "리스크 관리는 예측이 틀렸을 때 계좌를 지키는 공부입니다."),
+    ];
+  }
+
+  if (imageKind === "candle" || imageKind === "candleStructure") {
+    return [
+      studyImage("/assets/study/guide-candle-ohlc-location.svg", `${prefix} 캔들 OHLC와 위치 이미지`, "캔들은 색보다 시가·고가·저가·종가와 위치를 함께 봐야 합니다."),
+      studyImage("/assets/study/guide-candle-wick-pressure.svg", `${prefix} 꼬리와 매수 매도 압력 이미지`, "꼬리는 밀렸다가 회복했는지, 올랐다가 밀렸는지를 보여주는 흔적입니다."),
+      studyImage("/assets/study/guide-support-volume-confirmation.svg", `${prefix} 캔들 지지 저항 거래량 이미지`, "캔들 하나보다 가격대, 거래량, 다음 캔들 반응이 더 중요합니다."),
+    ];
+  }
+
+  if (imageKind === "support" || source.includes("지지") || source.includes("저항") || source.includes("support") || source.includes("resistance")) {
+    return [
+      studyImage("/assets/study/guide-support-volume-confirmation.svg", `${prefix} 지지 저항 거래량 확인 이미지`, "핵심 가격대에서는 캔들 반응과 거래량을 함께 봐야 합니다."),
+      studyImage("/assets/study/guide-box-breakout.svg", `${prefix} 반복 가격대와 돌파 확인 이미지`, "지지와 저항은 반복 가격대와 돌파 후 유지 여부로 공부하는 것이 좋습니다."),
+      studyImage("/assets/study/guide-risk-checklist.svg", `${prefix} 지지 저항 무효화 기준 이미지`, "지지와 저항을 기준으로 삼을 때는 깨졌다고 볼 가격을 먼저 정해야 합니다."),
+    ];
+  }
+
+  return [
+    studyImage("/assets/study/guide-market-structure-map.svg", `${prefix} 고점 저점 가격 구조 이미지`, "먼저 고점과 저점이 높아지는지 낮아지는지로 큰 구조를 확인합니다."),
+    studyImage("/assets/study/guide-support-volume-confirmation.svg", `${prefix} 지지 저항 거래량 확인 이미지`, "핵심 가격대에서는 캔들 반응과 거래량을 함께 봐야 합니다."),
+    studyImage("/assets/study/guide-risk-checklist.svg", `${prefix} 실전 확인 체크리스트 이미지`, "학습 글의 마지막 기준은 항상 무효화 조건과 손절 기준입니다."),
+  ];
+};
+
 const studyCompanionVisuals = (definition: BasicStudyDefinition, levelLabel: string) => {
   const source = normalizeStudyText(definition);
   const imageKind = definition.image;
@@ -973,7 +1120,7 @@ const basicStudyArticles: LearnArticle[] = basicStudyDefinitions.map((definition
   style: ["개념부터 차근차근", "실제 차트 예시 위주", "체크리스트 형태"],
   body: [],
   bodyHtml: buildBasicStudyBodyHtml(definition),
-  images: [studyVisual(definition, "초보"), ...studyCompanionVisuals(definition, "초보")],
+  images: [studyVisual(definition, "초보"), ...studyCompanionVisualsV2(definition, "초보")],
   studyItems: [definition.item],
   faq: [
     { question: `${definition.item}은 초보자가 바로 공부해도 되나요?`, answer: "네. 이 글은 테스트 결과의 초보 단계 추천 항목을 기준으로 만든 교육용 글이며, 차트 위치와 리스크 기준을 함께 보는 방식으로 읽으면 좋습니다." },
@@ -992,7 +1139,7 @@ const intermediateStudyDefinitions: BasicStudyDefinition[] = [
   { item: "진입 전 무효화 조건 설정", slug: "intermediate-invalidation-before-entry", title: "진입 전 무효화 조건 설정: 틀렸다고 볼 기준 먼저 정하기", summary: "진입하기 전에 어떤 조건이면 분석이 틀렸는지 정하는 방법을 다룹니다.", category: "리스크 관리", concepts: ["손익비/손절"], image: "risk", focus: "무효화 조건은 손절선을 숫자로만 두지 않고 차트 근거가 사라지는 상황까지 정의하는 것입니다.", observe: "진입 후보마다 '이 조건이 나오면 관점을 버린다'는 문장을 적으세요.", mistake: "무효화 조건이 없으면 손실 중에도 새로운 근거를 찾아 버티게 됩니다." },
   { item: "매매일지 태그 관리: 추격매수·손절실패·익절실패", slug: "intermediate-journal-tags", title: "매매일지 태그 관리: 추격매수·손절실패·익절실패를 찾는 법", summary: "매매일지에 반복 실수 태그를 붙여 개선할 행동을 찾는 방법입니다.", category: "매매 전략 설계", concepts: ["손익비/손절"], image: "journal", focus: "태그는 감정적인 반성보다 반복되는 행동 패턴을 찾게 해주는 복기 도구입니다.", observe: "최근 기록에 추격매수, 손절실패, 익절실패, 기준없음 같은 태그를 붙여 빈도를 세어보세요.", mistake: "수익과 손실만 기록하면 어떤 행동을 고쳐야 하는지 알기 어렵습니다." },
   { item: "진입·청산·복기 루틴 만들기", slug: "intermediate-entry-exit-review-routine", title: "진입·청산·복기 루틴 만들기: 매매 과정을 반복 가능하게 정리하기", summary: "진입 전, 보유 중, 청산 후 해야 할 일을 루틴으로 나누어 정리합니다.", category: "매매 전략 설계", concepts: ["손익비/손절"], image: "journal", focus: "루틴은 매번 다른 감정으로 판단하지 않게 만드는 절차입니다.", observe: "진입 전 체크, 청산 조건, 복기 질문을 각각 3개씩 정해보세요.", mistake: "청산 후 복기를 건너뛰면 같은 실수가 다음 매매에서 다시 나옵니다." },
-  { item: "Market Structure: HH·HL·LH·LL 구조", slug: "intermediate-market-structure-hh-hl-lh-ll", title: "Market Structure: HH·HL·LH·LL 구조로 추세 읽기", summary: "HH·HL·LH·LL을 사용해 상승, 하락, 전환 구조를 읽는 초중급 글입니다.", category: "가격 구조 분석", concepts: ["지지선/저항선"], image: "trend", focus: "HH·HL은 상승 구조, LH·LL은 하락 구조를 설명하며 구조 변화는 추세 판단의 핵심입니다.", observe: "차트에 HH, HL, LH, LL을 직접 표시하고 어느 지점에서 구조가 바뀌는지 기록하세요.", mistake: "고점과 저점을 임의로 고르면 원하는 방향으로 구조를 해석하게 됩니다." },
+  { item: "가격 구조: 고점·저점 배열", slug: "intermediate-market-structure-hh-hl-lh-ll", title: "가격 구조로 추세 읽기: 높은 고점·높은 저점·낮은 고점·낮은 저점 이해", summary: "고점과 저점 배열을 사용해 상승, 하락, 전환 구조를 읽는 초중급 글입니다.", category: "가격 구조 분석", concepts: ["지지선/저항선"], image: "trend", focus: "높은 고점과 높은 저점은 상승 구조, 낮은 고점과 낮은 저점은 하락 구조를 설명하며 구조 변화는 추세 판단의 핵심입니다.", observe: "차트에 높은 고점, 높은 저점, 낮은 고점, 낮은 저점을 직접 표시하고 어느 지점에서 구조가 바뀌는지 기록하세요.", mistake: "고점과 저점을 임의로 고르면 원하는 방향으로 구조를 해석하게 됩니다." },
   { item: "멀티 타임프레임 분석: 주봉·일봉·4시간봉 정렬", slug: "intermediate-multi-timeframe-weekly-daily-4h", title: "멀티 타임프레임 분석: 주봉·일봉·4시간봉 정렬하는 법", summary: "상위 시간축과 하위 시간축을 순서대로 연결해 판단 기준을 세웁니다.", category: "차트 기초", concepts: ["지지선/저항선", "이동평균선"], image: "timeframe", focus: "멀티 타임프레임은 주봉으로 큰 위치, 일봉으로 기본 판단, 4시간봉으로 세부 반응을 보는 방식입니다.", observe: "같은 종목을 주봉, 일봉, 4시간봉 순서로 보며 각 시간축의 지지·저항을 표시하세요.", mistake: "하위 시간축만 보고 진입하면 상위 시간축 저항에 막히는 장면을 놓칠 수 있습니다." },
   { item: "20일선·60일선 기반 추세 유지 판단", slug: "intermediate-ma-20-60-trend", title: "20일선·60일선 기반 추세 유지 판단", summary: "20일선과 60일선을 이용해 단기와 중기 추세 유지 여부를 확인합니다.", category: "차트 기초", concepts: ["이동평균선"], image: "ma", focus: "20일선은 기본 흐름, 60일선은 중기 흐름을 확인하는 기준으로 쓸 수 있습니다.", observe: "가격이 20일선과 60일선 위에서 지지되는지, 아래에서 저항을 받는지 기록하세요.", mistake: "선 하나를 절대 기준으로 보면 거래량과 지지·저항 맥락을 놓칠 수 있습니다." },
   { item: "MACD 0선 기준 추세 해석", slug: "intermediate-macd-zero-line", title: "MACD 0선 기준 추세 해석: 교차보다 위치 먼저 보기", summary: "MACD 0선 위아래 위치를 통해 추세 강약과 전환 가능성을 해석합니다.", category: "보조지표", concepts: ["RSI/MACD"], image: "macd", focus: "MACD가 0선 위에서 움직이는지 아래에서 움직이는지는 교차 신호보다 큰 추세 맥락을 제공합니다.", observe: "골든크로스가 0선 아래에서 나온 경우와 0선 위에서 나온 경우를 비교하세요.", mistake: "0선 아래 약한 골든크로스를 강한 상승 신호처럼 해석하면 늦은 반등에 속을 수 있습니다." },
@@ -1069,7 +1216,7 @@ const intermediateStudyArticles: LearnArticle[] = intermediateStudyDefinitions.m
   style: ["실제 차트 예시 위주", "체크리스트 형태", "개념부터 차근차근"],
   body: [],
   bodyHtml: buildIntermediateStudyBodyHtml(definition),
-  images: [studyVisual(definition, "초중급"), ...studyCompanionVisuals(definition, "초중급")],
+  images: [studyVisual(definition, "초중급"), ...studyCompanionVisualsV2(definition, "초중급")],
   studyItems: [definition.item],
   faq: [
     { question: `${definition.item}은 언제 공부하면 좋나요?`, answer: "초보 기초 개념을 읽고 실제 차트에 적용해보고 싶은 단계에서 공부하면 좋습니다. 반드시 가격 위치, 거래량, 손절 기준과 함께 확인하세요." },
@@ -1164,7 +1311,7 @@ const advancedStudyArticles: LearnArticle[] = advancedStudyDefinitions.map((defi
   style: ["실제 차트 예시 위주", "체크리스트 형태", "개념부터 차근차근"],
   body: [],
   bodyHtml: buildAdvancedStudyBodyHtml(definition),
-  images: [studyVisual(definition, "중급"), ...studyCompanionVisuals(definition, "중급")],
+  images: [studyVisual(definition, "중급"), ...studyCompanionVisualsV2(definition, "중급")],
   studyItems: [definition.item],
   faq: [
     { question: `${definition.item}은 어떤 단계에서 공부하면 좋나요?`, answer: "기초 가격 구조, 거래량, 손절 기준을 어느 정도 이해한 뒤 중급 단계에서 공부하는 것이 좋습니다. 기법 이름보다 적용 조건과 실패 조건을 함께 익히는 것이 중요합니다." },
@@ -1256,7 +1403,7 @@ const expertStudyArticles: LearnArticle[] = expertStudyDefinitions.map((definiti
   style: ["실제 차트 예시 위주", "체크리스트 형태", "개념부터 차근차근"],
   body: [],
   bodyHtml: buildExpertStudyBodyHtml(definition),
-  images: [studyVisual(definition, "고급"), ...studyCompanionVisuals(definition, "고급")],
+  images: [studyVisual(definition, "고급"), ...studyCompanionVisualsV2(definition, "고급")],
   studyItems: [definition.item],
   faq: [
     { question: `${definition.item}은 초보자도 바로 공부해도 되나요?`, answer: "권장하지 않습니다. 이 글은 고급 단계의 전문 학습 항목이며, 가격 구조와 리스크 기준을 먼저 익힌 뒤 공부하는 편이 좋습니다." },

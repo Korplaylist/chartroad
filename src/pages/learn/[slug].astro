@@ -36,6 +36,22 @@ const breadcrumbJson = {
 
 const companionImages = article.images?.slice(1) ?? [];
 const inlineImageAt = (index: number) => companionImages[index === 1 ? 0 : index === 4 ? 1 : index === 7 ? 2 : -1];
+const pageUrl = new URL(Astro.url.pathname, Astro.site ?? "https://chartroad.pages.dev").toString();
+const encodedUrl = encodeURIComponent(pageUrl);
+const encodedTitle = encodeURIComponent(article.title);
+const relatedArticles = articles
+  .filter((item) => item.slug !== article.slug)
+  .map((item) => ({
+    article: item,
+    score:
+      (item.category === article.category ? 4 : 0) +
+      item.concepts.filter((concept) => article.concepts.includes(concept)).length * 3 +
+      (item.slug.split("-")[0] === article.slug.split("-")[0] ? 1 : 0),
+  }))
+  .filter((item) => item.score > 0)
+  .sort((a, b) => b.score - a.score || a.article.title.localeCompare(b.article.title, "ko"))
+  .slice(0, 6)
+  .map((item) => item.article);
 ---
 
 <BaseLayout title={`${article.title} | 차트로드`} description={article.summary}>
@@ -84,6 +100,31 @@ const inlineImageAt = (index: number) => companionImages[index === 1 ? 0 : index
             <p class="meta">{item.answer}</p>
           </section>
         ))}
+
+        <section class="share-section" aria-labelledby="share-title">
+          <h2 id="share-title">공유하기</h2>
+          <div class="share-row">
+            <a class="share-button" href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`} target="_blank" rel="noopener noreferrer">X</a>
+            <a class="share-button" href={`https://share.naver.com/web/shareView?url=${encodedUrl}&title=${encodedTitle}`} target="_blank" rel="noopener noreferrer">네이버 블로그</a>
+            <a class="share-button" href={`kakaotalk://sendurl?msg=${encodedTitle}&url=${encodedUrl}`}>카카오톡</a>
+            <a class="share-button" href={`https://story.kakao.com/share?url=${encodedUrl}`} target="_blank" rel="noopener noreferrer">카카오스토리</a>
+          </div>
+        </section>
+
+        {relatedArticles.length > 0 && (
+          <section class="related-section" aria-labelledby="related-title">
+            <h2 id="related-title">관련 글</h2>
+            <div class="related-grid">
+              {relatedArticles.map((item) => (
+                <a class="related-card" href={`/learn/${item.slug}/`}>
+                  <small>{item.category}</small>
+                  <h3>{item.title}</h3>
+                  <p>{item.summary}</p>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
       </article>
     </div>
   </section>

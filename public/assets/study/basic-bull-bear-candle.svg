@@ -1,22 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
 <title id="title">양봉과 음봉의 의미: 초보자가 캔들 색을 오해하지 않는 법 차트 학습 이미지</title>
-<desc id="desc">양봉과 음봉의 의미: 초보자가 캔들 색을 오해하지 않는 법의 핵심 구조를 설명하는 교육용 차트 이미지</desc>
-<style>.title{font:800 29px system-ui,-apple-system,Segoe UI,sans-serif;fill:#10201f}.item{font:600 19px system-ui,-apple-system,Segoe UI,sans-serif;fill:#475569}.small{font:700 16px system-ui,-apple-system,Segoe UI,sans-serif;fill:#475569}.label{font:800 15px system-ui,-apple-system,Segoe UI,sans-serif;fill:#10201f}.muted{font:600 14px system-ui,-apple-system,Segoe UI,sans-serif;fill:#64748b}</style>
-
-<rect width="960" height="540" fill="#f8fafc"/>
-<rect x="32" y="32" width="896" height="476" rx="22" fill="white" stroke="#d8ded6"/>
-<rect x="64" y="48" width="92" height="34" rx="17" fill="#e0f2fe" stroke="#0369a1" opacity="0.95"/>
-<text x="84" y="71" class="small">초보</text>
-<text x="176" y="71" class="small">차트 기초</text>
-<text x="64" y="108" class="title">양봉과 음봉의 의미: 초보자가 캔들 색을</text><text x="64" y="143" class="title">오해하지 않는 법</text>
-<text x="64" y="185" class="item">핵심 주제: 양봉과 음봉의 의미</text>
-
-
-<g>
-  <line x1="280" y1="230" x2="280" y2="390" stroke="#16a34a" stroke-width="8" stroke-linecap="round"/><rect x="240" y="275" width="80" height="76" rx="8" fill="#16a34a"/>
-  <text x="190" y="270" class="label">High</text><text x="195" y="397" class="label">Low</text><text x="330" y="296" class="label">Close</text><text x="330" y="348" class="label">Open</text>
-  <line x1="520" y1="210" x2="520" y2="395" stroke="#dc2626" stroke-width="8" stroke-linecap="round"/><rect x="480" y="250" width="80" height="95" rx="8" fill="#dc2626"/>
-  <text x="612" y="270" class="label">저항</text><line x1="610" y1="278" x2="820" y2="278" stroke="#dc2626" stroke-width="3" stroke-dasharray="8 8"/>
-  <text x="612" y="360" class="label">지지</text><line x1="610" y1="368" x2="820" y2="368" stroke="#16a34a" stroke-width="3" stroke-dasharray="8 8"/>
-</g>
-</svg>
+<desc id="desc">차트 기초 주제를 실제 차트 흐름과 핵심 기준으로 설명하는 한국어 교육 이미지</desc>
+<style>
+.bg{fill:#f6f4ed}.panel{fill:#fff;stroke:#d8ded6;stroke-width:2}.title{font:800 34px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#10201f}.sub{font:800 22px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#0f766e}.label{font:800 20px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#10201f}.note{font:700 17px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#647067}.line{fill:none;stroke:#0f766e;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}.down{fill:none;stroke:#b45309;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}.thin{fill:none;stroke:#94a3b8;stroke-width:4;stroke-linecap:round}.dash{stroke:#94a3b8;stroke-width:3;stroke-dasharray:10 10}.zone{fill:#e8f4ef;stroke:#0f766e;stroke-width:2;opacity:.9}.risk{fill:#fff3df;stroke:#b45309;stroke-width:2}.bar{fill:#0f766e;opacity:.92}.warn{fill:#b45309;opacity:.92}
+</style><rect class="bg" width="960" height="540" rx="30"/><rect class="panel" x="42" y="42" width="876" height="456" rx="24"/><text x="72" y="82" class="sub">차트 기초</text><text x="72" y="124" class="title">양봉과 음봉의 의미</text><text x="72" y="166" class="title">초보자가 캔들 색을 오해하지 않는 법</text><g opacity=".55"><path d="M120 190H850M120 285H850M120 380H850M210 130V430M370 130V430M530 130V430M690 130V430" stroke="#e7e3d8" stroke-width="1.4"/></g><g><line x1="180" y1="270" x2="180" y2="340" stroke="#0f766e" stroke-width="4"/><rect x="164" y="288" width="32" height="40" rx="5" fill="#0f766e"/>
+  <line x1="275" y1="235" x2="275" y2="332" stroke="#0f766e" stroke-width="4"/><rect x="259" y="255" width="32" height="55" rx="5" fill="#0f766e"/>
+  <line x1="370" y1="255" x2="370" y2="348" stroke="#b45309" stroke-width="4"/><rect x="354" y="285" width="32" height="45" rx="5" fill="#b45309"/>
+  <line x1="465" y1="200" x2="465" y2="312" stroke="#0f766e" stroke-width="4"/><rect x="449" y="228" width="32" height="62" rx="5" fill="#0f766e"/></g><path class="dash" d="M125 250H835M125 370H835"/><text class="label" x="130" y="238">저항 가격대</text><text class="label" x="130" y="400">지지 가격대</text><text class="note" x="130" y="458">몸통·꼬리·종가 위치를 함께 읽기</text></svg>

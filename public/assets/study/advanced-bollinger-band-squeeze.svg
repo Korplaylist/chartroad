@@ -1,28 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
 <title id="title">Bollinger Band Squeeze 전략: 수축 후 확장 확인 차트 학습 이미지</title>
-<desc id="desc">Bollinger Band Squeeze 전략: 수축 후 확장 확인의 핵심 구조를 설명하는 교육용 차트 이미지</desc>
-<style>.title{font:800 29px system-ui,-apple-system,Segoe UI,sans-serif;fill:#10201f}.item{font:600 19px system-ui,-apple-system,Segoe UI,sans-serif;fill:#475569}.small{font:700 16px system-ui,-apple-system,Segoe UI,sans-serif;fill:#475569}.label{font:800 15px system-ui,-apple-system,Segoe UI,sans-serif;fill:#10201f}.muted{font:600 14px system-ui,-apple-system,Segoe UI,sans-serif;fill:#64748b}</style>
-
-<rect width="960" height="540" fill="#f8fafc"/>
-<rect x="32" y="32" width="896" height="476" rx="22" fill="white" stroke="#d8ded6"/>
-<rect x="64" y="48" width="92" height="34" rx="17" fill="#fef3c7" stroke="#b45309" opacity="0.95"/>
-<text x="84" y="71" class="small">중급</text>
-<text x="176" y="71" class="small">보조지표</text>
-<text x="64" y="108" class="title">Bollinger Band Squeeze 전략:</text><text x="64" y="143" class="title">수축 후 확장 확인</text>
-<text x="64" y="185" class="item">핵심 주제: Bollinger Band Squeeze 전략</text>
-
-
-<g>
-  <line x1="125" y1="380" x2="875" y2="380" stroke="#cbd5e1" stroke-width="2"/>
-  <line x1="125" y1="240" x2="875" y2="240" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="8 8"/>
-  <path d="M130 350 C230 318 290 285 360 292 C450 302 500 220 590 210 C690 188 730 142 850 150" fill="none" stroke="#0f9f6e" stroke-width="7" stroke-linecap="round"/>
-  <line x1="190" y1="342" x2="190" y2="292" stroke="#16a34a" stroke-width="5"/><rect x="176" y="305" width="28" height="28" rx="4" fill="#16a34a"/><line x1="305" y1="318" x2="305" y2="250" stroke="#16a34a" stroke-width="5"/><rect x="291" y="270" width="28" height="38" rx="4" fill="#16a34a"/><line x1="430" y1="280" x2="430" y2="218" stroke="#dc2626" stroke-width="5"/><rect x="416" y="238" width="28" height="28" rx="4" fill="#dc2626"/><line x1="560" y1="254" x2="560" y2="188" stroke="#16a34a" stroke-width="5"/><rect x="546" y="203" width="28" height="38" rx="4" fill="#16a34a"/><line x1="720" y1="210" x2="720" y2="150" stroke="#dc2626" stroke-width="5"/><rect x="706" y="166" width="28" height="34" rx="4" fill="#dc2626"/>
-  <rect x="150" y="421" width="24" height="34" rx="4" fill="#16a34a" opacity=".7"/><rect x="195" y="411" width="24" height="44" rx="4" fill="#94a3b8" opacity=".7"/><rect x="240" y="417" width="24" height="38" rx="4" fill="#94a3b8" opacity=".7"/><rect x="285" y="383" width="24" height="72" rx="4" fill="#94a3b8" opacity=".7"/><rect x="330" y="410" width="24" height="45" rx="4" fill="#16a34a" opacity=".7"/><rect x="375" y="400" width="24" height="55" rx="4" fill="#94a3b8" opacity=".7"/><rect x="420" y="367" width="24" height="88" rx="4" fill="#94a3b8" opacity=".7"/><rect x="465" y="413" width="24" height="42" rx="4" fill="#94a3b8" opacity=".7"/><rect x="510" y="389" width="24" height="66" rx="4" fill="#16a34a" opacity=".7"/><rect x="555" y="401" width="24" height="54" rx="4" fill="#94a3b8" opacity=".7"/><rect x="600" y="353" width="24" height="102" rx="4" fill="#94a3b8" opacity=".7"/><rect x="645" y="409" width="24" height="46" rx="4" fill="#94a3b8" opacity=".7"/><rect x="690" y="385" width="24" height="70" rx="4" fill="#16a34a" opacity=".7"/><rect x="735" y="397" width="24" height="58" rx="4" fill="#94a3b8" opacity=".7"/>
-
-  <rect x="130" y="405" width="720" height="70" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
-  <polyline points="150,455 230,435 310,448 390,425 470,442 550,420 630,438 710,418 820,432" fill="none" stroke="#7c3aed" stroke-width="4"/>
-  <line x1="140" y1="426" x2="840" y2="426" stroke="#e2e8f0" stroke-dasharray="7 7"/>
-  <text x="150" y="423" class="muted">RSI / MACD</text><text x="650" y="454" class="label">다이버전스</text>
-
-</g>
-</svg>
+<desc id="desc">보조지표 주제를 실제 차트 흐름과 핵심 기준으로 설명하는 한국어 교육 이미지</desc>
+<style>
+.bg{fill:#f6f4ed}.panel{fill:#fff;stroke:#d8ded6;stroke-width:2}.title{font:800 34px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#10201f}.sub{font:800 22px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#0f766e}.label{font:800 20px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#10201f}.note{font:700 17px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#647067}.line{fill:none;stroke:#0f766e;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}.down{fill:none;stroke:#b45309;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}.thin{fill:none;stroke:#94a3b8;stroke-width:4;stroke-linecap:round}.dash{stroke:#94a3b8;stroke-width:3;stroke-dasharray:10 10}.zone{fill:#e8f4ef;stroke:#0f766e;stroke-width:2;opacity:.9}.risk{fill:#fff3df;stroke:#b45309;stroke-width:2}.bar{fill:#0f766e;opacity:.92}.warn{fill:#b45309;opacity:.92}
+</style><rect class="bg" width="960" height="540" rx="30"/><rect class="panel" x="42" y="42" width="876" height="456" rx="24"/><text x="72" y="82" class="sub">보조지표</text><text x="72" y="124" class="title">Bollinger Band Squeeze 전략</text><text x="72" y="166" class="title">수축 후 확장 확인</text><g opacity=".55"><path d="M120 190H850M120 285H850M120 380H850M210 130V430M370 130V430M530 130V430M690 130V430" stroke="#e7e3d8" stroke-width="1.4"/></g><path class="line" d="M120 320L250 240L390 285L540 175L700 245L840 155"/><rect class="panel" x="125" y="360" width="720" height="82" rx="12"/><path class="thin" d="M145 410L260 382L390 405L540 392L700 420L825 407"/><path class="dash" d="M540 175L840 155M540 392L825 407"/><text class="label" x="135" y="348">가격 위치 먼저</text><text class="label" x="140" y="468">지표는 확인 도구</text></svg>
