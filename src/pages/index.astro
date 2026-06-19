@@ -9,6 +9,10 @@ const tierLabels = [
   ["advanced", "중급", "심화 분석"],
   ["expert", "고급", "전문 기법"],
 ] as const;
+
+const studyItemSlugMap = Object.fromEntries(
+  articles.flatMap((article) => (article.studyItems ?? []).map((item) => [item, article.slug]))
+);
 ---
 
 <BaseLayout>
@@ -44,11 +48,16 @@ const tierLabels = [
                     <span>{caption}</span>
                   </div>
                   <ul>
-                    {profile.study[tier].slice(0, 3).map((item) => <li>{item}</li>)}
+                    {profile.study[tier].slice(0, 3).map((item) => (
+                      <li>
+                        {studyItemSlugMap[item] ? <a href={`/learn/${studyItemSlugMap[item]}`}>{item}</a> : item}
+                      </li>
+                    ))}
                   </ul>
                 </section>
               ))}
             </div>
+            <a class="result-detail-link" href={`/results#${profile.key}`}>{profile.name} 자세히 보기</a>
           </article>
         ))}
       </div>

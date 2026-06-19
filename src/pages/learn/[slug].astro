@@ -104,10 +104,22 @@ const relatedArticles = articles
         <section class="share-section" aria-labelledby="share-title">
           <h2 id="share-title">공유하기</h2>
           <div class="share-row">
-            <a class="share-button" href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`} target="_blank" rel="noopener noreferrer">X</a>
-            <a class="share-button" href={`https://share.naver.com/web/shareView?url=${encodedUrl}&title=${encodedTitle}`} target="_blank" rel="noopener noreferrer">네이버 블로그</a>
-            <a class="share-button" href={`kakaotalk://sendurl?msg=${encodedTitle}&url=${encodedUrl}`}>카카오톡</a>
-            <a class="share-button" href={`https://story.kakao.com/share?url=${encodedUrl}`} target="_blank" rel="noopener noreferrer">카카오스토리</a>
+            <a class="share-button share-x" href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`} target="_blank" rel="noopener noreferrer">
+              <span class="share-mark" aria-hidden="true">X</span>
+              <span>공유하기</span>
+            </a>
+            <a class="share-button share-naver" href={`https://share.naver.com/web/shareView?url=${encodedUrl}&title=${encodedTitle}`} target="_blank" rel="noopener noreferrer">
+              <span class="share-mark" aria-hidden="true">N</span>
+              <span>네이버 블로그</span>
+            </a>
+            <a class="share-button share-kakao" href={`kakaotalk://sendurl?msg=${encodedTitle}&url=${encodedUrl}`}>
+              <span class="share-mark" aria-hidden="true">K</span>
+              <span>카카오톡</span>
+            </a>
+            <a class="share-button share-story" href={`https://story.kakao.com/share?url=${encodedUrl}`} target="_blank" rel="noopener noreferrer">
+              <span class="share-mark" aria-hidden="true">KS</span>
+              <span>카카오스토리</span>
+            </a>
           </div>
         </section>
 
@@ -117,9 +129,14 @@ const relatedArticles = articles
             <div class="related-grid">
               {relatedArticles.map((item) => (
                 <a class="related-card" href={`/learn/${item.slug}/`}>
-                  <small>{item.category}</small>
-                  <h3>{item.title}</h3>
-                  <p>{item.summary}</p>
+                  {item.images?.[0] && (
+                    <img src={item.images[0].src} alt="" width="480" height="270" loading="lazy" decoding="async" />
+                  )}
+                  <div class="related-card-body">
+                    <small>{item.category}</small>
+                    <h3>{item.title}</h3>
+                    <p>{item.summary}</p>
+                  </div>
                 </a>
               ))}
             </div>
