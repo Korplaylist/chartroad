@@ -120,7 +120,12 @@ const relatedArticles = articles
               <span class="share-mark" aria-hidden="true">KS</span>
               <span>카카오스토리</span>
             </a>
+            <button class="share-button share-copy" type="button" data-copy-url={pageUrl}>
+              <span class="share-mark" aria-hidden="true">↗</span>
+              <span>링크 복사</span>
+            </button>
           </div>
+          <p class="share-copy-status" aria-live="polite"></p>
         </section>
 
         {relatedArticles.length > 0 && (
@@ -145,4 +150,27 @@ const relatedArticles = articles
       </article>
     </div>
   </section>
+  <script is:inline>
+    document.querySelectorAll("[data-copy-url]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const url = button.getAttribute("data-copy-url") || window.location.href;
+        const status = button.closest(".share-section")?.querySelector(".share-copy-status");
+        try {
+          await navigator.clipboard.writeText(url);
+          if (status) status.textContent = "링크가 복사되었습니다.";
+        } catch {
+          const textarea = document.createElement("textarea");
+          textarea.value = url;
+          textarea.setAttribute("readonly", "");
+          textarea.style.position = "fixed";
+          textarea.style.left = "-9999px";
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand("copy");
+          textarea.remove();
+          if (status) status.textContent = "링크가 복사되었습니다.";
+        }
+      });
+    });
+  </script>
 </BaseLayout>
