@@ -1,0 +1,96 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { articles } from "@/data/articles";
+
+const searchItems = articles.map((article) => ({
+  slug: article.slug,
+  title: article.title,
+  summary: article.summary,
+  category: article.category,
+  concepts: article.concepts,
+  searchText: [article.title, article.summary, article.category, ...article.concepts].join(" ").toLowerCase(),
+}));
+---
+
+<BaseLayout
+  title="차트 공부 글 검색 | 차트로드"
+  description="차트로드의 차트 공부 글을 제목, 요약, 카테고리, 핵심 개념으로 빠르게 검색하세요. 캔들, 거래량, 이동평균선, 리스크 관리, 고급 차트 기법까지 필요한 학습 글을 찾을 수 있습니다."
+>
+  <section class="section tight">
+    <div class="container search-page">
+      <p class="eyebrow">글 검색</p>
+      <h1>차트 공부 글 검색</h1>
+      <p class="sublead">궁금한 개념을 입력하면 제목, 요약, 카테고리, 핵심 개념을 기준으로 관련 학습 글을 바로 찾아줍니다.</p>
+
+      <form class="search-panel" role="search" aria-label="차트 공부 글 검색">
+        <label class="search-label" for="article-search">검색어</label>
+        <div class="search-input-wrap">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m21 21-4.35-4.35m1.35-5.15a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z" />
+          </svg>
+          <input
+            id="article-search"
+            name="q"
+            type="search"
+            autocomplete="off"
+            placeholder="예: 캔들, 거래량, 손절, 엘리엇파동, RSI"
+          />
+        </div>
+        <p id="search-count" class="search-count" aria-live="polite">{searchItems.length}개의 글을 검색할 수 있습니다.</p>
+      </form>
+
+      <div class="search-results" id="search-results">
+        {searchItems.map((article) => (
+          <a class="search-result-card" href={`/learn/${article.slug}/`} data-search={article.searchText}>
+            <small>{article.category}</small>
+            <h2>{article.title}</h2>
+            <p>{article.summary}</p>
+            <div class="tag-row">
+              {article.concepts.slice(0, 4).map((concept) => <span class="tag">{concept}</span>)}
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <p class="search-empty" id="search-empty" hidden>검색 결과가 없습니다. 더 짧은 단어나 다른 표현으로 다시 검색해보세요.</p>
+    </div>
+  </section>
+
+  <script>
+    const input = document.querySelector<HTMLInputElement>("#article-search");
+    const cards = Array.from(document.querySelectorAll<HTMLElement>(".search-result-card"));
+    const count = document.querySelector<HTMLElement>("#search-count");
+    const empty = document.querySelector<HTMLElement>("#search-empty");
+    const params = new URLSearchParams(window.location.search);
+    const initialQuery = params.get("q") ?? "";
+
+    const normalize = (value: string) => value.trim().toLowerCase();
+
+    const render = () => {
+      if (!input || !count || !empty) return;
+      const query = normalize(input.value);
+      let visible = 0;
+
+      cards.forEach((card) => {
+        const haystack = card.dataset.search ?? "";
+        const matched = !query || haystack.includes(query);
+        card.hidden = !matched;
+        if (matched) visible += 1;
+      });
+
+      count.textContent = query
+        ? `"${input.value}" 검색 결과 ${visible}개`
+        : `${cards.length}개의 글을 검색할 수 있습니다.`;
+      empty.hidden = visible > 0;
+
+      const nextUrl = query ? `/search/?q=${encodeURIComponent(input.value)}` : "/search/";
+      window.history.replaceState(null, "", nextUrl);
+    };
+
+    if (input) {
+      input.value = initialQuery;
+      input.addEventListener("input", render);
+      render();
+    }
+  </script>
+</BaseLayout>
