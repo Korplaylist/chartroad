@@ -23,7 +23,17 @@ const studyItemSlugMap = Object.fromEntries(
       <div class="grid cols-3 result-preview-grid">
         {resultProfiles.map((profile) => (
           <article class="card result-preview-card" id={profile.key}>
-            <img class="result-character" src={`/assets/results/${profile.key}.webp`} alt={`${profile.name} 캐릭터 이미지`} width="640" height="480" loading="lazy" decoding="async" />
+            <img
+              class="result-character"
+              src={`/assets/results/optimized/${profile.key}-360.webp`}
+              srcset={`/assets/results/optimized/${profile.key}-240.webp 240w, /assets/results/optimized/${profile.key}-360.webp 360w`}
+              sizes="(max-width: 700px) calc(100vw - 64px), 324px"
+              alt={`${profile.name} 캐릭터 이미지`}
+              width="360"
+              height="360"
+              loading="lazy"
+              decoding="async"
+            />
             <small>{profile.meaning}</small>
             <h2>{profile.name}</h2>
             <p class="meta">{profile.description}</p>

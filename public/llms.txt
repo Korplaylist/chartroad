@@ -1,0 +1,26 @@
+# 차트로드
+
+차트로드는 한국어 사용자를 위한 차트 공부 교육 사이트입니다. 투자 추천이 아니라 캔들, 거래량, 이동평균선, 추세, 지지선과 저항선, 리스크 관리, 고급 차트 기법을 단계별로 학습할 수 있도록 돕습니다.
+
+## 주요 페이지
+
+- [홈](https://chartroad.co.kr/)
+- [차트 공부 테스트](https://chartroad.co.kr/test/)
+- [공부 콘텐츠](https://chartroad.co.kr/learn/)
+- [결과 유형](https://chartroad.co.kr/results/)
+- [글 검색](https://chartroad.co.kr/search/)
+- [소개](https://chartroad.co.kr/about/)
+- [유의사항](https://chartroad.co.kr/disclaimer/)
+- [개인정보처리방침](https://chartroad.co.kr/privacy/)
+- [문의](https://chartroad.co.kr/contact/)
+
+## 대표 학습 주제
+
+- [캔들 구조: 시가·고가·저가·종가 이해](https://chartroad.co.kr/learn/basic-candle-ohlc/)
+- [양봉과 음봉의 의미](https://chartroad.co.kr/learn/basic-bull-bear-candle/)
+- [거래량 기본: 거래량이 많다는 뜻](https://chartroad.co.kr/learn/basic-volume-meaning/)
+- [이동평균선 보는 법](https://chartroad.co.kr/learn/moving-average-start/)
+- [상승 추세와 하락 추세 구분](https://chartroad.co.kr/learn/basic-uptrend-downtrend/)
+- [지지선과 저항선 그리는 기준](https://chartroad.co.kr/learn/support-resistance/)
+- [손절선 정하기](https://chartroad.co.kr/learn/stop-loss-basic/)
+- [엘리엇파동 기본 구조](https://chartroad.co.kr/learn/expert-elliott-wave-basic-structure/)

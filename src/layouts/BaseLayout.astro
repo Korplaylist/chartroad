@@ -1,5 +1,5 @@
 ---
-import "@/styles/global.css";
+import globalCss from "@/styles/global.css?inline";
 
 type Props = {
   title?: string;
@@ -52,6 +52,7 @@ const websiteJson = {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={absoluteImage} />
+    <style set:html={globalCss}></style>
     <script type="application/ld+json" set:html={JSON.stringify(websiteJson)}></script>
     <slot name="head" />
   </head>
