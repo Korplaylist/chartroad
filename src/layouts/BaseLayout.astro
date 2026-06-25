@@ -14,13 +14,13 @@ const {
   image = "/assets/chartroad-og.webp",
   ogType = "website",
 } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://chartroad.pages.dev").toString();
-const absoluteImage = new URL(image, Astro.site ?? "https://chartroad.pages.dev").toString();
+const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://chartroad.co.kr").toString();
+const absoluteImage = new URL(image, Astro.site ?? "https://chartroad.co.kr").toString();
 const websiteJson = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "차트로드",
-  url: Astro.site ?? "https://chartroad.pages.dev",
+  url: Astro.site ?? "https://chartroad.co.kr",
   inLanguage: "ko-KR",
   description: "차트 공부 순서와 학습 로드맵을 제공하는 교육용 플랫폼",
 };

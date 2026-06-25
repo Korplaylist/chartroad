@@ -1,6 +1,6 @@
 import { articles } from "@/data/articles";
 
-const site = "https://chartroad.pages.dev";
+const site = "https://chartroad.co.kr";
 const staticPages = [
   "",
   "test",
