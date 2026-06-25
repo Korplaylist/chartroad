@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://chartroad.co.kr/sitemap.xml
+
+#DaumWebMasterTool:0c6633238c98db70c34132742c466f60e0c97c608f58643cc492efe84a3cadc7:/rROxydMIOcaD59/dAkQxg==
