@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { articles } from "@/data/articles";
+import { publishedArticles } from "@/data/articles";
 
 const categories = ["학습 로드맵", "차트 기초", "가격 구조 분석", "보조지표", "거래량·수급 해석", "매매 스타일", "매매 전략 설계", "리스크 관리", "고급 차트 기술"];
 const formatListDate = (value?: string) =>
@@ -29,7 +29,7 @@ const formatListDate = (value?: string) =>
       <div class="container">
         <h2>{category}</h2>
         <div class="grid cols-4" style="margin-top:20px">
-          {articles.filter((article) => article.category === category).map((article) => (
+          {publishedArticles.filter((article) => article.category === category).map((article) => (
             <a class="card" href={`/learn/${article.slug}`}>
               <small>{article.category}</small>
               <h3 style="margin-top:8px">{article.title}</h3>

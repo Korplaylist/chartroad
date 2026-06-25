@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { articles } from "@/data/articles";
+import { publishedArticles } from "@/data/articles";
 import { resultProfiles } from "@/data/results";
 
 const tierLabels = [
@@ -11,7 +11,7 @@ const tierLabels = [
 ] as const;
 
 const studyItemSlugMap = Object.fromEntries(
-  articles.flatMap((article) => (article.studyItems ?? []).map((item) => [item, article.slug]))
+  publishedArticles.flatMap((article) => (article.studyItems ?? []).map((item) => [item, article.slug]))
 );
 ---
 

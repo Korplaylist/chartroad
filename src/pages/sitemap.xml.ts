@@ -1,4 +1,4 @@
-import { articles } from "@/data/articles";
+import { publishedArticles } from "@/data/articles";
 
 const site = "https://chartroad.co.kr";
 const staticPages = [
@@ -17,7 +17,7 @@ const staticLastmod = "2026-06-25";
 export async function GET() {
   const urls = [
     ...staticPages.map((path) => ({ url: path ? `${site}/${path}/` : `${site}/`, lastmod: staticLastmod })),
-    ...articles.map((article) => ({ url: `${site}/learn/${article.slug}/`, lastmod: (article.updatedAt ?? article.publishedAt ?? staticLastmod).slice(0, 10) })),
+    ...publishedArticles.map((article) => ({ url: `${site}/learn/${article.slug}/`, lastmod: (article.updatedAt ?? article.publishedAt ?? staticLastmod).slice(0, 10) })),
   ];
 
   const body = `<?xml version="1.0" encoding="UTF-8"?>

@@ -1,14 +1,21 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { articles } from "@/data/articles";
+import { publishedArticles } from "@/data/articles";
 
-const searchItems = articles.map((article) => ({
+const searchItems = publishedArticles.map((article) => ({
   slug: article.slug,
   title: article.title,
   summary: article.summary,
   category: article.category,
   concepts: article.concepts,
-  searchText: [article.title, article.summary, article.category, ...article.concepts].join(" ").toLowerCase(),
+  searchText: [
+    article.title,
+    article.summary,
+    article.category,
+    article.searchIntent ?? "",
+    ...article.concepts,
+    ...(article.seoKeywords ?? []),
+  ].join(" ").toLowerCase(),
 }));
 ---
 

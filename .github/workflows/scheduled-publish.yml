@@ -1,0 +1,42 @@
+name: Scheduled Publish Tick
+
+on:
+  workflow_dispatch:
+  schedule:
+    # KST 10:10, 15:10, 21:10. Each tick rebuilds the static site so due posts appear.
+    - cron: "10 1,6,12 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scheduled-publish
+  cancel-in-progress: false
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Check due posts
+        run: node scripts/scheduled-publish-check.mjs
+
+      - name: Trigger Cloudflare Pages rebuild when needed
+        if: ${{ hashFiles('.github/publish-state.json') != '' }}
+        run: |
+          if git diff --quiet -- .github/publish-state.json; then
+            echo "No newly due posts. Skipping deploy tick."
+            exit 0
+          fi
+          git add .github/publish-state.json
+          git commit -m "chore: publish scheduled articles [skip ci]"
+          git push

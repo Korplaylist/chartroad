@@ -1,4 +1,4 @@
-import { articles } from "@/data/articles";
+import { publishedArticles } from "@/data/articles";
 import { resultProfileMap } from "@/data/results";
 import type { ResultTypeKey } from "@/types";
 
@@ -23,7 +23,7 @@ export function buildSevenDayRoadmap(mainType: ResultTypeKey, subType: ResultTyp
 }
 
 export function rankArticles(learningStyle: string, interestedConcept: string) {
-  return [...articles]
+  return [...publishedArticles]
     .map((article) => ({
       article,
       score:

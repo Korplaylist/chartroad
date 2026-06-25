@@ -2,9 +2,9 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { questions } from "@/data/questions";
 import { resultProfileMap } from "@/data/results";
-import { articles } from "@/data/articles";
+import { publishedArticles } from "@/data/articles";
 
-const articleSummaries = articles.map(({ slug, title, summary, category, concepts, style, studyItems }) => ({
+const articleSummaries = publishedArticles.map(({ slug, title, summary, category, concepts, style, studyItems }) => ({
   slug,
   title,
   summary,

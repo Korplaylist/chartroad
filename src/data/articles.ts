@@ -1601,11 +1601,10 @@ type PublishSlot = {
   minute: number;
 };
 
-const publishEnd = {
+const publishStart = {
   year: 2026,
-  month: 6,
-  day: 25,
-  minute: 12 * 60 + 49,
+  month: 4,
+  day: 14,
 };
 const dayMs = 24 * 60 * 60 * 1000;
 const publishPeriods = [
@@ -1623,7 +1622,7 @@ const seededRandom = (seed: number) => {
 };
 
 const randInt = (random: () => number, min: number, max: number) => min + Math.floor(random() * (max - min + 1));
-const endDaySerial = Math.floor(Date.UTC(publishEnd.year, publishEnd.month - 1, publishEnd.day) / dayMs);
+const startDaySerial = Math.floor(Date.UTC(publishStart.year, publishStart.month - 1, publishStart.day) / dayMs);
 const serialToDateKey = (serial: number) => {
   const date = new Date(serial * dayMs);
   const year = date.getUTCFullYear();
@@ -1637,35 +1636,31 @@ const slotToIso = ({ dateKey, minute }: PublishSlot) => {
   return `${dateKey}T${hour}:${minutes}:00+09:00`;
 };
 
+const getBuildNow = () => {
+  const override = import.meta.env.PUBLISH_NOW;
+  return override ? new Date(override) : new Date();
+};
+
 const buildPublishSlots = (count: number) => {
   const random = seededRandom(20260625);
   const slots: PublishSlot[] = [];
-  let serial = endDaySerial;
-  let remaining = count;
+  let serial = startDaySerial;
 
-  while (remaining > 0) {
-    const isEndDay = serial === endDaySerial;
-    const availablePeriods = publishPeriods.filter((period) => !isEndDay || period.start <= publishEnd.minute);
+  while (slots.length < count) {
     const dayMinutes = new Set<number>();
-    const minPosts = Math.min(availablePeriods.length + (availablePeriods.length < 3 ? 1 : 0), remaining);
-    let postsForDay = remaining <= 5 ? remaining : randInt(random, Math.max(3, minPosts), 5);
-    if (remaining - postsForDay > 0 && remaining - postsForDay < 3) {
-      postsForDay = remaining - 3;
-    }
+    const postsForDay = randInt(random, 3, 5);
 
-    availablePeriods.forEach((period) => {
+    publishPeriods.forEach((period) => {
       if (dayMinutes.size >= postsForDay) return;
-      const max = isEndDay ? Math.min(period.end, publishEnd.minute) : period.end;
-      dayMinutes.add(randInt(random, period.start, max));
+      dayMinutes.add(randInt(random, period.start, period.end));
     });
 
     while (dayMinutes.size < postsForDay) {
-      const period = availablePeriods[randInt(random, 0, availablePeriods.length - 1)];
-      const max = isEndDay ? Math.min(period.end, publishEnd.minute) : period.end;
-      let minute = randInt(random, period.start, max);
+      const period = publishPeriods[randInt(random, 0, publishPeriods.length - 1)];
+      let minute = randInt(random, period.start, period.end);
       while (dayMinutes.has(minute)) {
-        minute = Math.min(max, minute + 1);
-        if (dayMinutes.has(minute) && minute === max) minute = period.start;
+        minute = Math.min(period.end, minute + 1);
+        if (dayMinutes.has(minute) && minute === period.end) minute = period.start;
       }
       dayMinutes.add(minute);
     }
@@ -1673,11 +1668,11 @@ const buildPublishSlots = (count: number) => {
     [...dayMinutes]
       .sort((a, b) => a - b)
       .forEach((minute) => slots.push({ dateKey: serialToDateKey(serial), minute }));
-    remaining -= postsForDay;
-    serial -= 1;
+    serial += 1;
   }
 
   return slots
+    .slice(0, count)
     .sort((a, b) => a.dateKey.localeCompare(b.dateKey) || a.minute - b.minute);
 };
 
@@ -1687,16 +1682,69 @@ const assignPublishDates = (items: LearnArticle[]) => {
     const publishedAt = slotToIso(slots[index]);
     return {
       ...article,
+      seoKeywords: buildSeoKeywords(article),
+      searchIntent: buildSearchIntent(article),
       publishedAt,
       updatedAt: publishedAt,
     };
   });
 };
 
+const keywordAliases: Record<string, string[]> = {
+  "캔들 패턴": ["캔들 보는 법", "양봉 음봉", "꼬리 캔들", "시가 고가 저가 종가"],
+  거래량: ["거래량 보는 법", "거래량 해석", "거래량 증가", "거래량 감소"],
+  "지지선/저항선": ["지지선 저항선", "지지 저항", "지지선 그리는 법", "저항선 돌파"],
+  이동평균선: ["이동평균선 보는 법", "5일선 20일선 60일선", "정배열 역배열", "이평선 눌림"],
+  "RSI/MACD": ["RSI 보는 법", "MACD 보는 법", "다이버전스", "골든크로스 데드크로스"],
+  볼린저밴드: ["볼린저밴드 보는 법", "볼린저밴드 중심선", "밴드 수축 확장"],
+  "손익비/손절": ["손절선 잡는 법", "손익비 계산", "리스크 관리", "목표가 손절가"],
+};
+
+const categoryKeywords: Record<LearnArticle["category"], string[]> = {
+  "학습 로드맵": ["차트 공부 순서", "차트 공부 로드맵", "차트 공부 방법"],
+  "차트 기초": ["차트 기초", "주식 차트 보는 법", "코인 차트 보는 법"],
+  "가격 구조 분석": ["가격 구조", "고점 저점", "추세 구조", "돌파 이탈"],
+  보조지표: ["보조지표 공부", "기술적 지표", "지표 해석"],
+  "거래량·수급 해석": ["거래량 수급", "수급 해석", "거래량 신호"],
+  "매매 스타일": ["단타 스윙 차이", "매매 스타일", "추세추종 박스권"],
+  "매매 전략 설계": ["매매 기준", "매매 셋업", "매매일지"],
+  "리스크 관리": ["리스크 관리", "손절 기준", "포지션 크기"],
+  "고급 차트 기술": ["고급 차트 기법", "엘리엇파동", "피보나치", "와이코프"],
+};
+
+const buildSeoKeywords = (article: LearnArticle) => {
+  const titlePieces = article.title
+    .replace(/[·:()]/g, " ")
+    .split(/\s+/)
+    .filter((word) => word.length >= 2)
+    .slice(0, 8);
+  const keywords = [
+    article.title,
+    article.category,
+    ...article.concepts,
+    ...(categoryKeywords[article.category] ?? []),
+    ...article.concepts.flatMap((concept) => keywordAliases[concept] ?? []),
+    ...titlePieces,
+  ];
+  return [...new Set(keywords)].slice(0, 24);
+};
+
+const buildSearchIntent = (article: LearnArticle) => {
+  if (article.category === "학습 로드맵") return "학습 순서와 선행 개념을 찾는 검색 의도";
+  if (article.category === "리스크 관리") return "손절, 손익비, 포지션 크기 기준을 찾는 검색 의도";
+  if (article.category === "고급 차트 기술") return "고급 기법의 조건과 무효화 기준을 찾는 검색 의도";
+  return `${article.category} 개념을 쉽게 이해하고 실제 차트에 적용하려는 검색 의도`;
+};
+
 export const articles: LearnArticle[] = assignPublishDates(
   [...coreArticles, ...basicStudyArticles, ...intermediateStudyArticles, ...advancedStudyArticles, ...expertStudyArticles].map(ensureStudyImages)
 );
 
+export const publishedArticles: LearnArticle[] = articles.filter((article) => {
+  if (!article.publishedAt) return true;
+  return new Date(article.publishedAt).getTime() <= getBuildNow().getTime();
+});
+
 export const articleMap = Object.fromEntries(
-  articles.map((article) => [article.slug, article])
+  publishedArticles.map((article) => [article.slug, article])
 ) as Record<string, LearnArticle>;

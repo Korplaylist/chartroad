@@ -1,9 +1,9 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { articles, articleMap } from "@/data/articles";
+import { publishedArticles, articleMap } from "@/data/articles";
 
 export function getStaticPaths() {
-  return articles.map((article) => ({ params: { slug: article.slug } }));
+  return publishedArticles.map((article) => ({ params: { slug: article.slug } }));
 }
 
 const article = articleMap[Astro.params.slug ?? ""];
@@ -61,13 +61,15 @@ const companionImages = article.images?.slice(1) ?? [];
 const inlineImageAt = (index: number) => companionImages[index === 1 ? 0 : index === 4 ? 1 : index === 7 ? 2 : -1];
 const encodedUrl = encodeURIComponent(pageUrl);
 const encodedTitle = encodeURIComponent(article.title);
-const relatedArticles = articles
+const articleKeywordSet = new Set(article.seoKeywords ?? []);
+const relatedArticles = publishedArticles
   .filter((item) => item.slug !== article.slug)
   .map((item) => ({
     article: item,
     score:
       (item.category === article.category ? 4 : 0) +
       item.concepts.filter((concept) => article.concepts.includes(concept)).length * 3 +
+      (item.seoKeywords ?? []).filter((keyword) => articleKeywordSet.has(keyword)).length * 2 +
       (item.slug.split("-")[0] === article.slug.split("-")[0] ? 1 : 0),
   }))
   .filter((item) => item.score > 0)

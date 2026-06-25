@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { resultProfiles } from "@/data/results";
-import { articles } from "@/data/articles";
+import { publishedArticles } from "@/data/articles";
 
 const tierLabels = [
   ["basic", "초보", "기초 개념"],
@@ -11,7 +11,7 @@ const tierLabels = [
 ] as const;
 
 const studyItemSlugMap = Object.fromEntries(
-  articles.flatMap((article) => (article.studyItems ?? []).map((item) => [item, article.slug]))
+  publishedArticles.flatMap((article) => (article.studyItems ?? []).map((item) => [item, article.slug]))
 );
 ---
 
@@ -97,7 +97,7 @@ const studyItemSlugMap = Object.fromEntries(
       <h2>추천 공부 콘텐츠</h2>
       <p class="sublead">테스트 결과에 따라 먼저 읽을 글이 달라집니다.</p>
       <div class="grid cols-4" style="margin-top:24px">
-        {articles.slice(0, 8).map((article) => (
+        {publishedArticles.slice(0, 8).map((article) => (
           <a class="card" href={`/learn/${article.slug}`}>
             <small>{article.category}</small>
             <h3 style="margin-top:8px">{article.title}</h3>

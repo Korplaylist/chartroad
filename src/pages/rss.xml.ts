@@ -1,4 +1,4 @@
-import { articles } from "@/data/articles";
+import { publishedArticles } from "@/data/articles";
 
 const site = "https://chartroad.co.kr";
 
@@ -13,7 +13,7 @@ const escapeXml = (value: string) =>
 const toRssDate = (value?: string) => new Date(value ?? "2026-06-25T00:00:00+09:00").toUTCString();
 
 export async function GET() {
-  const items = [...articles].sort((a, b) => {
+  const items = [...publishedArticles].sort((a, b) => {
     const left = a.publishedAt ?? "";
     const right = b.publishedAt ?? "";
     return right.localeCompare(left);
