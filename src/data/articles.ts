@@ -1596,7 +1596,106 @@ const ensureStudyImages = (article: LearnArticle): LearnArticle => {
   };
 };
 
-export const articles: LearnArticle[] = [...coreArticles, ...basicStudyArticles, ...intermediateStudyArticles, ...advancedStudyArticles, ...expertStudyArticles].map(ensureStudyImages);
+type PublishSlot = {
+  dateKey: string;
+  minute: number;
+};
+
+const publishEnd = {
+  year: 2026,
+  month: 6,
+  day: 25,
+  minute: 12 * 60 + 49,
+};
+const dayMs = 24 * 60 * 60 * 1000;
+const publishPeriods = [
+  { start: 7 * 60, end: 10 * 60 },
+  { start: 12 * 60, end: 15 * 60 },
+  { start: 18 * 60, end: 21 * 60 },
+] as const;
+
+const seededRandom = (seed: number) => {
+  let value = seed;
+  return () => {
+    value = (value * 1664525 + 1013904223) >>> 0;
+    return value / 4294967296;
+  };
+};
+
+const randInt = (random: () => number, min: number, max: number) => min + Math.floor(random() * (max - min + 1));
+const endDaySerial = Math.floor(Date.UTC(publishEnd.year, publishEnd.month - 1, publishEnd.day) / dayMs);
+const serialToDateKey = (serial: number) => {
+  const date = new Date(serial * dayMs);
+  const year = date.getUTCFullYear();
+  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(date.getUTCDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+};
+const slotToIso = ({ dateKey, minute }: PublishSlot) => {
+  const hour = String(Math.floor(minute / 60)).padStart(2, "0");
+  const minutes = String(minute % 60).padStart(2, "0");
+  return `${dateKey}T${hour}:${minutes}:00+09:00`;
+};
+
+const buildPublishSlots = (count: number) => {
+  const random = seededRandom(20260625);
+  const slots: PublishSlot[] = [];
+  let serial = endDaySerial;
+  let remaining = count;
+
+  while (remaining > 0) {
+    const isEndDay = serial === endDaySerial;
+    const availablePeriods = publishPeriods.filter((period) => !isEndDay || period.start <= publishEnd.minute);
+    const dayMinutes = new Set<number>();
+    const minPosts = Math.min(availablePeriods.length + (availablePeriods.length < 3 ? 1 : 0), remaining);
+    let postsForDay = remaining <= 5 ? remaining : randInt(random, Math.max(3, minPosts), 5);
+    if (remaining - postsForDay > 0 && remaining - postsForDay < 3) {
+      postsForDay = remaining - 3;
+    }
+
+    availablePeriods.forEach((period) => {
+      if (dayMinutes.size >= postsForDay) return;
+      const max = isEndDay ? Math.min(period.end, publishEnd.minute) : period.end;
+      dayMinutes.add(randInt(random, period.start, max));
+    });
+
+    while (dayMinutes.size < postsForDay) {
+      const period = availablePeriods[randInt(random, 0, availablePeriods.length - 1)];
+      const max = isEndDay ? Math.min(period.end, publishEnd.minute) : period.end;
+      let minute = randInt(random, period.start, max);
+      while (dayMinutes.has(minute)) {
+        minute = Math.min(max, minute + 1);
+        if (dayMinutes.has(minute) && minute === max) minute = period.start;
+      }
+      dayMinutes.add(minute);
+    }
+
+    [...dayMinutes]
+      .sort((a, b) => a - b)
+      .forEach((minute) => slots.push({ dateKey: serialToDateKey(serial), minute }));
+    remaining -= postsForDay;
+    serial -= 1;
+  }
+
+  return slots
+    .sort((a, b) => a.dateKey.localeCompare(b.dateKey) || a.minute - b.minute);
+};
+
+const assignPublishDates = (items: LearnArticle[]) => {
+  const slots = buildPublishSlots(items.length);
+  return items.map((article, index) => {
+    const publishedAt = slotToIso(slots[index]);
+    return {
+      ...article,
+      publishedAt,
+      updatedAt: publishedAt,
+    };
+  });
+};
+
+export const articles: LearnArticle[] = assignPublishDates(
+  [...coreArticles, ...basicStudyArticles, ...intermediateStudyArticles, ...advancedStudyArticles, ...expertStudyArticles].map(ensureStudyImages)
+);
 
 export const articleMap = Object.fromEntries(
   articles.map((article) => [article.slug, article])

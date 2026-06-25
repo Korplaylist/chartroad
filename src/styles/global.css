@@ -453,6 +453,16 @@ p { margin: 0; }
   font-size: clamp(17px, 1.7vw, 20px);
   text-align: center;
 }
+.article-date-row {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+.article-card-date {
+  margin-top: 8px;
+  font-size: 13px;
+}
 .article-main .tag-row {
   justify-content: center;
 }

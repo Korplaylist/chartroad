@@ -12,6 +12,18 @@ const seoDescription =
     ? article.summary
     : `${article.summary} ${article.category} 관점에서 ${article.concepts.slice(0, 3).join(", ")}을 차트 공부 순서와 실전 체크 기준으로 쉽게 정리합니다.`;
 const pageUrl = new URL(Astro.url.pathname, Astro.site ?? "https://chartroad.co.kr").toString();
+const formatArticleDate = (value?: string) =>
+  value
+    ? new Intl.DateTimeFormat("ko-KR", {
+        timeZone: "Asia/Seoul",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      }).format(new Date(value))
+    : "";
 
 const faqJson = {
   "@context": "https://schema.org",
@@ -29,6 +41,10 @@ const articleJson = {
   description: seoDescription,
   inLanguage: "ko-KR",
   image: article.images?.[0]?.src ? new URL(article.images[0].src, Astro.site ?? "https://chartroad.co.kr").toString() : undefined,
+  datePublished: article.publishedAt,
+  dateModified: article.updatedAt ?? article.publishedAt,
+  author: { "@type": "Organization", name: "차트로드" },
+  publisher: { "@type": "Organization", name: "차트로드", logo: { "@type": "ImageObject", url: "https://chartroad.co.kr/assets/chartroad-mark.svg" } },
   mainEntityOfPage: pageUrl,
 };
 const breadcrumbJson = {
@@ -75,6 +91,11 @@ const relatedArticles = articles
         <small>{article.category}</small>
         <h1>{article.title}</h1>
         <p class="article-summary">{article.summary}</p>
+        {article.publishedAt && (
+          <p class="article-date-row">
+            <time datetime={article.publishedAt}>발행 {formatArticleDate(article.publishedAt)}</time>
+          </p>
+        )}
         <div class="tag-row">
           {article.concepts.map((concept) => <span class="tag">{concept}</span>)}
         </div>

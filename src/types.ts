@@ -53,6 +53,8 @@ export type LearnArticle = {
   category: LearnCategory;
   concepts: string[];
   style: string[];
+  publishedAt?: string;
+  updatedAt?: string;
   body: string[];
   bodyHtml?: string[];
   images?: {
