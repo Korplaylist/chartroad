@@ -14,7 +14,8 @@ const articleCount =
   countMatches(sliceBetween("const basicStudyDefinitions", "const basicStudyLinkByCategory"), /^\s*\{ item:/gm) +
   countMatches(sliceBetween("const intermediateStudyDefinitions", "const buildIntermediateStudyBodyHtml"), /^\s*\{ item:/gm) +
   countMatches(sliceBetween("const advancedStudyDefinitions", "const buildAdvancedStudyBodyHtml"), /^\s*\{ item:/gm) +
-  countMatches(sliceBetween("const expertStudyDefinitions", "const buildExpertStudyBodyHtml"), /^\s*\{ item:/gm);
+  countMatches(sliceBetween("const expertStudyDefinitions", "const buildExpertStudyBodyHtml"), /^\s*\{ item:/gm) +
+  countMatches(sliceBetween("const scheduledTechniqueDefinitions", "const techniqueLinkList"), /^\s*\{\s*$/gm);
 const statePath = ".github/publish-state.json";
 const state = fs.existsSync(statePath)
   ? JSON.parse(fs.readFileSync(statePath, "utf8"))
@@ -22,11 +23,14 @@ const state = fs.existsSync(statePath)
 
 const dayMs = 24 * 60 * 60 * 1000;
 const publishStart = { year: 2026, month: 4, day: 14 };
+const futurePublishStart = { year: 2026, month: 6, day: 27 };
+const publishedArticleBaseline = 279;
 const publishPeriods = [
   { start: 7 * 60, end: 10 * 60 },
   { start: 12 * 60, end: 15 * 60 },
   { start: 18 * 60, end: 21 * 60 },
 ];
+const futurePublishPeriods = [{ start: 7 * 60, end: 10 * 60 }];
 
 const seededRandom = (seed) => {
   let value = seed;
@@ -38,23 +42,24 @@ const seededRandom = (seed) => {
 
 const randInt = (random, min, max) => min + Math.floor(random() * (max - min + 1));
 const startDaySerial = Math.floor(Date.UTC(publishStart.year, publishStart.month - 1, publishStart.day) / dayMs);
+const futureStartDaySerial = Math.floor(Date.UTC(futurePublishStart.year, futurePublishStart.month - 1, futurePublishStart.day) / dayMs);
 
-const buildPublishSlots = (count) => {
-  const random = seededRandom(20260625);
+const buildPublishSlots = (count, startSerial, periods, seed) => {
+  const random = seededRandom(seed);
   const slots = [];
-  let serial = startDaySerial;
+  let serial = startSerial;
 
   while (slots.length < count) {
     const dayMinutes = new Set();
     const postsForDay = randInt(random, 3, 5);
 
-    publishPeriods.forEach((period) => {
+    periods.forEach((period) => {
       if (dayMinutes.size >= postsForDay) return;
       dayMinutes.add(randInt(random, period.start, period.end));
     });
 
     while (dayMinutes.size < postsForDay) {
-      const period = publishPeriods[randInt(random, 0, publishPeriods.length - 1)];
+      const period = periods[randInt(random, 0, periods.length - 1)];
       let minute = randInt(random, period.start, period.end);
       while (dayMinutes.has(minute)) {
         minute = Math.min(period.end, minute + 1);
@@ -72,12 +77,16 @@ const buildPublishSlots = (count) => {
   return slots.slice(0, count).sort((a, b) => a.serial - b.serial || a.minute - b.minute);
 };
 
+const legacySlots = buildPublishSlots(Math.min(articleCount, publishedArticleBaseline), startDaySerial, publishPeriods, 20260625);
+const futureSlots = buildPublishSlots(Math.max(0, articleCount - publishedArticleBaseline), futureStartDaySerial, futurePublishPeriods, 20260627);
+const publishSlots = [...legacySlots, ...futureSlots];
+
 const now = process.env.PUBLISH_NOW ? new Date(process.env.PUBLISH_NOW) : new Date();
 const nowKst = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Seoul" }));
 const nowSerial = Math.floor(Date.UTC(nowKst.getFullYear(), nowKst.getMonth(), nowKst.getDate()) / dayMs);
 const nowMinute = nowKst.getHours() * 60 + nowKst.getMinutes();
 
-const dueCount = buildPublishSlots(articleCount).filter(
+const dueCount = publishSlots.filter(
   (slot) => slot.serial < nowSerial || (slot.serial === nowSerial && slot.minute <= nowMinute)
 ).length;
 

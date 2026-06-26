@@ -3,8 +3,8 @@ name: Scheduled Publish Tick
 on:
   workflow_dispatch:
   schedule:
-    # KST 10:10, 15:10, 21:10. Each tick rebuilds the static site so due posts appear.
-    - cron: "10 1,6,12 * * *"
+    # KST 10:10. One morning tick publishes every article scheduled for that morning.
+    - cron: "10 1 * * *"
 
 permissions:
   contents: write

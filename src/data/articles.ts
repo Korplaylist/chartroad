@@ -1411,6 +1411,314 @@ const expertStudyArticles: LearnArticle[] = expertStudyDefinitions.map((definiti
   ],
 }));
 
+type ScheduledTechniqueDefinition = {
+  slug: string;
+  title: string;
+  summary: string;
+  category: LearnArticle["category"];
+  concepts: string[];
+  image: keyof typeof studyImageMeta;
+  keyword: string;
+  intent: string;
+  structure: string;
+  confirmation: string;
+  invalidation: string;
+  mistake: string;
+  practice: string;
+  links: { text: string; href: string }[];
+};
+
+const scheduledTechniqueDefinitions: ScheduledTechniqueDefinition[] = [
+  {
+    slug: "head-and-shoulders-pattern",
+    title: "헤드앤숄더 패턴 보는 법: 목선 이탈과 거래량 확인 기준",
+    summary: "헤드앤숄더 패턴을 왼쪽 어깨, 머리, 오른쪽 어깨, 목선, 거래량, 무효화 기준으로 차근차근 설명합니다.",
+    category: "가격 구조 분석",
+    concepts: ["지지선/저항선", "거래량", "손익비/손절"],
+    image: "support",
+    keyword: "헤드앤숄더 패턴",
+    intent: "상승 추세 후반에 자주 검색되는 대표 반전 패턴을 실제 차트 기준으로 이해하려는 검색 의도",
+    structure: "왼쪽 어깨는 첫 고점, 머리는 더 높은 고점, 오른쪽 어깨는 머리보다 낮은 고점으로 구성됩니다. 두 저점을 연결한 목선이 패턴의 핵심 기준입니다.",
+    confirmation: "목선 아래로 종가가 마감되고, 이후 되돌림에서 목선이 저항으로 바뀌는지 확인해야 합니다. 거래량이 이탈 구간에서 늘고 되돌림에서 줄어들면 패턴 신뢰도가 높아집니다.",
+    invalidation: "오른쪽 어깨 후보 이후 가격이 다시 머리 고점에 근접하거나 돌파하면 패턴 가설은 약해집니다. 목선 이탈 후 바로 회복해 목선 위에서 종가가 유지되어도 무효화로 봐야 합니다.",
+    mistake: "세 개의 봉우리만 보이면 무조건 헤드앤숄더라고 부르는 실수가 많습니다. 위치가 상승 후반인지, 목선이 의미 있는 지지였는지, 거래량이 따라왔는지까지 봐야 합니다.",
+    practice: "상승 추세가 끝난 차트 20개를 모아 왼쪽 어깨, 머리, 오른쪽 어깨, 목선, 이탈 후 되돌림을 직접 표시해보세요.",
+    links: [
+      { text: "지지선 저항선 그리는 법", href: "/learn/support-resistance/" },
+      { text: "거래량 보는 법", href: "/learn/volume-basics/" },
+      { text: "손절선 잡는 법", href: "/learn/stop-loss-basic/" },
+    ],
+  },
+  {
+    slug: "inverse-head-and-shoulders-pattern",
+    title: "역헤드앤숄더 패턴 이해: 바닥 전환을 확인하는 목선 돌파 기준",
+    summary: "역헤드앤숄더를 바닥 예측이 아니라 목선 회복과 저점 구조 전환을 확인하는 학습 기준으로 정리합니다.",
+    category: "가격 구조 분석",
+    concepts: ["지지선/저항선", "거래량", "손익비/손절"],
+    image: "support",
+    keyword: "역헤드앤숄더 패턴",
+    intent: "하락 후 반등이 추세 전환인지 확인하려는 검색 의도",
+    structure: "왼쪽 어깨, 더 낮은 머리, 더 높아지는 오른쪽 어깨로 구성됩니다. 목선은 반등이 반복해서 막힌 저항 구간입니다.",
+    confirmation: "목선 위 종가 회복, 돌파 후 목선 지지 확인, 오른쪽 어깨 저점 유지가 함께 나와야 합니다. 거래량은 목선 돌파 구간에서 늘어나는지 확인합니다.",
+    invalidation: "오른쪽 어깨 저점이 깨지거나 목선 돌파 후 다시 목선 아래로 밀리면 전환 가설을 보류해야 합니다.",
+    mistake: "하락폭이 크다는 이유만으로 역헤드앤숄더를 찾으면 하락 지속 구간을 바닥처럼 착각할 수 있습니다.",
+    practice: "하락 추세 후 저점이 낮아지다 더 이상 낮아지지 않는 사례를 찾아 목선 회복 여부를 기록하세요.",
+    links: [
+      { text: "다우이론으로 고점과 저점 구조 읽기", href: "/learn/dow-theory-structure/" },
+      { text: "거래량은 가격 위치와 함께 읽어야 합니다", href: "/learn/volume-price-location/" },
+      { text: "목표가와 손절가를 먼저 정하는 법", href: "/learn/basic-target-stop-first/" },
+    ],
+  },
+  {
+    slug: "cup-and-handle-pattern",
+    title: "컵앤핸들 패턴 보는 법: 손잡이 눌림과 돌파 확인 기준",
+    summary: "컵앤핸들 패턴을 U자형 회복, 손잡이 눌림, 거래량 감소, 돌파 확인 순서로 설명합니다.",
+    category: "고급 차트 기술",
+    concepts: ["지지선/저항선", "거래량", "손익비/손절"],
+    image: "box",
+    keyword: "컵앤핸들 패턴",
+    intent: "상승 추세 중 조정 후 재돌파 패턴을 공부하려는 검색 의도",
+    structure: "컵은 급한 V자보다 완만한 U자형 회복이 더 안정적입니다. 손잡이는 컵 상단 저항 근처에서 짧게 쉬는 눌림 구간입니다.",
+    confirmation: "손잡이 구간에서 거래량이 줄고, 상단 저항 돌파 시 거래량이 늘며 종가가 유지되는지 확인합니다.",
+    invalidation: "손잡이 눌림이 너무 깊어 컵의 중간 아래로 내려가거나 돌파 후 바로 상단 아래로 회귀하면 가설을 낮춰야 합니다.",
+    mistake: "U자형 모양만 보고 컵앤핸들이라고 판단하면 긴 하락 후 약한 반등을 강세 패턴으로 오해할 수 있습니다.",
+    practice: "상승 추세 종목에서 컵 상단, 손잡이 저점, 돌파 캔들, 돌파 후 지지 여부를 네 칸으로 기록하세요.",
+    links: [
+      { text: "박스 상단 돌파 후 리테스트 진입 기준", href: "/learn/advanced-box-breakout-retest/" },
+      { text: "Volume Dry-up: 거래량 말라붙는 눌림 해석", href: "/learn/advanced-volume-dry-up-pullback/" },
+      { text: "가짜 돌파를 구분하는 기본 기준", href: "/learn/fake-breakout/" },
+    ],
+  },
+  {
+    slug: "ascending-triangle-pattern",
+    title: "상승 삼각형 패턴: 수평 저항과 높아지는 저점 읽기",
+    summary: "상승 삼각형을 수평 저항, 높아지는 저점, 거래량 수축, 돌파 확인 기준으로 설명합니다.",
+    category: "가격 구조 분석",
+    concepts: ["지지선/저항선", "거래량"],
+    image: "trend",
+    keyword: "상승 삼각형 패턴",
+    intent: "저항 돌파 전 압축 구조를 학습하려는 검색 의도",
+    structure: "상단은 비슷한 가격에서 막히고, 하단 저점은 점점 높아집니다. 매도벽은 유지되지만 매수 대기 가격이 높아지는 구조입니다.",
+    confirmation: "저항 돌파 종가, 돌파 시 거래량 증가, 돌파 후 이전 저항이 지지로 바뀌는지 확인합니다.",
+    invalidation: "높아지던 저점 구조가 깨지고 하단 추세선 아래로 종가가 밀리면 상승 삼각형 가설은 약해집니다.",
+    mistake: "수렴이 보인다는 이유만으로 방향을 미리 정하면 하단 이탈에 대응하지 못합니다.",
+    practice: "상단 저항선을 하나, 높아지는 저점선을 하나만 긋고 현재 가격이 어느 쪽 기준에 가까운지 표시하세요.",
+    links: [
+      { text: "저항이 지지로 바뀌는 역할 전환", href: "/learn/support-resistance-flip/" },
+      { text: "추세선 그리는 법", href: "/learn/trendline-basic/" },
+      { text: "돌파 이후 되돌림 진입 기준", href: "/learn/advanced-bos-pullback-entry/" },
+    ],
+  },
+  {
+    slug: "descending-triangle-pattern",
+    title: "하락 삼각형 패턴: 수평 지지와 낮아지는 고점 해석",
+    summary: "하락 삼각형을 지지 반복, 낮아지는 고점, 이탈 확인, 실패 조건으로 정리합니다.",
+    category: "가격 구조 분석",
+    concepts: ["지지선/저항선", "거래량", "손익비/손절"],
+    image: "trend",
+    keyword: "하락 삼각형 패턴",
+    intent: "반복 지지 구간이 약해지는지 확인하려는 검색 의도",
+    structure: "하단 지지는 비슷한 가격에서 반복되지만 고점은 점점 낮아집니다. 반등 강도가 약해지는 압축 구조입니다.",
+    confirmation: "지지선 아래 종가 이탈, 이탈 시 거래량 증가, 되돌림에서 지지가 저항으로 바뀌는지 확인합니다.",
+    invalidation: "낮아지는 고점 구조를 돌파하고 상단에서 종가가 유지되면 하락 삼각형 가설을 접어야 합니다.",
+    mistake: "지지가 여러 번 버텼다는 이유만으로 안전하다고 생각하면 반복 테스트 후 이탈 위험을 놓칠 수 있습니다.",
+    practice: "반복 지지가 3번 이상 나온 차트에서 각 반등 고점이 낮아지는지 확인하세요.",
+    links: [
+      { text: "지지선 이탈과 저항선 돌파 판단", href: "/learn/advanced-support-break-resistance-breakout/" },
+      { text: "저항이 지지로 바뀌는 역할 전환", href: "/learn/support-resistance-flip/" },
+      { text: "손절선 잡는 법", href: "/learn/stop-loss-basic/" },
+    ],
+  },
+  {
+    slug: "symmetrical-triangle-pattern",
+    title: "대칭 삼각형 패턴: 방향을 예측하지 않고 이탈을 기다리는 법",
+    summary: "대칭 삼각형을 고점 하락과 저점 상승이 동시에 나타나는 중립 수렴 구조로 설명합니다.",
+    category: "가격 구조 분석",
+    concepts: ["지지선/저항선", "거래량"],
+    image: "box",
+    keyword: "대칭 삼각형 패턴",
+    intent: "삼각수렴 이후 돌파 방향을 확인하는 기준을 찾는 검색 의도",
+    structure: "고점은 낮아지고 저점은 높아지며 변동폭이 줄어듭니다. 방향성보다 에너지가 압축되는 과정으로 보는 편이 안전합니다.",
+    confirmation: "상단 돌파든 하단 이탈이든 종가 유지와 거래량 증가가 필요합니다. 돌파 후 되돌림 확인이 있으면 더 안정적입니다.",
+    invalidation: "수렴 끝까지 거래량과 종가 반응이 없거나 돌파 후 바로 수렴 안으로 돌아오면 가짜 움직임일 수 있습니다.",
+    mistake: "삼각형 모양을 보고 방향을 먼저 맞히려 하면 수렴의 본질인 확인 과정을 건너뛰게 됩니다.",
+    practice: "수렴 안에서는 매매 판단을 보류하고, 돌파 후 2개 캔들의 종가 위치를 기록하는 연습을 하세요.",
+    links: [
+      { text: "가짜 돌파를 구분하는 기본 기준", href: "/learn/fake-breakout/" },
+      { text: "거래량으로 매수세·매도세 구분하는 법", href: "/learn/advanced-volume-buy-sell-pressure/" },
+      { text: "Break of Structure를 공부하기 전 알아야 할 것", href: "/learn/break-of-structure/" },
+    ],
+  },
+  {
+    slug: "bull-flag-pattern",
+    title: "불 플래그 패턴: 강한 상승 뒤 쉬어가는 조정 읽기",
+    summary: "불 플래그를 장대 상승, 짧은 하락 채널, 거래량 감소, 상단 돌파 확인 순서로 설명합니다.",
+    category: "매매 스타일",
+    concepts: ["거래량", "지지선/저항선", "손익비/손절"],
+    image: "pullback",
+    keyword: "불 플래그 패턴",
+    intent: "추세 중 눌림과 재상승 후보를 구분하려는 검색 의도",
+    structure: "깃대는 강한 상승 구간이고, 깃발은 짧게 내려오는 조정 채널입니다. 조정이 너무 깊거나 길면 플래그보다 추세 약화로 봐야 합니다.",
+    confirmation: "조정 중 거래량이 줄고, 상단 추세선을 돌파할 때 거래량이 회복되는지 확인합니다.",
+    invalidation: "깃대 상승의 절반 이상을 되돌리거나 직전 지지 기준을 깨면 플래그 가설은 약합니다.",
+    mistake: "급등 후 조금만 쉬어도 모두 불 플래그라고 보면 과열 추격을 합리화하기 쉽습니다.",
+    practice: "상승 후 조정 폭, 조정 기간, 거래량 감소 여부, 돌파 종가를 표로 정리하세요.",
+    links: [
+      { text: "눌림목과 하락 전환을 구분하는 체크리스트", href: "/learn/pullback-study/" },
+      { text: "거래량 감소 눌림", href: "/learn/basic-volume-dry-pullback/" },
+      { text: "Parabolic Move: 포물선 상승 후 위험 신호", href: "/learn/advanced-parabolic-move-risk/" },
+    ],
+  },
+  {
+    slug: "bear-flag-pattern",
+    title: "베어 플래그 패턴: 하락 중 반등이 위험한 이유",
+    summary: "베어 플래그를 강한 하락 뒤 약한 반등 채널과 재이탈 기준으로 설명합니다.",
+    category: "가격 구조 분석",
+    concepts: ["지지선/저항선", "거래량", "손익비/손절"],
+    image: "trend",
+    keyword: "베어 플래그 패턴",
+    intent: "하락 중 반등이 전환인지 지속인지 구분하려는 검색 의도",
+    structure: "깃대는 강한 하락이고, 깃발은 완만한 반등 채널입니다. 반등 고점이 주요 저항이나 이동평균선 아래에서 막히면 하락 지속 위험이 남습니다.",
+    confirmation: "반등 채널 하단 이탈, 종가 유지, 거래량 증가가 확인 기준입니다. 상위 시간축 하락 구조도 함께 봐야 합니다.",
+    invalidation: "반등이 직전 하락의 주요 저항을 회복하고 고점·저점 구조가 높아지면 베어 플래그 가설은 약해집니다.",
+    mistake: "많이 빠졌다는 이유만으로 반등을 전환으로 보면 하락 지속 패턴에 휘말릴 수 있습니다.",
+    practice: "하락 후 반등 차트에서 반등 거래량이 줄었는지, 반등 고점이 낮아지는지 확인하세요.",
+    links: [
+      { text: "하락 추세와 과매도 구분", href: "/learn/basic-downtrend-vs-oversold/" },
+      { text: "상승 추세와 하락 추세 구분", href: "/learn/basic-uptrend-downtrend/" },
+      { text: "매수 금지 구간 정하기", href: "/learn/basic-no-buy-zone/" },
+    ],
+  },
+  {
+    slug: "rising-wedge-pattern",
+    title: "상승 쐐기형 패턴: 고점은 높지만 힘이 약해지는 구조",
+    summary: "상승 쐐기형을 좁아지는 상승폭, 거래량 감소, 하단 이탈 기준으로 설명합니다.",
+    category: "가격 구조 분석",
+    concepts: ["거래량", "지지선/저항선"],
+    image: "trend",
+    keyword: "상승 쐐기형 패턴",
+    intent: "상승 중 모멘텀 약화를 패턴으로 확인하려는 검색 의도",
+    structure: "가격은 올라가지만 고점과 저점의 간격이 좁아집니다. 상승은 이어지지만 힘이 압축되고 있다는 점이 핵심입니다.",
+    confirmation: "하단 추세선 이탈과 종가 유지, 이탈 시 거래량 증가를 확인합니다. 이탈 전에는 단순 상승 채널일 수 있습니다.",
+    invalidation: "상단을 강하게 돌파하고 거래량이 회복되면 쐐기형 약화보다 추세 지속으로 다시 봐야 합니다.",
+    mistake: "올라가는 모양만 보고 계속 강하다고 해석하면 후반부 모멘텀 약화를 놓칠 수 있습니다.",
+    practice: "상승 각도는 유지되지만 거래량과 캔들 몸통이 줄어드는 사례를 찾아보세요.",
+    links: [
+      { text: "고점 거래량과 클라이맥스 볼륨 이해", href: "/learn/climax-volume/" },
+      { text: "이격도 과열 판단", href: "/learn/basic-ma-price-distance/" },
+      { text: "추세 이탈의 기본 의미", href: "/learn/basic-trend-break-meaning/" },
+    ],
+  },
+  {
+    slug: "falling-wedge-pattern",
+    title: "하락 쐐기형 패턴: 저점은 낮지만 매도 압력이 줄어드는지 보기",
+    summary: "하락 쐐기형을 낮아지는 저점, 좁아지는 변동폭, 상단 돌파 확인 기준으로 설명합니다.",
+    category: "가격 구조 분석",
+    concepts: ["거래량", "지지선/저항선"],
+    image: "trend",
+    keyword: "하락 쐐기형 패턴",
+    intent: "하락 후 반전 후보와 계속 하락을 구분하려는 검색 의도",
+    structure: "가격은 낮아지지만 하락폭이 점점 줄고 거래량도 줄어드는 구조입니다. 매도 압력이 약해지는지 관찰하는 패턴입니다.",
+    confirmation: "상단 추세선 돌파, 돌파 후 종가 유지, 거래량 회복, 직전 고점 회복을 함께 봅니다.",
+    invalidation: "쐐기 하단을 강하게 이탈하고 거래량이 늘면 반전 후보가 아니라 하락 지속일 수 있습니다.",
+    mistake: "하락 쐐기형을 미리 반전으로 확정하면 돌파 전 약한 반등에 계속 속을 수 있습니다.",
+    practice: "하락폭이 줄어드는 구간에서 거래량이 함께 줄었는지, 상단 돌파 후 유지됐는지 기록하세요.",
+    links: [
+      { text: "바닥권 투매 거래량을 조심해서 보는 법", href: "/learn/capitulation-volume/" },
+      { text: "Bullish Divergence", href: "/learn/intermediate-bullish-divergence/" },
+      { text: "이중바닥 패턴", href: "/learn/intermediate-double-bottom/" },
+    ],
+  },
+  {
+    slug: "double-top-pattern",
+    title: "이중천장 패턴: 두 번째 고점과 목선 이탈 확인하기",
+    summary: "이중천장을 같은 고점 반복이 아니라 두 번째 고점 실패와 목선 이탈로 판단하는 법을 설명합니다.",
+    category: "가격 구조 분석",
+    concepts: ["지지선/저항선", "거래량", "손익비/손절"],
+    image: "support",
+    keyword: "이중천장 패턴",
+    intent: "고점권 반전 위험을 확인하려는 검색 의도",
+    structure: "첫 고점 이후 조정 저점이 만들어지고, 두 번째 고점이 첫 고점을 강하게 넘지 못할 때 후보가 됩니다. 목선은 중간 저점입니다.",
+    confirmation: "두 번째 고점 실패 후 목선 아래 종가 이탈이 핵심입니다. 두 번째 고점에서 거래량이 줄거나 윗꼬리가 길면 경계 신호가 됩니다.",
+    invalidation: "두 번째 고점이 첫 고점을 거래량과 함께 강하게 돌파하면 이중천장보다 추세 지속 가능성을 봐야 합니다.",
+    mistake: "고점이 두 번 비슷하다는 이유만으로 바로 하락을 예상하면 강한 돌파를 놓칠 수 있습니다.",
+    practice: "고점 두 개보다 중간 목선의 위치와 이탈 후 되돌림을 먼저 표시하세요.",
+    links: [
+      { text: "이전 고점과 이전 저점 활용", href: "/learn/intermediate-previous-high-low/" },
+      { text: "상단 윗꼬리 매도 압력", href: "/learn/intermediate-upper-wick-selling-pressure/" },
+      { text: "MACD 다이버전스", href: "/learn/advanced-macd-divergence/" },
+    ],
+  },
+  {
+    slug: "triple-top-pattern",
+    title: "삼중천장 패턴: 반복 저항이 강한지 약해지는지 구분하기",
+    summary: "삼중천장을 반복 저항, 매수세 약화, 목선 이탈, 가짜 돌파 위험까지 연결해 설명합니다.",
+    category: "가격 구조 분석",
+    concepts: ["지지선/저항선", "거래량"],
+    image: "box",
+    keyword: "삼중천장 패턴",
+    intent: "고점권 반복 저항과 분산 가능성을 공부하려는 검색 의도",
+    structure: "비슷한 가격대에서 세 번 이상 막히며 상단 저항이 뚜렷해지는 구조입니다. 박스권 분산 구간과 연결해서 볼 수 있습니다.",
+    confirmation: "상단 돌파 실패가 반복되고, 하단 목선이 이탈되며, 되돌림에서 하단이 저항으로 바뀌는지 확인합니다.",
+    invalidation: "세 번째 테스트에서 거래량이 붙고 상단 위 종가가 유지되면 반복 저항 돌파로 다시 해석해야 합니다.",
+    mistake: "세 번 막혔으니 무조건 내려간다고 생각하면 강한 축적 후 돌파를 놓칠 수 있습니다.",
+    practice: "상단 저항, 하단 목선, 각 테스트의 거래량, 돌파 실패 후 종가 위치를 표로 비교하세요.",
+    links: [
+      { text: "박스권에서 지지와 저항을 읽는 법", href: "/learn/box-range/" },
+      { text: "Volume Profile: HVN·LVN 기반 박스권 해석", href: "/learn/advanced-volume-profile-hvn-lvn/" },
+      { text: "Failed Breakout 전략", href: "/learn/advanced-failed-breakout-strategy/" },
+    ],
+  },
+];
+
+const techniqueLinkList = (links: ScheduledTechniqueDefinition["links"]) =>
+  links.map((link) => `<a href="${link.href}">${link.text}</a>`).join(", ");
+
+const buildScheduledTechniqueBodyHtml = (definition: ScheduledTechniqueDefinition) => [
+  `<p>${definition.title}은 검색에서 자주 찾는 ${definition.keyword}을 단순 모양 암기가 아니라 실제 차트 판단 순서로 이해하기 위한 글입니다. ${definition.summary}</p><p>이 글은 투자 추천이 아니라 교육 자료입니다. 패턴 이름보다 가격 위치, 거래량, 종가 확인, 손절 기준을 먼저 정리하는 데 목적이 있습니다.</p>`,
+  `<h2>${definition.keyword}을 먼저 공부해야 하는 이유</h2><p>${definition.intent}에 맞춰 이 글은 패턴의 모양, 확인 조건, 무효화 조건을 나누어 설명합니다. 패턴은 맞히기 위한 그림이 아니라 “어떤 조건이 충족되면 다음 판단으로 넘어갈 수 있는가”를 정하는 체크리스트입니다.</p><p>선행 글로는 ${techniqueLinkList(definition.links)}을 함께 읽으면 좋습니다. 특히 지지와 저항, 거래량, 손절 기준이 없으면 패턴 해석이 쉽게 감정 판단으로 바뀝니다.</p>`,
+  `<h2>기본 구조</h2><p>${definition.structure}</p><p>처음에는 차트 위에 선을 많이 긋기보다 기준이 되는 가격대 2~3개만 표시하세요. 패턴의 이름보다 현재 가격이 기준 위인지 아래인지, 그리고 그 기준이 여러 번 반응한 구간인지가 더 중요합니다.</p>`,
+  `<figure class="article-figure"><img src="${studyImageMeta[definition.image].src}" alt="${definition.keyword} 구조를 가격 위치와 거래량으로 이해하는 교육 이미지" width="960" height="540" loading="lazy" decoding="async" /><figcaption>${definition.keyword}은 모양보다 기준 가격대와 확인 순서가 중요합니다.</figcaption></figure>`,
+  `<h2>확인 기준</h2><p>${definition.confirmation}</p><ol><li>패턴이 나온 위치가 추세 초입인지 후반인지 확인합니다.</li><li>기준선이 한 번이 아니라 여러 번 반응한 가격대인지 봅니다.</li><li>돌파나 이탈은 꼬리보다 종가를 우선합니다.</li><li>거래량이 확인 구간에서 늘거나 줄어드는지 비교합니다.</li><li>되돌림에서 이전 기준이 역할 전환되는지 확인합니다.</li></ol>`,
+  `<h2>무효화 기준과 손절 위치</h2><p>${definition.invalidation}</p><p>패턴 공부에서 가장 중요한 것은 맞았을 때보다 틀렸을 때입니다. 무효화 기준이 없으면 패턴은 분석 도구가 아니라 기대를 붙잡는 이유가 됩니다. 진입을 가정한다면 먼저 손절 위치와 손실폭을 계산한 뒤 목표 구간을 비교해야 합니다.</p>`,
+  `<h2>자주 하는 실수</h2><p>${definition.mistake}</p><p>패턴명으로 검색해서 들어온 독자가 가장 조심해야 할 부분은 “비슷하게 생겼다”와 “조건이 충족됐다”를 구분하는 것입니다. 비슷한 모양은 많지만, 거래량과 종가, 시간축, 리스크 기준까지 맞는 사례는 훨씬 적습니다.</p>`,
+  `<h2>실전 학습 연습</h2><p>${definition.practice}</p><p>연습할 때는 성공 사례만 모으지 말고 실패 사례도 함께 저장하세요. 실패 사례를 보지 않으면 패턴은 늘 맞아 보이고, 실제 차트에서는 기준이 흔들립니다.</p>`,
+  `<h2>체크리스트</h2><ul><li>패턴이 나온 위치가 선행 추세와 연결되어 있나요?</li><li>기준선이 의미 있는 지지나 저항으로 확인되었나요?</li><li>돌파 또는 이탈이 종가로 유지되었나요?</li><li>거래량이 가설을 뒷받침하나요?</li><li>무효화 조건과 손절 위치를 먼저 정했나요?</li><li>같은 패턴의 실패 사례까지 함께 복기했나요?</li></ul>`,
+];
+
+const scheduledTechniqueArticles: LearnArticle[] = scheduledTechniqueDefinitions.map((definition) => {
+  const visualDefinition: BasicStudyDefinition = {
+    item: definition.keyword,
+    slug: definition.slug,
+    title: definition.title,
+    summary: definition.summary,
+    category: definition.category,
+    concepts: definition.concepts,
+    image: definition.image,
+    focus: definition.structure,
+    observe: definition.practice,
+    mistake: definition.mistake,
+  };
+
+  return {
+    slug: definition.slug,
+    title: definition.title,
+    summary: definition.summary,
+    category: definition.category,
+    concepts: definition.concepts,
+    style: ["실제 차트 예시 위주", "체크리스트 형태", "개념부터 차근차근"],
+    body: [],
+    bodyHtml: buildScheduledTechniqueBodyHtml(definition),
+    images: [studyVisual(visualDefinition, "예약 발행"), ...studyCompanionVisualsV2(visualDefinition, "예약 발행")],
+    studyItems: [definition.keyword],
+    faq: [
+      { question: `${definition.keyword}은 단독 매매 신호인가요?`, answer: "아니요. 패턴은 교육용 해석 도구이며 가격 위치, 거래량, 종가 확인, 손절 기준과 함께 봐야 합니다." },
+      { question: `${definition.keyword}을 처음 공부할 때 가장 중요한 기준은 무엇인가요?`, answer: "모양보다 확인 기준과 무효화 기준입니다. 기준이 없으면 비슷한 모양을 모두 같은 패턴으로 오해하기 쉽습니다." },
+    ],
+  };
+});
+
+
 const coreArticles: LearnArticle[] = [
   ["chart-study-order", "차트 공부 순서: 초보자는 무엇부터 봐야 할까", "캔들, 거래량, 지지선과 저항선, 이동평균선, 손절 기준을 어떤 순서로 공부하면 좋은지 정리합니다.", "학습 로드맵", ["캔들 패턴", "거래량", "지지선/저항선", "손익비/손절"], ["개념부터 차근차근", "체크리스트 형태"]],
   ["chart-analysis-roadmap", "차트 분석 기초 로드맵: 가격·거래량·시간축 연결하기", "차트 분석을 가격 모양, 거래량, 시간축, 리스크 기준으로 나누어 학습하는 전체 흐름을 안내합니다.", "학습 로드맵", ["거래량", "이동평균선", "지지선/저항선"], ["개념부터 차근차근"]],
@@ -1606,11 +1914,20 @@ const publishStart = {
   month: 4,
   day: 14,
 };
+const futurePublishStart = {
+  year: 2026,
+  month: 6,
+  day: 27,
+};
+const publishedArticleBaseline = 279;
 const dayMs = 24 * 60 * 60 * 1000;
 const publishPeriods = [
   { start: 7 * 60, end: 10 * 60 },
   { start: 12 * 60, end: 15 * 60 },
   { start: 18 * 60, end: 21 * 60 },
+] as const;
+const futurePublishPeriods = [
+  { start: 7 * 60, end: 10 * 60 },
 ] as const;
 
 const seededRandom = (seed: number) => {
@@ -1623,6 +1940,7 @@ const seededRandom = (seed: number) => {
 
 const randInt = (random: () => number, min: number, max: number) => min + Math.floor(random() * (max - min + 1));
 const startDaySerial = Math.floor(Date.UTC(publishStart.year, publishStart.month - 1, publishStart.day) / dayMs);
+const futureStartDaySerial = Math.floor(Date.UTC(futurePublishStart.year, futurePublishStart.month - 1, futurePublishStart.day) / dayMs);
 const serialToDateKey = (serial: number) => {
   const date = new Date(serial * dayMs);
   const year = date.getUTCFullYear();
@@ -1676,8 +1994,40 @@ const buildPublishSlots = (count: number) => {
     .sort((a, b) => a.dateKey.localeCompare(b.dateKey) || a.minute - b.minute);
 };
 
+const buildFuturePublishSlots = (count: number) => {
+  const random = seededRandom(20260627);
+  const slots: PublishSlot[] = [];
+  let serial = futureStartDaySerial;
+
+  while (slots.length < count) {
+    const dayMinutes = new Set<number>();
+    const postsForDay = randInt(random, 3, 5);
+
+    while (dayMinutes.size < postsForDay) {
+      const period = futurePublishPeriods[randInt(random, 0, futurePublishPeriods.length - 1)];
+      let minute = randInt(random, period.start, period.end);
+      while (dayMinutes.has(minute)) {
+        minute = Math.min(period.end, minute + 1);
+        if (dayMinutes.has(minute) && minute === period.end) minute = period.start;
+      }
+      dayMinutes.add(minute);
+    }
+
+    [...dayMinutes]
+      .sort((a, b) => a - b)
+      .forEach((minute) => slots.push({ dateKey: serialToDateKey(serial), minute }));
+    serial += 1;
+  }
+
+  return slots
+    .slice(0, count)
+    .sort((a, b) => a.dateKey.localeCompare(b.dateKey) || a.minute - b.minute);
+};
+
 const assignPublishDates = (items: LearnArticle[]) => {
-  const slots = buildPublishSlots(items.length);
+  const legacySlots = buildPublishSlots(Math.min(items.length, publishedArticleBaseline));
+  const futureSlots = buildFuturePublishSlots(Math.max(0, items.length - publishedArticleBaseline));
+  const slots = [...legacySlots, ...futureSlots];
   return items.map((article, index) => {
     const publishedAt = slotToIso(slots[index]);
     return {
@@ -1737,7 +2087,7 @@ const buildSearchIntent = (article: LearnArticle) => {
 };
 
 export const articles: LearnArticle[] = assignPublishDates(
-  [...coreArticles, ...basicStudyArticles, ...intermediateStudyArticles, ...advancedStudyArticles, ...expertStudyArticles].map(ensureStudyImages)
+  [...coreArticles, ...basicStudyArticles, ...intermediateStudyArticles, ...advancedStudyArticles, ...expertStudyArticles, ...scheduledTechniqueArticles].map(ensureStudyImages)
 );
 
 export const publishedArticles: LearnArticle[] = articles.filter((article) => {
