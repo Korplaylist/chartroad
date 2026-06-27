@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">헤드앤숄더 패턴 구조와 목선 이탈</title>
+  <desc id="desc">왼쪽 어깨, 머리, 오른쪽 어깨, 목선과 거래량을 표시한 한국어 교육용 차트</desc>
+  <style>
+    .bg{fill:#f6f4ed}.panel{fill:#fff;stroke:#d8ded6;stroke-width:2}.grid{stroke:#ece9e1;stroke-width:1.5}.title{font:800 31px system-ui,sans-serif;fill:#10201f}.sub{font:800 17px system-ui,sans-serif;fill:#0f766e}.label{font:800 17px system-ui,sans-serif;fill:#10201f}.note{font:700 14px system-ui,sans-serif;fill:#647067}.price{fill:none;stroke:#0f766e;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}.break{fill:none;stroke:#b45309;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}.neck{stroke:#64748b;stroke-width:3;stroke-dasharray:10 9}.bar{fill:#0f766e}.hot{fill:#b45309}.arrow{fill:#b45309}
+  </style>
+  <rect class="bg" width="960" height="540" rx="28"/><rect class="panel" x="38" y="38" width="884" height="464" rx="22"/>
+  <text x="72" y="82" class="sub">가격 반전 패턴</text><text x="72" y="122" class="title">헤드앤숄더: 목선 이탈 확인</text>
+  <g><path class="grid" d="M100 180H860M100 270H860M100 360H860M220 150V410M380 150V410M540 150V410M700 150V410"/></g>
+  <path class="price" d="M105 334 L190 235 L285 330 L435 165 L575 326 L670 238 L755 322"/>
+  <path class="break" d="M755 322 L825 395 L866 410"/><path class="neck" d="M285 330 L755 322"/>
+  <text x="145" y="215" class="label">왼쪽 어깨</text><text x="416" y="150" class="label">머리</text><text x="632" y="218" class="label">오른쪽 어깨</text><text x="465" y="354" class="label">목선</text>
+  <path class="arrow" d="M811 348l20 4-13 16z"/><text x="770" y="438" class="label">종가 이탈</text>
+  <g><rect class="bar" x="150" y="425" width="28" height="35" rx="3"/><rect class="bar" x="285" y="414" width="28" height="46" rx="3"/><rect class="bar" x="435" y="420" width="28" height="40" rx="3"/><rect class="bar" x="665" y="427" width="28" height="33" rx="3"/><rect class="hot" x="790" y="398" width="28" height="62" rx="3"/></g>
+  <text x="100" y="486" class="note">오른쪽 어깨가 머리보다 낮고, 목선 이탈 때 거래량이 증가하는지 확인</text>
+</svg>

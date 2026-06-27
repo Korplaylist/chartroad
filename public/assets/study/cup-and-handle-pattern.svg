@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">컵앤핸들 패턴 구조와 손잡이 돌파</title>
+  <desc id="desc">둥근 컵, 얕은 손잡이, 저항선 돌파와 거래량 변화를 표시한 한국어 교육용 차트</desc>
+  <style>
+    .bg{fill:#f6f4ed}.panel{fill:#fff;stroke:#d8ded6;stroke-width:2}.grid{stroke:#ece9e1;stroke-width:1.5}.title{font:800 31px system-ui,sans-serif;fill:#10201f}.sub{font:800 17px system-ui,sans-serif;fill:#0f766e}.label{font:800 17px system-ui,sans-serif;fill:#10201f}.note{font:700 14px system-ui,sans-serif;fill:#647067}.cup{fill:none;stroke:#0f766e;stroke-width:7;stroke-linecap:round}.handle{fill:none;stroke:#b45309;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}.resist{stroke:#64748b;stroke-width:3;stroke-dasharray:10 9}.bar{fill:#0f766e}.quiet{fill:#94a3b8}.hot{fill:#b45309}.zone{fill:#e8f4ef;opacity:.7}
+  </style>
+  <rect class="bg" width="960" height="540" rx="28"/><rect class="panel" x="38" y="38" width="884" height="464" rx="22"/>
+  <text x="72" y="82" class="sub">추세 지속 패턴</text><text x="72" y="122" class="title">컵앤핸들: 손잡이 눌림과 돌파</text>
+  <g><path class="grid" d="M100 180H860M100 270H860M100 360H860M220 150V410M380 150V410M540 150V410M700 150V410"/></g>
+  <rect class="zone" x="608" y="190" width="155" height="80" rx="12"/>
+  <path class="cup" d="M120 205 C170 205 190 220 210 285 C245 405 430 405 515 285 C555 228 580 205 625 205"/>
+  <path class="handle" d="M625 205 L670 248 L718 210 L755 205 L820 140 L865 120"/><path class="resist" d="M110 205H780"/>
+  <text x="315" y="388" class="label">둥근 컵</text><text x="638" y="282" class="label">얕은 손잡이</text><text x="130" y="190" class="label">저항선</text><text x="774" y="164" class="label">돌파</text>
+  <g><rect class="bar" x="145" y="420" width="28" height="40" rx="3"/><rect class="bar" x="265" y="428" width="28" height="32" rx="3"/><rect class="quiet" x="405" y="436" width="28" height="24" rx="3"/><rect class="quiet" x="650" y="441" width="28" height="19" rx="3"/><rect class="hot" x="790" y="390" width="28" height="70" rx="3"/></g>
+  <text x="100" y="486" class="note">컵에서는 거래량이 줄고, 손잡이는 얕게 형성되며, 저항 돌파 때 거래량이 증가하는지 확인</text>
+</svg>
