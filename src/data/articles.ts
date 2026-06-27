@@ -1709,7 +1709,10 @@ const scheduledTechniqueArticles: LearnArticle[] = scheduledTechniqueDefinitions
     style: ["실제 차트 예시 위주", "체크리스트 형태", "개념부터 차근차근"],
     body: [],
     bodyHtml: buildScheduledTechniqueBodyHtml(definition),
-    images: [studyVisual(visualDefinition, "예약 발행"), ...studyCompanionVisualsV2(visualDefinition, "예약 발행")],
+    images: [
+      { ...studyVisual(visualDefinition, "예약 발행"), src: `/assets/study/${definition.slug}.svg?v=2` },
+      ...studyCompanionVisualsV2(visualDefinition, "예약 발행"),
+    ],
     studyItems: [definition.keyword],
     faq: [
       { question: `${definition.keyword}은 단독 매매 신호인가요?`, answer: "아니요. 패턴은 교육용 해석 도구이며 가격 위치, 거래량, 종가 확인, 손절 기준과 함께 봐야 합니다." },
