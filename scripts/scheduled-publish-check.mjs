@@ -1,6 +1,13 @@
 import fs from "node:fs";
 
 const articlesSource = fs.readFileSync("src/data/articles.ts", "utf8");
+const notificationPath = ".github/publish-notification.json";
+if (fs.existsSync(notificationPath)) fs.unlinkSync(notificationPath);
+const setActionOutput = (published) => {
+  if (process.env.GITHUB_OUTPUT) {
+    fs.appendFileSync(process.env.GITHUB_OUTPUT, `published=${published ? "true" : "false"}\n`);
+  }
+};
 const sliceBetween = (startMarker, endMarker) => {
   const start = articlesSource.indexOf(startMarker);
   if (start === -1) throw new Error(`Missing marker: ${startMarker}`);
@@ -9,6 +16,10 @@ const sliceBetween = (startMarker, endMarker) => {
   return articlesSource.slice(start, end);
 };
 const countMatches = (source, pattern) => [...source.matchAll(pattern)].length;
+const scheduledDefinitionsSource = sliceBetween("const scheduledTechniqueDefinitions", "const techniqueLinkList");
+const scheduledDefinitions = [...scheduledDefinitionsSource.matchAll(/\{\s*slug: "([^"]+)",\s*title: "([^"]+)"/g)].map(
+  ([, slug, title]) => ({ slug, title })
+);
 const articleCount =
   countMatches(sliceBetween("const coreArticles", "].map(([slug"), /^\s*\["/gm) +
   countMatches(sliceBetween("const basicStudyDefinitions", "const basicStudyLinkByCategory"), /^\s*\{ item:/gm) +
@@ -119,9 +130,24 @@ const dueCount = publishSlots.filter(
 ).length;
 
 if (dueCount === (state.publishedCount ?? 0)) {
+  setActionOutput(false);
   console.log(`No scheduled post is newly due. due=${dueCount}, state=${state.publishedCount ?? 0}`);
   process.exit(0);
 }
+
+const previousCount = state.publishedCount ?? 0;
+const newlyPublished = dueCount > previousCount
+  ? publishSlots.slice(Math.max(previousCount, publishedArticleBaseline), dueCount).map((slot, offset) => {
+      const articleIndex = Math.max(previousCount, publishedArticleBaseline) + offset;
+      const article = scheduledDefinitions[articleIndex - publishedArticleBaseline];
+      const date = new Date(slot.serial * dayMs);
+      const dateKey = `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, "0")}-${String(date.getUTCDate()).padStart(2, "0")}`;
+      const time = `${String(Math.floor(slot.minute / 60)).padStart(2, "0")}:${String(slot.minute % 60).padStart(2, "0")}`;
+      return article
+        ? { ...article, publishedAt: `${dateKey} ${time}`, url: `https://chartroad.co.kr/learn/${article.slug}/` }
+        : null;
+    }).filter(Boolean)
+  : [];
 
 const nextState = {
   publishedCount: dueCount,
@@ -129,4 +155,10 @@ const nextState = {
 };
 
 fs.writeFileSync(statePath, `${JSON.stringify(nextState, null, 2)}\n`);
+if (newlyPublished.length > 0) {
+  fs.writeFileSync(notificationPath, `${JSON.stringify({ checkedAt: now.toISOString(), posts: newlyPublished }, null, 2)}\n`);
+  setActionOutput(true);
+} else {
+  setActionOutput(false);
+}
 console.log(`Scheduled posts became due. due=${dueCount}, previous=${state.publishedCount ?? 0}`);
