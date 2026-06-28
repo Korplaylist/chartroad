@@ -77,8 +77,36 @@ const buildPublishSlots = (count, startSerial, periods, seed) => {
   return slots.slice(0, count).sort((a, b) => a.serial - b.serial || a.minute - b.minute);
 };
 
+const buildFuturePublishSlots = (count) => {
+  const random = seededRandom(20260627);
+  const slots = [];
+  let serial = futureStartDaySerial;
+
+  while (slots.length < count) {
+    const dayMinutes = new Set();
+    const postsForDay = randInt(random, 3, 5);
+
+    while (dayMinutes.size < postsForDay) {
+      const period = futurePublishPeriods[randInt(random, 0, futurePublishPeriods.length - 1)];
+      let minute = randInt(random, period.start, period.end);
+      while (dayMinutes.has(minute)) {
+        minute = Math.min(period.end, minute + 1);
+        if (dayMinutes.has(minute) && minute === period.end) minute = period.start;
+      }
+      dayMinutes.add(minute);
+    }
+
+    [...dayMinutes]
+      .sort((a, b) => a - b)
+      .forEach((minute) => slots.push({ serial, minute }));
+    serial += 1;
+  }
+
+  return slots.slice(0, count).sort((a, b) => a.serial - b.serial || a.minute - b.minute);
+};
+
 const legacySlots = buildPublishSlots(Math.min(articleCount, publishedArticleBaseline), startDaySerial, publishPeriods, 20260625);
-const futureSlots = buildPublishSlots(Math.max(0, articleCount - publishedArticleBaseline), futureStartDaySerial, futurePublishPeriods, 20260627);
+const futureSlots = buildFuturePublishSlots(Math.max(0, articleCount - publishedArticleBaseline));
 const publishSlots = [...legacySlots, ...futureSlots];
 
 const now = process.env.PUBLISH_NOW ? new Date(process.env.PUBLISH_NOW) : new Date();
@@ -90,7 +118,7 @@ const dueCount = publishSlots.filter(
   (slot) => slot.serial < nowSerial || (slot.serial === nowSerial && slot.minute <= nowMinute)
 ).length;
 
-if (dueCount <= (state.publishedCount ?? 0)) {
+if (dueCount === (state.publishedCount ?? 0)) {
   console.log(`No scheduled post is newly due. due=${dueCount}, state=${state.publishedCount ?? 0}`);
   process.exit(0);
 }
