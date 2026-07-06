@@ -1,6 +1,7 @@
 import fs from "node:fs";
 
 const articlesSource = fs.readFileSync("src/data/articles.ts", "utf8");
+const julySource = fs.readFileSync("src/data/julyArticles.ts", "utf8");
 const notificationPath = ".github/publish-notification.json";
 if (fs.existsSync(notificationPath)) fs.unlinkSync(notificationPath);
 const setActionOutput = (published) => {
@@ -20,6 +21,15 @@ const scheduledDefinitionsSource = sliceBetween("const scheduledTechniqueDefinit
 const scheduledDefinitions = [...scheduledDefinitionsSource.matchAll(/\{\s*slug: "([^"]+)",\s*title: "([^"]+)"/g)].map(
   ([, slug, title]) => ({ slug, title })
 );
+const julyModules = [...julySource.matchAll(/\{ slug:"([^"]+)", keyword:"([^"]+)", headline:"([^"]+)"/g)].map(
+  ([, slug, keyword, headline]) => ({ slug, keyword, headline })
+);
+const julyDefinitions = julyModules.flatMap((module) => [
+  { slug: `${module.slug}-guide`, title: `${module.keyword} 뜻과 구조: ${module.headline}` },
+  { slug: `${module.slug}-chart-check`, title: `${module.keyword} 차트 찾는 법: 확인 순서와 체크포인트` },
+  { slug: `${module.slug}-failure`, title: `${module.keyword} 실패 신호: 무효화 조건과 흔한 실수` },
+  { slug: `${module.slug}-practice`, title: `${module.keyword} 연습법: 사례 수집부터 복기까지` },
+]).slice(0, 105);
 const articleCount =
   countMatches(sliceBetween("const coreArticles", "].map(([slug"), /^\s*\["/gm) +
   countMatches(sliceBetween("const basicStudyDefinitions", "const basicStudyLinkByCategory"), /^\s*\{ item:/gm) +
@@ -35,6 +45,7 @@ const state = fs.existsSync(statePath)
 const dayMs = 24 * 60 * 60 * 1000;
 const publishStart = { year: 2026, month: 4, day: 14 };
 const futurePublishStart = { year: 2026, month: 6, day: 27 };
+const julyPublishStart = { year: 2026, month: 7, day: 6 };
 const publishedArticleBaseline = 279;
 const publishPeriods = [
   { start: 7 * 60, end: 10 * 60 },
@@ -54,6 +65,7 @@ const seededRandom = (seed) => {
 const randInt = (random, min, max) => min + Math.floor(random() * (max - min + 1));
 const startDaySerial = Math.floor(Date.UTC(publishStart.year, publishStart.month - 1, publishStart.day) / dayMs);
 const futureStartDaySerial = Math.floor(Date.UTC(futurePublishStart.year, futurePublishStart.month - 1, futurePublishStart.day) / dayMs);
+const julyStartDaySerial = Math.floor(Date.UTC(julyPublishStart.year, julyPublishStart.month - 1, julyPublishStart.day) / dayMs);
 
 const buildPublishSlots = (count, startSerial, periods, seed) => {
   const random = seededRandom(seed);
@@ -116,9 +128,24 @@ const buildFuturePublishSlots = (count) => {
   return slots.slice(0, count).sort((a, b) => a.serial - b.serial || a.minute - b.minute);
 };
 
+const buildJulyPublishSlots = (count) => {
+  const random = seededRandom(20260706);
+  const slots = [];
+  let serial = julyStartDaySerial;
+  while (slots.length < count) {
+    const dayMinutes = new Set();
+    const postsForDay = randInt(random, 3, 5);
+    while (dayMinutes.size < postsForDay) dayMinutes.add(randInt(random, 7 * 60, 10 * 60));
+    [...dayMinutes].sort((a, b) => a - b).forEach((minute) => slots.push({ serial, minute }));
+    serial += 1;
+  }
+  return slots.slice(0, count).sort((a, b) => a.serial - b.serial || a.minute - b.minute);
+};
+
 const legacySlots = buildPublishSlots(Math.min(articleCount, publishedArticleBaseline), startDaySerial, publishPeriods, 20260625);
 const futureSlots = buildFuturePublishSlots(Math.max(0, articleCount - publishedArticleBaseline));
-const publishSlots = [...legacySlots, ...futureSlots];
+const julySlots = buildJulyPublishSlots(julyDefinitions.length);
+const publishSlots = [...legacySlots, ...futureSlots, ...julySlots];
 
 const now = process.env.PUBLISH_NOW ? new Date(process.env.PUBLISH_NOW) : new Date();
 const nowKst = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Seoul" }));
@@ -139,7 +166,9 @@ const previousCount = state.publishedCount ?? 0;
 const newlyPublished = dueCount > previousCount
   ? publishSlots.slice(Math.max(previousCount, publishedArticleBaseline), dueCount).map((slot, offset) => {
       const articleIndex = Math.max(previousCount, publishedArticleBaseline) + offset;
-      const article = scheduledDefinitions[articleIndex - publishedArticleBaseline];
+      const article = articleIndex < articleCount
+        ? scheduledDefinitions[articleIndex - publishedArticleBaseline]
+        : julyDefinitions[articleIndex - articleCount];
       const date = new Date(slot.serial * dayMs);
       const dateKey = `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, "0")}-${String(date.getUTCDate()).padStart(2, "0")}`;
       const time = `${String(Math.floor(slot.minute / 60)).padStart(2, "0")}:${String(slot.minute % 60).padStart(2, "0")}`;

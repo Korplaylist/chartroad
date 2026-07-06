@@ -1,4 +1,5 @@
 import type { LearnArticle } from "@/types";
+import { julyArticles } from "@/data/julyArticles";
 
 const commonFaq = [
   {
@@ -2089,9 +2090,15 @@ const buildSearchIntent = (article: LearnArticle) => {
   return `${article.category} 개념을 쉽게 이해하고 실제 차트에 적용하려는 검색 의도`;
 };
 
-export const articles: LearnArticle[] = assignPublishDates(
+const existingArticles = assignPublishDates(
   [...coreArticles, ...basicStudyArticles, ...intermediateStudyArticles, ...advancedStudyArticles, ...expertStudyArticles, ...scheduledTechniqueArticles].map(ensureStudyImages)
 );
+
+export const articles: LearnArticle[] = [...existingArticles, ...julyArticles].map((article) => ({
+  ...article,
+  seoKeywords: article.seoKeywords ?? buildSeoKeywords(article),
+  searchIntent: article.searchIntent ?? buildSearchIntent(article),
+}));
 
 export const publishedArticles: LearnArticle[] = articles.filter((article) => {
   if (!article.publishedAt) return true;
