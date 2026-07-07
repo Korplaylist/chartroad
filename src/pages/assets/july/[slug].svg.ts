@@ -1,7 +1,9 @@
 import type { APIRoute, GetStaticPaths } from "astro";
 import { julyArticles, julyModules } from "@/data/julyArticles";
 
-export const getStaticPaths = (() => julyArticles.map((article) => ({ params: { slug: article.slug } }))) satisfies GetStaticPaths;
+const publishedJulyArticles = julyArticles.slice(0, 6);
+
+export const getStaticPaths = (() => publishedJulyArticles.map((article) => ({ params: { slug: article.slug } }))) satisfies GetStaticPaths;
 
 const escapeXml = (value: string) => value.replace(/[&<>"']/g, (char) => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&apos;" }[char] ?? char));
 const splitTitle = (title: string) => {

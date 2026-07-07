@@ -1,6 +1,8 @@
 import type { LearnArticle } from "@/types";
 import { julyArticles } from "@/data/julyArticles";
 
+const publishedJulyArticles = julyArticles.slice(0, 6);
+
 const commonFaq = [
   {
     question: "이 글은 투자 판단에 바로 사용해도 되나요?",
@@ -1711,8 +1713,8 @@ const scheduledTechniqueArticles: LearnArticle[] = scheduledTechniqueDefinitions
     body: [],
     bodyHtml: buildScheduledTechniqueBodyHtml(definition),
     images: [
-      { ...studyVisual(visualDefinition, "예약 발행"), src: `/assets/study/${definition.slug}.svg?v=2` },
-      ...studyCompanionVisualsV2(visualDefinition, "예약 발행"),
+      { ...studyVisual(visualDefinition, "차트 학습"), src: `/assets/study/${definition.slug}.svg?v=2` },
+      ...studyCompanionVisualsV2(visualDefinition, "차트 학습"),
     ],
     studyItems: [definition.keyword],
     faq: [
@@ -2094,7 +2096,7 @@ const existingArticles = assignPublishDates(
   [...coreArticles, ...basicStudyArticles, ...intermediateStudyArticles, ...advancedStudyArticles, ...expertStudyArticles, ...scheduledTechniqueArticles].map(ensureStudyImages)
 );
 
-export const articles: LearnArticle[] = [...existingArticles, ...julyArticles].map((article) => ({
+export const articles: LearnArticle[] = [...existingArticles, ...publishedJulyArticles].map((article) => ({
   ...article,
   seoKeywords: article.seoKeywords ?? buildSeoKeywords(article),
   searchIntent: article.searchIntent ?? buildSearchIntent(article),
