@@ -1,8 +1,19 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { publishedArticles } from "@/data/articles";
+import type { LearnCategory } from "@/types";
 
-const categories = ["학습 로드맵", "차트 기초", "가격 구조 분석", "보조지표", "거래량·수급 해석", "매매 스타일", "매매 전략 설계", "리스크 관리", "고급 차트 기술"];
+const categories: LearnCategory[] = [
+  "학습 로드맵",
+  "차트 기초",
+  "가격 구조 분석",
+  "거래량·수급 해석",
+  "보조지표",
+  "매매 스타일",
+  "매매 전략 설계",
+  "리스크 관리",
+  "고급 차트 기술",
+];
 const formatListDate = (value?: string) =>
   value
     ? new Intl.DateTimeFormat("ko-KR", {
@@ -17,33 +28,43 @@ const formatListDate = (value?: string) =>
     : "";
 ---
 
-<BaseLayout title="차트 공부 콘텐츠 | 차트로드" description="차트 공부 순서, 차트 기초, 가격 구조 분석, 보조지표, 거래량·수급, 매매 전략, 리스크 관리, 고급 차트 기술 글을 순서대로 읽어보세요.">
+<BaseLayout
+  title="차트 공부 콘텐츠 | 차트로드"
+  description="차트로드의 차트 공부 콘텐츠입니다. 캔들, 거래량, 지지선과 저항선, 이동평균선, 보조지표, 리스크 관리, 고급 차트 기술을 단계별로 정리했습니다."
+>
   <section class="section tight">
     <div class="container">
       <h1>차트 공부 콘텐츠</h1>
-      <p class="sublead">테스트 결과와 연결되는 교육용 글입니다. 기초부터 고급 차트 기술까지 실제 판단보다 학습 기준을 세우는 데 초점을 둡니다.</p>
+      <p class="sublead">
+        애드센스 검토와 사용자 학습 품질을 위해 현재는 대표 교육 글만 공개합니다. 각 글은 개념 설명, 실제 차트 확인 기준, 리스크 기준을 함께 다룹니다.
+      </p>
     </div>
   </section>
-  {categories.map((category) => (
-    <section class="section tight">
-      <div class="container">
-        <h2>{category}</h2>
-        <div class="grid cols-4" style="margin-top:20px">
-          {publishedArticles.filter((article) => article.category === category).map((article) => (
-            <a class="card" href={`/learn/${article.slug}`}>
-              <small>{article.category}</small>
-              <h3 style="margin-top:8px">{article.title}</h3>
-              {article.publishedAt && (
-                <p class="meta article-card-date">
-                  <time datetime={article.publishedAt}>{formatListDate(article.publishedAt)}</time>
-                </p>
-              )}
-              <p class="meta" style="margin-top:10px">{article.summary}</p>
-              <div class="tag-row">{article.concepts.map((concept) => <span class="tag">{concept}</span>)}</div>
-            </a>
-          ))}
+
+  {categories.map((category) => {
+    const items = publishedArticles.filter((article) => article.category === category);
+    if (items.length === 0) return null;
+    return (
+      <section class="section tight">
+        <div class="container">
+          <h2>{category}</h2>
+          <div class="grid cols-3" style="margin-top:20px">
+            {items.map((article) => (
+              <a class="card" href={`/learn/${article.slug}/`}>
+                <small>{article.category}</small>
+                <h3 style="margin-top:8px">{article.title}</h3>
+                {article.publishedAt && (
+                  <p class="meta article-card-date">
+                    <time datetime={article.publishedAt}>{formatListDate(article.publishedAt)}</time>
+                  </p>
+                )}
+                <p class="meta" style="margin-top:10px">{article.summary}</p>
+                <div class="tag-row">{article.concepts.map((concept) => <span class="tag">{concept}</span>)}</div>
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-  ))}
+      </section>
+    );
+  })}
 </BaseLayout>

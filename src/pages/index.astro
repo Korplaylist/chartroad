@@ -10,9 +10,18 @@ const tierLabels = [
   ["expert", "고급", "전문 기법"],
 ] as const;
 
-const studyItemSlugMap = Object.fromEntries(
-  publishedArticles.flatMap((article) => (article.studyItems ?? []).map((item) => [item, article.slug]))
-);
+const fallbackStudyLinks = [
+  { label: "캔들 보는 법", slug: "candle-basics" },
+  { label: "거래량 보는 법", slug: "volume-basics" },
+  { label: "지지선과 저항선", slug: "support-resistance" },
+  { label: "손절 기준", slug: "stop-loss-basic" },
+];
+const articleByTitle = Object.fromEntries(publishedArticles.map((article) => [article.title, article.slug]));
+const articleByConcept = Object.fromEntries(publishedArticles.flatMap((article) => article.concepts.map((concept) => [concept, article.slug])));
+const findStudySlug = (item: string) =>
+  articleByTitle[item] ??
+  Object.entries(articleByConcept).find(([concept]) => item.includes(concept) || concept.includes(item))?.[1] ??
+  fallbackStudyLinks.find((link) => item.includes(link.label) || link.label.includes(item))?.slug;
 ---
 
 <BaseLayout>
@@ -22,7 +31,7 @@ const studyItemSlugMap = Object.fromEntries(
     <div class="container hero-inner">
       <p class="eyebrow">교육용 차트 학습 로드맵</p>
       <h1>나에게 맞는 차트 공부 순서 테스트</h1>
-      <p class="lead">3~5분 테스트로 현재 매매 습관, 차트 이해도, 리스크 성향을 진단하고 먼저 공부하면 좋은 차트 개념을 추천받아보세요.</p>
+      <p class="lead">3~5분 테스트로 현재 차트 이해도, 리스크 성향, 매매 습관을 점검하고 먼저 공부하면 좋은 차트 개념을 확인해 보세요.</p>
       <div class="actions">
         <a class="btn primary" href="/test">테스트 시작하기</a>
         <a class="btn ghost" href="/learn">공부 콘텐츠 보기</a>
@@ -33,7 +42,7 @@ const studyItemSlugMap = Object.fromEntries(
   <section class="section">
     <div class="container">
       <h2>12개 결과 유형 미리보기</h2>
-      <p class="sublead">같은 결과 유형이어도 현재 학습 수준에 따라 초보, 초중급, 중급, 고급 순서로 추천 공부가 달라집니다.</p>
+      <p class="sublead">결과 유형은 학습 방향을 잡기 위한 참고 자료입니다. 모든 추천은 투자 판단이 아니라 차트 공부 순서를 정리하기 위한 교육 목적입니다.</p>
       <div class="grid cols-3 result-preview-grid">
         {resultProfiles.map((profile) => (
           <article class="card result-preview-card">
@@ -59,11 +68,10 @@ const studyItemSlugMap = Object.fromEntries(
                     <span>{caption}</span>
                   </div>
                   <ul>
-                    {profile.study[tier].slice(0, 3).map((item) => (
-                      <li>
-                        {studyItemSlugMap[item] ? <a href={`/learn/${studyItemSlugMap[item]}`}>{item}</a> : item}
-                      </li>
-                    ))}
+                    {profile.study[tier].slice(0, 3).map((item) => {
+                      const slug = findStudySlug(item);
+                      return <li>{slug ? <a href={`/learn/${slug}/`}>{item}</a> : item}</li>;
+                    })}
                   </ul>
                 </section>
               ))}
@@ -77,16 +85,19 @@ const studyItemSlugMap = Object.fromEntries(
   <section class="section band">
     <div class="container split">
       <div>
-        <h2>나는 어떤 차트 공부부터 해야 할까?</h2>
-        <p class="sublead">차트로드는 특정 종목이나 매매 판단을 추천하지 않습니다. 답변을 바탕으로 차트 공부의 우선순위와 반복 실수를 정리해주는 교육용 진단 서비스입니다.</p>
+        <h2>차트로드가 제공하는 것</h2>
+        <p class="sublead">
+          차트로드는 종목 추천이나 수익 예측 사이트가 아닙니다. 캔들, 거래량, 지지와 저항, 보조지표, 손절 기준을 학습 순서대로 정리해
+          사용자가 스스로 차트를 읽는 기준을 세우도록 돕습니다.
+        </p>
       </div>
       <div class="card">
-        <h3>진단에 반영되는 기준</h3>
+        <h3>학습 기준</h3>
         <ul class="list">
-          <li>현재 차트 이해도와 매매 기준 명확도</li>
-          <li>차트 확인 가능 시간과 선호 시간축</li>
-          <li>손절, 물타기, 추격매수, 익절 습관</li>
-          <li>선호 학습 방식과 관심 개념</li>
+          <li>기초 개념을 먼저 이해한 뒤 고급 기법으로 확장합니다.</li>
+          <li>차트 이미지는 실제 판단 기준을 설명하기 위한 교육 자료로 사용합니다.</li>
+          <li>모든 글은 매수·매도 추천이 아니라 공부 기준을 제공합니다.</li>
+          <li>손절과 손익비를 함께 다뤄 무리한 추격매수를 줄이는 데 초점을 둡니다.</li>
         </ul>
       </div>
     </div>
@@ -95,10 +106,10 @@ const studyItemSlugMap = Object.fromEntries(
   <section class="section">
     <div class="container">
       <h2>추천 공부 콘텐츠</h2>
-      <p class="sublead">테스트 결과에 따라 먼저 읽을 글이 달라집니다.</p>
+      <p class="sublead">처음 방문했다면 아래 대표 글부터 읽으면 차트 공부 흐름을 잡기 쉽습니다.</p>
       <div class="grid cols-4" style="margin-top:24px">
         {publishedArticles.slice(0, 8).map((article) => (
-          <a class="card" href={`/learn/${article.slug}`}>
+          <a class="card" href={`/learn/${article.slug}/`}>
             <small>{article.category}</small>
             <h3 style="margin-top:8px">{article.title}</h3>
             <p class="meta" style="margin-top:10px">{article.summary}</p>

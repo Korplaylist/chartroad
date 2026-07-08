@@ -1,6 +1,6 @@
 # 차트로드
 
-차트로드는 한국어 사용자를 위한 차트 공부 교육 사이트입니다. 투자 추천이 아니라 캔들, 거래량, 이동평균선, 추세, 지지선과 저항선, 리스크 관리, 고급 차트 기법을 단계별로 학습할 수 있도록 돕습니다.
+차트로드는 차트 공부 순서와 학습 기준을 제공하는 한국어 교육 사이트입니다. 특정 종목의 매수·매도 추천, 투자 자문, 수익 보장을 제공하지 않으며 캔들, 거래량, 이동평균선, 지지선과 저항선, 보조지표, 리스크 관리, 고급 차트 기술을 단계별로 설명합니다.
 
 ## 주요 페이지
 
@@ -14,13 +14,27 @@
 - [개인정보처리방침](https://chartroad.co.kr/privacy/)
 - [문의](https://chartroad.co.kr/contact/)
 
-## 대표 학습 주제
+## 대표 학습 글
 
-- [캔들 구조: 시가·고가·저가·종가 이해](https://chartroad.co.kr/learn/basic-candle-ohlc/)
-- [양봉과 음봉의 의미](https://chartroad.co.kr/learn/basic-bull-bear-candle/)
-- [거래량 기본: 거래량이 많다는 뜻](https://chartroad.co.kr/learn/basic-volume-meaning/)
+- [차트 공부 순서](https://chartroad.co.kr/learn/chart-study-order/)
+- [캔들 보는 법](https://chartroad.co.kr/learn/candle-basics/)
+- [거래량 보는 법](https://chartroad.co.kr/learn/volume-basics/)
+- [지지선과 저항선](https://chartroad.co.kr/learn/support-resistance/)
 - [이동평균선 보는 법](https://chartroad.co.kr/learn/moving-average-start/)
-- [상승 추세와 하락 추세 구분](https://chartroad.co.kr/learn/basic-uptrend-downtrend/)
-- [지지선과 저항선 그리는 기준](https://chartroad.co.kr/learn/support-resistance/)
-- [손절선 정하기](https://chartroad.co.kr/learn/stop-loss-basic/)
-- [엘리엇파동 기본 구조](https://chartroad.co.kr/learn/expert-elliott-wave-basic-structure/)
+- [손절선 정하는 법](https://chartroad.co.kr/learn/stop-loss-basic/)
+- [손익비 계산법](https://chartroad.co.kr/learn/risk-reward/)
+- [다우이론으로 추세 구조 읽기](https://chartroad.co.kr/learn/dow-theory-structure/)
+- [가짜 돌파 구분법](https://chartroad.co.kr/learn/fake-breakout/)
+- [눌림목과 하락 전환 구분법](https://chartroad.co.kr/learn/pullback-study/)
+- [RSI 보는 법](https://chartroad.co.kr/learn/rsi-guide/)
+- [MACD 보는 법](https://chartroad.co.kr/learn/macd-guide/)
+- [볼린저밴드 보는 법](https://chartroad.co.kr/learn/bollinger-band/)
+- [엘리엇파동 공부 전 알아야 할 것](https://chartroad.co.kr/learn/elliott-wave-start/)
+- [피보나치 되돌림과 PRZ](https://chartroad.co.kr/learn/fibonacci-prz/)
+- [와이코프 패턴 기초](https://chartroad.co.kr/learn/wyckoff-basic/)
+
+## 콘텐츠 원칙
+
+- 모든 글은 교육 목적이며 투자 추천이 아닙니다.
+- 차트 예시는 개념 이해를 돕기 위한 자료입니다.
+- 손절, 손익비, 무효화 조건을 함께 설명해 무리한 판단을 줄이는 데 초점을 둡니다.

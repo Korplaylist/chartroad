@@ -10,16 +10,36 @@ const tierLabels = [
   ["expert", "고급", "전문 기법"],
 ] as const;
 
-const studyItemSlugMap = Object.fromEntries(
-  publishedArticles.flatMap((article) => (article.studyItems ?? []).map((item) => [item, article.slug]))
-);
+const articleByConcept = Object.fromEntries(publishedArticles.flatMap((article) => article.concepts.map((concept) => [concept, article.slug])));
+const fallbackLinks = [
+  { label: "캔들", slug: "candle-basics" },
+  { label: "거래량", slug: "volume-basics" },
+  { label: "지지", slug: "support-resistance" },
+  { label: "저항", slug: "support-resistance" },
+  { label: "손절", slug: "stop-loss-basic" },
+  { label: "손익비", slug: "risk-reward" },
+  { label: "RSI", slug: "rsi-guide" },
+  { label: "MACD", slug: "macd-guide" },
+  { label: "볼린저", slug: "bollinger-band" },
+  { label: "엘리엇", slug: "elliott-wave-start" },
+  { label: "피보나치", slug: "fibonacci-prz" },
+  { label: "와이코프", slug: "wyckoff-basic" },
+  { label: "눌림", slug: "pullback-study" },
+  { label: "스윙", slug: "swing-roadmap" },
+];
+const findStudySlug = (item: string) =>
+  Object.entries(articleByConcept).find(([concept]) => item.includes(concept) || concept.includes(item))?.[1] ??
+  fallbackLinks.find((link) => item.includes(link.label))?.slug;
 ---
 
-<BaseLayout title="차트로드 결과 유형 12가지" description="차트로드 테스트에서 나올 수 있는 12가지 차트 공부 성향 유형과 학습 단계별 추천 공부를 확인하세요.">
+<BaseLayout
+  title="차트로드 결과 유형 12가지"
+  description="차트로드 테스트에서 나올 수 있는 12가지 차트 공부 유형과 단계별 추천 학습 주제를 확인하세요."
+>
   <section class="section tight">
     <div class="container">
       <h1>차트로드 결과 유형 12가지</h1>
-      <p class="sublead">각 유형은 투자 판단이 아니라 차트 공부 순서를 정리하기 위한 교육용 분류입니다. 학습 수준에 따라 추천되는 기법의 난이도가 달라집니다.</p>
+      <p class="sublead">각 유형은 투자 판단이 아니라 차트 공부 순서를 정리하기 위한 교육용 분류입니다. 현재 학습 수준에 따라 추천하는 개념과 주의할 습관이 달라집니다.</p>
       <div class="grid cols-3 result-preview-grid">
         {resultProfiles.map((profile) => (
           <article class="card result-preview-card" id={profile.key}>
@@ -45,11 +65,10 @@ const studyItemSlugMap = Object.fromEntries(
                     <span>{caption}</span>
                   </div>
                   <ul>
-                    {profile.study[tier].map((item) => (
-                      <li>
-                        {studyItemSlugMap[item] ? <a href={`/learn/${studyItemSlugMap[item]}`}>{item}</a> : item}
-                      </li>
-                    ))}
+                    {profile.study[tier].map((item) => {
+                      const slug = findStudySlug(item);
+                      return <li>{slug ? <a href={`/learn/${slug}/`}>{item}</a> : item}</li>;
+                    })}
                   </ul>
                 </section>
               ))}

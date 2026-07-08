@@ -3,7 +3,10 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { questions } from "@/data/questions";
 ---
 
-<BaseLayout title="차트로드 테스트 | 28문항 차트 공부 순서 진단" description="28문항으로 차트 이해도, 매매 기준, 리스크 성향을 점검하고 교육용 차트 학습 로드맵을 확인하세요.">
+<BaseLayout
+  title="차트로드 테스트 | 28문항 차트 공부 순서 진단"
+  description="28문항으로 차트 이해도, 매매 기준, 리스크 성향을 점검하고 교육용 차트 학습 로드맵을 확인하세요."
+>
   <section class="test-shell">
     <div class="container">
       <div class="card" id="test-app" data-questions={JSON.stringify(questions)}>
